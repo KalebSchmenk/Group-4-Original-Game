@@ -11,6 +11,8 @@ public class TestingPlayerController : MonoBehaviour
     void Start()
     {
         _char = GetComponent<CharacterController>();
+
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
