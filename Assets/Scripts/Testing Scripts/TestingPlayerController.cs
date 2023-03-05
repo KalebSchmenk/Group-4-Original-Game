@@ -15,6 +15,12 @@ public class TestingPlayerController : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void OnGUI()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
+    }
+
     void Update()
     {
         if (Keyboard.current[Key.W].isPressed)
@@ -32,6 +38,11 @@ public class TestingPlayerController : MonoBehaviour
         if (Keyboard.current[Key.D].isPressed)
         {
             _char.Move(Vector3.right * speed);
+        }
+
+        if (!Keyboard.current[Key.W].isPressed && !Keyboard.current[Key.A].isPressed && !Keyboard.current[Key.S].isPressed && !Keyboard.current[Key.D].isPressed)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }
