@@ -25,24 +25,28 @@ public class TestFireballSpell : MonoBehaviour
     {
         if (Keyboard.current[Key.F].isPressed && !_fireballCooldown)
         {
-            RaycastHit hit;
-            Ray ray = _mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                var fireball = Instantiate(_testFireballPrefab, _spellCastLocation.position, Quaternion.identity);
-
-                TestFireballController tempFireballControl = fireball.GetComponent<TestFireballController>();
-
-                tempFireballControl.Fire(hit.point);
-
-                _fireballCooldown = true;
-            }
-
-            StartCoroutine(FireballCooldown());
+            CastFireball();
         }
     }
 
+    private void CastFireball()
+    {
+        RaycastHit hit;
+        Ray ray = _mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            _fireballCooldown = true;
+
+            var fireball = Instantiate(_testFireballPrefab, _spellCastLocation.position, Quaternion.identity);
+
+            TestFireballController tempFireballControl = fireball.GetComponent<TestFireballController>();
+
+            tempFireballControl.Fire(hit.point);
+        }
+
+        StartCoroutine(FireballCooldown());
+    }
 
     private IEnumerator FireballCooldown()
     {
@@ -50,4 +54,5 @@ public class TestFireballSpell : MonoBehaviour
 
         _fireballCooldown = false;
     }
+
 }

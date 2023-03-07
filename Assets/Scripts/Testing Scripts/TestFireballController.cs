@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestFireballController : MonoBehaviour
 {
-    [SerializeField] float _fireballSpeed = 50000.0f;
+    [SerializeField] float _fireballSpeed = 500.0f;
     
     [SerializeField] Rigidbody rb;
 
@@ -14,5 +14,10 @@ public class TestFireballController : MonoBehaviour
         this.transform.LookAt(lookAt);
 
         rb.AddForce(transform.forward * _fireballSpeed);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(this.gameObject);
     }
 }

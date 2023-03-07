@@ -34,7 +34,15 @@ public class TestLightningStrike : MonoBehaviour
         {
             var spawnLightningAt = hit.point;
 
-            Instantiate(_testLightningStrikePrefab, spawnLightningAt, Quaternion.identity);
+            if (hit.transform.gameObject.CompareTag("Enemy"))
+            {
+                Transform spawnAt = hit.transform.gameObject.GetComponent<TestEnemyController>().GetStrikeLocation();
+                Instantiate(_testLightningStrikePrefab, spawnAt.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(_testLightningStrikePrefab, spawnLightningAt, Quaternion.identity);
+            }
 
             _lightningInCooldown = true;
         }
