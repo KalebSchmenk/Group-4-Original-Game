@@ -6,18 +6,25 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField]
     GameObject door;
-    bool isOpened = false;
-    
+
+    [SerializeField] private Animator doorAnimationController;
 
     void OnTriggerStay(Collider other)
     {
       if (other.CompareTag("Boulder"))
-        if (!isOpened)
         {
-            isOpened = true;
-            door.transform.position += new Vector3(0, 4, 0);
+            doorAnimationController.SetBool("OpenDoor", true);
         }
     }
-}
+
+    void OnTriggerExit(Collider other)
+    {
+         if (other.CompareTag("Boulder"))
+            {
+                doorAnimationController.SetBool("OpenDoor2", false);
+            }
+        }
+    }
+
 
 
