@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class LevitatingBoulder : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject LevBoulder;
+
+    [SerializeField] private Animator doorAnimationController;
+
+    void OnTriggerStay(Collider other)
     {
-        
+      if (other.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+                {
+                doorAnimationController.SetBool("LevitatingBoulder", true);
+                 }
+            }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit(Collider other)
     {
-        
+         if (other.CompareTag("Player"))
+            {
+                doorAnimationController.SetBool("LevitatingBoulder2", true);
+            }
+        }
     }
-}
+

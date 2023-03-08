@@ -9,6 +9,7 @@ TagManager:
   - LightningStrike
   - CanManipulate
   - Boulder
+  - LevitatingBoulder
   layers:
   - Default
   - TransparentFX
