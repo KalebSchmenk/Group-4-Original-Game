@@ -1974,21 +1974,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5836933800312686113, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.74
+      value: -24.6
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.03
+      value: 3.8899999
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.38
+      value: -1.23
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1996,15 +2000,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5836933800937230726, guid: e3e8441e92d70e24ebd1e8c4f3c9e1f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2031,6 +2035,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6865484055918532034, guid: 7523142372d245c4497006bdacff3e49, type: 3}
+      propertyPath: _pullSpellCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865484055918532034, guid: 7523142372d245c4497006bdacff3e49, type: 3}
+      propertyPath: _pushSpellCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865484055918532034, guid: 7523142372d245c4497006bdacff3e49, type: 3}
+      propertyPath: _levitateSpellCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
       propertyPath: m_RootOrder
       value: 2
