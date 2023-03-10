@@ -23,6 +23,7 @@ public class TestingPlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (Keyboard.current[Key.W].isPressed)
         {
             _char.Move(Vector3.forward * speed);
