@@ -18,9 +18,6 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Mushroom count: " + _mushroomCount);
-        Debug.Log("Cherry count: " + _cherryCount);
-        Debug.Log("Leaf count: " + _leafCount);
-        Debug.Log("Pebble count: " + _pebbleCount);
+        
     }
 }

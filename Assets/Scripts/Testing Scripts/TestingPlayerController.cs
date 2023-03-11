@@ -46,4 +46,12 @@ public class TestingPlayerController : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DamageCollider"))
+        {
+            Debug.Log("Took damage!");
+        }
+    }
 }

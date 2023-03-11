@@ -10,6 +10,7 @@ TagManager:
   - CanManipulate
   - Boulder
   - LevitatingBoulder
+  - DamageCollider
   layers:
   - Default
   - TransparentFX
