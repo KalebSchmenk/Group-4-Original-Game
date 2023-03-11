@@ -78,8 +78,11 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         CheckDistance();
         CheckHealth();
 
+        _rb.angularVelocity = Vector3.zero;
+
         switch (_AIState)
         {
+
             // Roam around the nav mesh randomly state
             case AIState.Roam:
                 Wander();
