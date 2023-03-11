@@ -82,7 +82,6 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
         switch (_AIState)
         {
-
             // Roam around the nav mesh randomly state
             case AIState.Roam:
                 Wander();
@@ -116,7 +115,14 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             // Attacks player
             case AIState.Attack:
                 AttackPlayer();
+
                 _rb.velocity = Vector3.zero;
+
+                if (_canSeePlayer == false)
+                {
+                    _AIState = AIState.Search;
+                    _lastKnownLocation = _player.transform.position;
+                }
                 break;
 
         }
