@@ -36,7 +36,7 @@ public class TestLightningStrike : MonoBehaviour
 
             if (hit.transform.gameObject.CompareTag("Enemy"))
             {
-                Transform spawnAt = hit.transform.gameObject.GetComponent<TestEnemyController>().GetStrikeLocation();
+                Transform spawnAt = hit.transform.gameObject.GetComponent<EnemyHealthInterface>().hitLocation;
                 Instantiate(_testLightningStrikePrefab, spawnAt.position, Quaternion.identity);
             }
             else

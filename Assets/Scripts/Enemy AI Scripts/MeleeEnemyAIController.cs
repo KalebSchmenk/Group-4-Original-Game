@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeEnemyAIController : MonoBehaviour
+public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 {
     private enum AIState
     {
@@ -15,6 +15,7 @@ public class MeleeEnemyAIController : MonoBehaviour
 
     private AIState _AIState;
     private NavMeshAgent _navMeshAgent;
+    private Rigidbody _rb;
 
     [SerializeField]
     [Range(0.0f, 250.0f)] private float _walkRadius;
@@ -44,6 +45,12 @@ public class MeleeEnemyAIController : MonoBehaviour
     [SerializeField] private GameObject _attackSphere;
     [SerializeField] private Transform _attackSphereLocation;
 
+    [SerializeField] protected int _health = 5;
+    public int health { get { return _health; } set { _health = value; } }
+
+    [SerializeField] protected Transform _lightingStrikeLocation;
+    public Transform hitLocation { get { return _lightingStrikeLocation; } set { _lightingStrikeLocation = value; } }
+
     private Animator _animation;
     private bool _inAttackCooldown = false;
     
@@ -59,12 +66,17 @@ public class MeleeEnemyAIController : MonoBehaviour
 
         _navMeshSpeed = _navMeshAgent.speed;
 
+        _rb = GetComponent<Rigidbody>();
+
+        NavMesh.avoidancePredictionTime = 0.5f;
+
         StartCoroutine(ProximityCheck());
     }
 
     void Update()
     {
         CheckDistance();
+        CheckHealth();
 
         switch (_AIState)
         {
@@ -101,8 +113,18 @@ public class MeleeEnemyAIController : MonoBehaviour
             // Attacks player
             case AIState.Attack:
                 AttackPlayer();
+                _rb.velocity = Vector3.zero;
                 break;
 
+        }
+    }
+
+    private void CheckHealth()
+    {
+        if (_health <= 0)
+        {
+            // Kill enemy
+            Destroy(this.gameObject);
         }
     }
 
@@ -117,10 +139,10 @@ public class MeleeEnemyAIController : MonoBehaviour
     private void AttackPlayer()
     {
         _navMeshAgent.enabled = false;
-        
-        if (_inAttackCooldown) return;
 
-        transform.LookAt(_player.transform.position); 
+        transform.LookAt(_player.transform.position);
+
+        if (_inAttackCooldown) return;
 
         // Do attack animation
 
@@ -249,6 +271,21 @@ public class MeleeEnemyAIController : MonoBehaviour
         yield return new WaitForSeconds(_attackCooldown);
 
         _inAttackCooldown = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayerAttackSphere"))
+        {
+            TakeDamage(2);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
+        CheckHealth();
+        // Play damage sound and any anim
     }
 
 }

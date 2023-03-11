@@ -12,16 +12,15 @@ GameObject:
   - component: {fileID: 461403630069105793}
   - component: {fileID: 461403630069105794}
   - component: {fileID: 461403630069105795}
-  - component: {fileID: 6678021868332321136}
   - component: {fileID: 1618882805}
   - component: {fileID: 1732818954}
   - component: {fileID: 1732818955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FakeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 32
   m_IsActive: 1
 --- !u!4 &461403630069105792
 Transform:
@@ -105,19 +104,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6678021868332321136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461403630069105820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b5b91209488cb4793037ffabd891ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lightningStrikeLocation: {fileID: 1473437415357188190}
 --- !u!54 &1618882805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,9 +129,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 461403630069105820}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
-  m_Acceleration: 4
+  m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1
@@ -178,6 +164,8 @@ MonoBehaviour:
   _attackCooldown: 2.5
   _attackSphere: {fileID: 2449039605055690541, guid: 15b0358f004b46d44a888ef129ba6a91, type: 3}
   _attackSphereLocation: {fileID: 85781222866163893}
+  _health: 5
+  _lightingStrikeLocation: {fileID: 1473437415357188190}
 --- !u!1 &1609176300831180868
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,12 +177,12 @@ GameObject:
   - component: {fileID: 3999497264152228939}
   - component: {fileID: 8943896924500556338}
   - component: {fileID: 838479541175865184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 32
   m_IsActive: 1
 --- !u!4 &3999497264152228939
 Transform:
@@ -270,12 +258,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 85781222866163893}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackSphereLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 32
   m_IsActive: 1
 --- !u!4 &85781222866163893
 Transform:
@@ -301,12 +289,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1473437415357188190}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LightntingStrikeHitLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 32
   m_IsActive: 1
 --- !u!4 &1473437415357188190
 Transform:

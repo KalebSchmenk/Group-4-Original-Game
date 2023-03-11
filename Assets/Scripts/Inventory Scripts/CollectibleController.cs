@@ -14,9 +14,10 @@ public class CollectibleController : MonoBehaviour
 
     [SerializeField] private CollectibleObject _collectibleObject;
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") == false) return;
+        if (other.gameObject.CompareTag("Player") == false) return;
 
         if (_collectibleObject == CollectibleObject.Mushroom)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestLightningStrikeController : MonoBehaviour
 {
+    [SerializeField] private int _damageOutput = 5;
     [SerializeField] private float _destroyIn = 2.5f;
     private void Awake()
     {
@@ -15,5 +16,15 @@ public class TestLightningStrikeController : MonoBehaviour
         yield return new WaitForSeconds(_destroyIn);
 
         Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            EnemyHealthInterface enemyHealthScript = other.gameObject.GetComponent<EnemyHealthInterface>();
+
+            if (enemyHealthScript != null) enemyHealthScript.TakeDamage(_damageOutput);
+        }
     }
 }
