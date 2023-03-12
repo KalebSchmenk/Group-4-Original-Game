@@ -282,6 +282,24 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         _inAttackCooldown = false;
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("GuardSphere"))
+        {
+            _navMeshAgent.enabled = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("GuardSphere"))
+        {
+            _navMeshAgent.enabled = true;
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerAttackSphere"))

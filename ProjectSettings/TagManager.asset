@@ -12,6 +12,7 @@ TagManager:
   - LevitatingBoulder
   - DamageCollider
   - PlayerAttackSphere
+  - GuardSphere
   layers:
   - Default
   - TransparentFX
