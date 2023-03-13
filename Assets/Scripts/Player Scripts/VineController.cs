@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestVineController : MonoBehaviour
+public class VineController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {

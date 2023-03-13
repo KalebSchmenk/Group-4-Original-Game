@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1618882805}
   - component: {fileID: 1732818954}
   - component: {fileID: 1732818955}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FakeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
   _attackSphere: {fileID: 2449039605055690541, guid: 15b0358f004b46d44a888ef129ba6a91, type: 3}
   _attackSphereLocation: {fileID: 85781222866163893}
   _health: 5
+  _dazedFor: 2.5
   _lightingStrikeLocation: {fileID: 1473437415357188190}
 --- !u!1 &1609176300831180868
 GameObject:
@@ -177,7 +178,7 @@ GameObject:
   - component: {fileID: 3999497264152228939}
   - component: {fileID: 8943896924500556338}
   - component: {fileID: 838479541175865184}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 85781222866163893}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AttackSphereLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1473437415357188190}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LightntingStrikeHitLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

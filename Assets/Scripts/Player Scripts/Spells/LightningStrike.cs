@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TestLightningStrike : MonoBehaviour
+public class LightningStrike : MonoBehaviour
 {
 
     [SerializeField] GameObject _testLightningStrikePrefab;
@@ -52,6 +52,7 @@ public class TestLightningStrike : MonoBehaviour
 
     private IEnumerator LightningCooldown()
     {
+        Debug.Log("Lightning cooling down");
         yield return new WaitForSeconds(_cooldownTime);
 
         _lightningInCooldown = false;

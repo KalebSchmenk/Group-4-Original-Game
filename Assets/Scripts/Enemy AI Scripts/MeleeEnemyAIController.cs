@@ -10,6 +10,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         Roam,
         Search,
         Attack,
+        Dazed,
         Chase
     }
 
@@ -40,12 +41,13 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     private Vector3 _lastKnownLocation;
 
     private GameObject _player;
-    private TestingPlayerController _playerScript;
+    private PlayerController _playerScript;
 
     [SerializeField] private GameObject _attackSphere;
     [SerializeField] private Transform _attackSphereLocation;
 
     [SerializeField] protected int _health = 5;
+    [SerializeField] private float _dazedFor = 2.5f;
     public int health { get { return _health; } set { _health = value; } }
 
     [SerializeField] protected Transform _lightingStrikeLocation;
@@ -53,16 +55,15 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     private Animator _animation;
     private bool _inAttackCooldown = false;
-    
+   
 
     void Start()
     {
         _AIState = AIState.Roam;
         _navMeshAgent = GetComponent<NavMeshAgent>();
-       // _animation = GetComponent<Animator>();
+        //_animation = GetComponent<Animator>();
 
         _player = GameObject.FindGameObjectWithTag("Player");
-        //_playerScript = _player.GetComponent<TestingPlayerController>();
 
         _navMeshSpeed = _navMeshAgent.speed;
 
@@ -120,13 +121,20 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
                 if (_canSeePlayer == false)
                 {
+                    _navMeshAgent.enabled = true;
                     _AIState = AIState.Search;
                     _lastKnownLocation = _player.transform.position;
                 }
                 break;
 
+            case AIState.Dazed:
+                Dazed();
+
+                break;
+
         }
     }
+
 
     private void CheckHealth()
     {
@@ -220,7 +228,11 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         _navMeshAgent.speed = _navMeshAgentJogSpeed;
     }
 
-
+    private void Dazed()
+    {
+        //_navMeshAgent.ResetPath();
+        _navMeshAgent.enabled = false;
+    }
 
     // Wait co-routine that halts the guard for a moment after it reaches its destination
     private IEnumerator WaitTimer()
@@ -229,7 +241,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         yield return new WaitForSeconds(_waitTime);
 
         // State Roam is the only caller of this function. This is why setting a destination here is acceptable
-        _navMeshAgent.SetDestination(RandomNavMeshLocation());
+        if (_AIState == AIState.Roam) _navMeshAgent.SetDestination(RandomNavMeshLocation());
     }
 
     // Guard Shoots Raycast At Max Range _proximityRange Towards Player To See If Player Is Close Enough To Be Chased
@@ -282,26 +294,34 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         _inAttackCooldown = false;
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator DazedTimer()
     {
-        if (collision.gameObject.CompareTag("GuardSphere"))
-        {
-            _navMeshAgent.enabled = false;
-        }
-    }
+        yield return new WaitForSeconds(_dazedFor);
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("GuardSphere"))
+        if (_canSeePlayer)
         {
-            _navMeshAgent.enabled = true;
+            _AIState = AIState.Chase;
+            _IAmWaiting = false;
         }
+        else
+        {
+            _AIState = AIState.Roam;
+            _IAmWaiting = false;
+        }
+
+        _navMeshAgent.enabled = true;
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("DazeSphere"))
+        {
+            _AIState = AIState.Dazed;
+            _rb.velocity = Vector3.zero;
+            StartCoroutine(DazedTimer());
+        }
+
         if (other.gameObject.CompareTag("PlayerAttackSphere"))
         {
             TakeDamage(2);

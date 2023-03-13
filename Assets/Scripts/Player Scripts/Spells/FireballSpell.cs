@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TestFireballSpell : MonoBehaviour
+public class FireballSpell : MonoBehaviour
 {
     [SerializeField] private GameObject _testFireballPrefab;
     [SerializeField] private Transform _spellCastLocation;
@@ -40,7 +40,7 @@ public class TestFireballSpell : MonoBehaviour
 
             var fireball = Instantiate(_testFireballPrefab, _spellCastLocation.position, Quaternion.identity);
 
-            TestFireballController tempFireballControl = fireball.GetComponent<TestFireballController>();
+            FireballController tempFireballControl = fireball.GetComponent<FireballController>();
 
             tempFireballControl.Fire(hit.point);
         }

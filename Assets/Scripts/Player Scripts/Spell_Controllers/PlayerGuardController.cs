@@ -17,7 +17,7 @@ public class PlayerGuardController : MonoBehaviour
 
     void Update()
     {
-        transform.localScale += new Vector3(0.025f, 0.025f, 0.025f);
+        transform.localScale += new Vector3(0.04f, 0.04f, 0.04f);
     }
 
     private IEnumerator DestroyIn()

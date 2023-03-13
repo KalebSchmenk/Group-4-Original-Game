@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TestManipulatableObjectController : MonoBehaviour
+public class ManipulatableObjectController : MonoBehaviour
 {
     [SerializeField] private float _pullSpellCooldown = 2.5f;
     [SerializeField] private float _pushSpellCooldown = 2.5f;

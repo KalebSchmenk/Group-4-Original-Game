@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class TestLightningStrikeController : MonoBehaviour
+public class LightningStrikeController : MonoBehaviour
 {
     [SerializeField] private int _damageOutput = 5;
     [SerializeField] private float _destroyIn = 2.5f;

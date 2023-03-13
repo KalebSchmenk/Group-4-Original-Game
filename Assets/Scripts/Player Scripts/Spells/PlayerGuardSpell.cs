@@ -23,8 +23,7 @@ public class PlayerGuardSpell : MonoBehaviour
 
     private void GuardSphere()
     {
-        var spawnAt = new Vector3(this.transform.position.x, this.transform.position.y + 2, this.transform.position.z);
-        Instantiate(_guardSphere, spawnAt, Quaternion.identity);
+        Instantiate(_guardSphere, this.transform.position, Quaternion.identity);
         StartCoroutine(Cooldown());
     }
 

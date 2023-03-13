@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestFireballController : MonoBehaviour
+public class FireballController : MonoBehaviour
 {
     [SerializeField] private int _damageOutput = 3;
     [SerializeField] float _fireballSpeed = 750f;

@@ -16,18 +16,26 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMainTransform;
 
 
-    private void Start(){
+    private void Start()
+    {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
     }
 
-    void Awake(){
+    void Awake()
+    {
         playerControls = new PlayerInputActions();
     }
+    private void OnGUI()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
+    }
 
-    void Update(){
+    void Update()
+    {
         moveInput = move.ReadValue<Vector2>();
         moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
@@ -41,16 +49,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         controller.Move(moveDirection * Time.deltaTime * playerSpeed );
     }
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         move = playerControls.Player.Move;
         move.Enable();
     }
 
-    private void OnDisable(){
+    private void OnDisable()
+    {
         move.Disable();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DamageCollider"))
+        {
+            Debug.Log("Took damage!");
+        }
     }
 }
