@@ -25,7 +25,14 @@ public class LightningStrikeController : MonoBehaviour
         {
             EnemyHealthInterface enemyHealthScript = other.gameObject.GetComponent<EnemyHealthInterface>();
 
-            if (enemyHealthScript != null) enemyHealthScript.TakeDamage(_damageOutput);
+            if (enemyHealthScript != null)
+            {
+                enemyHealthScript.TakeDamage(_damageOutput);
+            }
+            else
+            {
+                Debug.LogError("Enemy script not found!");
+            }
         }
     }
 }

@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotateSpeed = 4f;
     private Transform cameraMainTransform;
 
+    public Transform _lightningSpawnLocation;
+
 
     private void Start()
     {
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("DamageCollider"))
+        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("Fireball") || other.gameObject.CompareTag("LightningStrike"))
         {
             Debug.Log("Took damage!");
         }

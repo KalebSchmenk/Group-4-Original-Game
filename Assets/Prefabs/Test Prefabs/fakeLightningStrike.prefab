@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageOutput: 5
-  _destroyIn: 2.5
+  _destroyIn: 0.5
 --- !u!1 &4917137537114191946
 GameObject:
   m_ObjectHideFlags: 0
