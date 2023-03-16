@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Test Scenes/Mechanics Test Scene.unity
+    guid: 025c91c29ad89d94aac6f2b9fa6ea74d
   m_configObjects: {}

@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
     }
@@ -39,7 +38,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveInput = move.ReadValue<Vector2>();
-        moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+        moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
 
@@ -48,12 +47,12 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
         }
-
+        
     }
 
     void FixedUpdate()
     {
-        controller.Move(moveDirection * Time.deltaTime * playerSpeed );
+        controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
     }
 
     private void OnEnable()
