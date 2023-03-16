@@ -11,7 +11,7 @@ public class DoorTrigger : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-      if (other.CompareTag("Boulder"))
+      if (other.CompareTag("Boulder") || other.gameObject.CompareTag("CanManipulate"))
         {
             doorAnimationController.SetBool("OpenDoor", true);
         }
@@ -19,7 +19,7 @@ public class DoorTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-         if (other.CompareTag("Boulder"))
+         if (other.CompareTag("Boulder") || other.gameObject.CompareTag("CanManipulate"))
             {
                 doorAnimationController.SetBool("OpenDoor2", false);
             }
