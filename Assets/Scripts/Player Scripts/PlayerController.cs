@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private void OnGUI()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
     }
 
     void Update()

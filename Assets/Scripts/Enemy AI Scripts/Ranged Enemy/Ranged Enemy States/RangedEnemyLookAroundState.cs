@@ -40,8 +40,6 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
 
         if (_canSeePlayer)
         {
-            Debug.Log("Saw Player");
-
             rangedEnemy.AttackState.EnterState(rangedEnemy);
             rangedEnemy.currentState = rangedEnemy.AttackState;
         }
@@ -69,7 +67,6 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
             return;
         }
 
-        Debug.Log("Rotating to new position");
 
         var step = 15f * Time.deltaTime;
 
@@ -96,7 +93,6 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
             return;
         }
 
-        Debug.LogWarning("Choosing New Rotate");
         _targetRot = new Vector3(_rangedEnemyScript.gameObject.transform.rotation.x, Random.Range(0, 360), _rangedEnemyScript.gameObject.transform.rotation.z);
 
         _lookingAround = true;
