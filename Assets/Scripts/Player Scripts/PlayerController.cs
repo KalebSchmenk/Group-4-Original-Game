@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMainTransform;
 
     public Transform _lightningSpawnLocation;
+    
 
 
     private void Start()
@@ -48,11 +49,13 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
         }
         
+        
     }
 
     void FixedUpdate()
     {
         controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
+        
     }
 
     private void OnEnable()
