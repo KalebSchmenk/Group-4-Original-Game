@@ -286,7 +286,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 0
+  m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -1270,7 +1270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874092050}
-  m_LocalRotation: {x: 0.07919644, y: -0.0000000042880837, z: 3.4067096e-10, w: 0.9968591}
+  m_LocalRotation: {x: 0.07919644, y: 0.0000000042880846, z: -3.4067102e-10, w: 0.9968591}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1900,10 +1900,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868663, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 7594360953368868664, guid: 7523142372d245c4497006bdacff3e49, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -2042,7 +2038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100114368}
   m_LocalRotation: {x: 0.13694985, y: -1e-45, z: -0, w: 0.990578}
-  m_LocalPosition: {x: -37.51999, y: 0, z: 14.679998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

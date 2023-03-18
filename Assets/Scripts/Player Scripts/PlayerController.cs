@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMainTransform;
 
     public Transform _lightningSpawnLocation;
+
+    private float gravityValue = -9.81f;
+    private bool onGround;
     
 
 
@@ -37,6 +40,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        onGround = controller.isGrounded;
+
         moveInput = move.ReadValue<Vector2>();
         moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
@@ -47,13 +53,18 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
         }
+
+        moveDirection.y += gravityValue * Time.deltaTime;
+
+        controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
         
+
         
     }
 
     void FixedUpdate()
     {
-        controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
+        //controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
         
     }
 
