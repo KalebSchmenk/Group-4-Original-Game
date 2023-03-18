@@ -19,8 +19,8 @@ public class LevitateController : MonoBehaviour
 
     private void Start()
     {
-        _pullController = GetComponent<PullController>();   
-        _pushController = GetComponent<PushController>();
+        //_pullController = GetComponent<PullController>();   
+        //_pushController = GetComponent<PushController>();
 
         rb = GetComponent<Rigidbody>();
     }
