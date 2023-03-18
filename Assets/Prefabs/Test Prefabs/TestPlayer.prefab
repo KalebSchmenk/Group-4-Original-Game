@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guardSphere: {fileID: 3656716796380723084, guid: 3895277a45f012e44a87653522498496, type: 3}
-  _cooldownTime: 0
+  _cooldownTime: 2
 --- !u!114 &1589289144
 MonoBehaviour:
   m_ObjectHideFlags: 0
