@@ -4,10 +4,6 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 {
     private RangedEnemyController _rangedEnemyScript;
 
-    private Transform _spellCastLocation;
-    private GameObject _fireballPrefab;
-    private GameObject _lightningStrikePrefab;
-
     private GameObject _player;
     
     private bool _inAttackCooldown = false;
@@ -16,10 +12,6 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     public override void EnterState(RangedEnemyController rangedEnemy)
     {
-        this._spellCastLocation = rangedEnemy._spellCastLocation;
-        this._fireballPrefab = rangedEnemy._fireballPrefab;
-        this._lightningStrikePrefab = rangedEnemy._lightningStrikePrefab;
-
         _player = GameObject.FindGameObjectWithTag("Player");
 
         this._rangedEnemyScript = rangedEnemy;
@@ -48,7 +40,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
         var rotation = Quaternion.LookRotation(lookPos);
 
-        _rangedEnemyScript.gameObject.transform.rotation = Quaternion.Slerp(_rangedEnemyScript.gameObject.transform.rotation, rotation, Time.deltaTime * 1.0f);
+        _rangedEnemyScript.gameObject.transform.rotation = Quaternion.Slerp(_rangedEnemyScript.gameObject.transform.rotation, rotation, Time.deltaTime * 5.0f);
     }
 
 

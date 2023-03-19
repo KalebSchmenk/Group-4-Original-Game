@@ -15,9 +15,9 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     [SerializeField] protected Transform _lightningStrikeLocation;
     public Transform hitLocation { get { return _lightningStrikeLocation; } set { _lightningStrikeLocation = value; } }
 
-    [SerializeField] public Transform _spellCastLocation;
-    [SerializeField] public GameObject _fireballPrefab;
-    [SerializeField] public GameObject _lightningStrikePrefab;
+    [SerializeField] private Transform _spellCastLocation;
+    [SerializeField] private GameObject _fireballPrefab;
+    [SerializeField] private GameObject _lightningStrikePrefab;
 
     public RangedEnemyBaseState currentState;
     public RangedEnemyAttackState AttackState = new RangedEnemyAttackState();

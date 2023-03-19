@@ -81,6 +81,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        // Implement different damage values for each type of incoming damage. Damage collider is melee damage and should do least damage,
+        // fireball damage is from a fireball and should do midrange damage, and lightning strike damage is from a lightning strike and should do a decent amount of damage
         if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("Fireball") || other.gameObject.CompareTag("LightningStrike"))
         {
             Debug.Log("Took damage!");
