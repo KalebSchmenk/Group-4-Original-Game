@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af8f1c5d14daf04b95b28f941e83de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cursorTexture: {fileID: 2800000, guid: e85001b44d900414f840c60db0fd6967, type: 3}
   playerSpeed: 5
   rotateSpeed: 4
   _lightningSpawnLocation: {fileID: 4107556684961624553}

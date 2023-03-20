@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
     private CharacterController controller;
+
+    [SerializeField] private Texture2D _cursorTexture;
+    private CursorMode _cursorMode = CursorMode.Auto;
+
     [SerializeField] float playerSpeed = 10.0f;
     [SerializeField] float rotateSpeed = 4f;
     private Transform cameraMainTransform;
@@ -36,10 +40,18 @@ public class PlayerController : MonoBehaviour
     private void OnGUI()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
     }
 
     void Update()
     {
+
+        // DELETE ON MAIN BUILD! REPLACE WITH PAUSE MENU!
+        if (Keyboard.current[Key.Escape].isPressed)
+        {
+            Application.Quit();
+            Debug.Log("GAME QUIT");
+        }
 
         onGround = controller.isGrounded;
 
