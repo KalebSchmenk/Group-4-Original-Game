@@ -60,11 +60,15 @@ public class PlayerController : MonoBehaviour
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
 
-        if(moveInput != Vector3.zero){
+        /*if(moveInput != Vector3.zero){
             float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg +cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
-        }
+        }*/
+
+        float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
 
         moveDirection.y += gravityValue * Time.deltaTime;
 
