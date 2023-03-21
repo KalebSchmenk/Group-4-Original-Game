@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
 {
-    private GameObject _player;
+    [System.NonSerialized] public GameObject _player;
     private PlayerController _playerScript;
 
     private int _health = 5;
@@ -15,13 +16,11 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     [SerializeField] protected Transform _lightningStrikeLocation;
     public Transform hitLocation { get { return _lightningStrikeLocation; } set { _lightningStrikeLocation = value; } }
 
-    [SerializeField] private Transform _spellCastLocation;
-    [SerializeField] private GameObject _fireballPrefab;
-    [SerializeField] private GameObject _lightningStrikePrefab;
+    public Transform _spellCastLocation;
+    public GameObject _fireballPrefab;
+    public GameObject _lightningStrikePrefab;
 
     public RangedEnemyBaseState currentState;
-    public RangedEnemyAttackState AttackState = new RangedEnemyAttackState();
-    public RangedEnemyLookAroundState LookAroundState = new RangedEnemyLookAroundState();
 
 
     void Start()
@@ -29,7 +28,7 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerScript = _player.GetComponent<PlayerController>();
 
-        currentState = LookAroundState;
+        currentState = this.AddComponent<RangedEnemyLookAroundState>();
         currentState.EnterState(this);
     }
 

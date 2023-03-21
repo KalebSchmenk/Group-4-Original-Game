@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bb3225be5470947abb3f0fdea048a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testLightningStrikePrefab: {fileID: 4678663161969096019, guid: 6bd7f9fe84509e341ad626e2edf453a3, type: 3}
+  _lightningStrikePrefab: {fileID: 4678663161969096019, guid: 6bd7f9fe84509e341ad626e2edf453a3, type: 3}
   _cooldownTime: 2.5
 --- !u!114 &8099579940388367207
 MonoBehaviour:

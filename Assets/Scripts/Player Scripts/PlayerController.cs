@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
         // DELETE ON MAIN BUILD! REPLACE WITH PAUSE MENU!
         if (Keyboard.current[Key.Escape].isPressed)
         {
@@ -60,6 +59,14 @@ public class PlayerController : MonoBehaviour
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
 
+        moveDirection.y += gravityValue * Time.deltaTime;
+
+        controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
+
+        Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
+        transform.rotation = rotation;
+
+        // OLD
         /*if(moveInput != Vector3.zero){
             float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg +cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
@@ -67,17 +74,11 @@ public class PlayerController : MonoBehaviour
         }*/
 
         //float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
-        Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y , 0f);
+        //Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y , 0f);
         //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
         //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
-        transform.rotation = rotation;
+        //transform.rotation = rotation;
 
-        moveDirection.y += gravityValue * Time.deltaTime;
-
-        controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
-        
-
-        
     }
 
     void FixedUpdate()

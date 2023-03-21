@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RangedEnemyAttackState : RangedEnemyBaseState
 {
@@ -6,15 +10,17 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private GameObject _player;
     
-    private bool _inAttackCooldown = false;
+    private bool _inAttackCooldown = true;
 
-    private float _attackCooldownTimeRemaining = 5.0f;
+    private float _attackCooldownTime = 5.0f;
 
     public override void EnterState(RangedEnemyController rangedEnemy)
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-
         this._rangedEnemyScript = rangedEnemy;
+
+        this._player = rangedEnemy._player;
+
+        StartCoroutine(AttackCooldown());
     }
 
     public override void UpdateState(RangedEnemyController rangedEnemy)
@@ -26,10 +32,6 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         if (!_inAttackCooldown)
         {
             CastSpellAttack();
-        }
-        else
-        {
-            AttackCooldown();
         }
     }
 
@@ -46,11 +48,11 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private void CastSpellAttack()
     {
-        _inAttackCooldown = true;
+        StartCoroutine(AttackCooldown());
 
         int randomNumber = Random.Range(1, 10);
 
-        if (randomNumber >= 7)
+        if (randomNumber >= 8)
         {
             CastLightningStrike();
         }
@@ -60,30 +62,27 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         }
     }
 
-    private void AttackCooldown()
+    private IEnumerator AttackCooldown()
     {
-        if (_attackCooldownTimeRemaining <= 0)
-        {
-            _inAttackCooldown = false;
-
-            _attackCooldownTimeRemaining = 5.0f;
-        }
-        else
-        {
-            _attackCooldownTimeRemaining -= Time.deltaTime;
-            return;
-        }
+        _inAttackCooldown = true;
+        yield return new WaitForSeconds(_attackCooldownTime);
+        _inAttackCooldown = false;
     }
 
-
-    private void CastFireball()
+    public void CastFireball()
     {
-        _rangedEnemyScript.CastFireball();
+        var fireball = Instantiate(_rangedEnemyScript._fireballPrefab, _rangedEnemyScript._spellCastLocation.position, Quaternion.identity);
+
+        FireballController tempFireballControl = fireball.GetComponent<FireballController>();
+
+        tempFireballControl.Fire(_player.transform.position);
     }
 
-    private void CastLightningStrike()
+    public void CastLightningStrike()
     {
-        _rangedEnemyScript.CastLightningStrike();
+        Transform spawnAt = _player.GetComponent<PlayerController>()._lightningSpawnLocation.transform;
+        var randomRot = new Vector3(0, Random.Range(0, 360), 0);
+        Instantiate(_rangedEnemyScript._lightningStrikePrefab, spawnAt.position, Quaternion.Euler(randomRot));
     }
 
 }
