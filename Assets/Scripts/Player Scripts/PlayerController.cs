@@ -66,9 +66,11 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
         }*/
 
-        float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
-        Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        //float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y , 0f);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
+        
 
         moveDirection.y += gravityValue * Time.deltaTime;
 
