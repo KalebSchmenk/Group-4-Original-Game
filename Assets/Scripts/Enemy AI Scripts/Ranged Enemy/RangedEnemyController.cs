@@ -54,21 +54,4 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
         _health -= damage;
         CheckHealth();
     }
-
-
-    public void CastFireball()
-    {
-        var fireball = Instantiate(_fireballPrefab, _spellCastLocation.position, Quaternion.identity);
-
-        FireballController tempFireballControl = fireball.GetComponent<FireballController>();
-
-        tempFireballControl.Fire(_player.transform.position);
-    }
-
-    public void CastLightningStrike()
-    {
-        Transform spawnAt = _playerScript._lightningSpawnLocation;
-        Instantiate(_lightningStrikePrefab, spawnAt.position, Quaternion.identity);
-    }
-
 }
