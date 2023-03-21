@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     private CursorMode _cursorMode = CursorMode.Auto;
 
     [SerializeField] float playerSpeed = 10.0f;
-    [SerializeField] float rotateSpeed = 4f;
+    //[SerializeField] float rotateSpeed = 4f;
     private Transform cameraMainTransform;
 
     public Transform _lightningSpawnLocation;
 
     private float gravityValue = -9.81f;
     private bool onGround;
+
+    private float verticalVelocity;
     
 
 
@@ -58,13 +60,21 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
+        
 
-        moveDirection.y += gravityValue * Time.deltaTime;
-
-        controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
+        if(onGround == true && verticalVelocity < 0){
+            verticalVelocity = 0f;
+        }
+        verticalVelocity += gravityValue * Time.deltaTime;
+        
+        moveDirection.y = verticalVelocity;
 
         Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
         transform.rotation = rotation;
+
+        controller.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);
+
+
 
         // OLD
         /*if(moveInput != Vector3.zero){
