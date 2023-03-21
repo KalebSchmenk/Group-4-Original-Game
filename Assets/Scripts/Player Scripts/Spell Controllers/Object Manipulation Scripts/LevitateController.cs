@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class LevitateController : MonoBehaviour
 {
-    private PullController _pullController;
-    private PushController _pushController;
-
     private Rigidbody rb;
 
     private bool _isLevitating = false;
@@ -19,9 +16,6 @@ public class LevitateController : MonoBehaviour
 
     private void Start()
     {
-        //_pullController = GetComponent<PullController>();   
-        //_pushController = GetComponent<PushController>();
-
         rb = GetComponent<Rigidbody>();
     }
 

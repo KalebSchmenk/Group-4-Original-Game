@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class LightningStrike : MonoBehaviour
 {
 
-    [SerializeField] GameObject _testLightningStrikePrefab;
+    [SerializeField] GameObject _lightningStrikePrefab;
     [SerializeField] float _cooldownTime = 2.5f;
     private Camera _mainCam;
     private bool _lightningInCooldown = false;
@@ -33,15 +34,16 @@ public class LightningStrike : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             var spawnLightningAt = hit.point;
+            var randomRot = new Vector3(0, Random.Range(0, 360), 0);
 
             if (hit.transform.gameObject.CompareTag("Enemy"))
             {
                 Transform spawnAt = hit.transform.gameObject.GetComponent<EnemyHealthInterface>().hitLocation;
-                Instantiate(_testLightningStrikePrefab, spawnAt.position, Quaternion.identity);
+                Instantiate(_lightningStrikePrefab, spawnAt.position, Quaternion.Euler(randomRot));
             }
             else
             {
-                Instantiate(_testLightningStrikePrefab, spawnLightningAt, Quaternion.identity);
+                Instantiate(_lightningStrikePrefab, spawnLightningAt, Quaternion.Euler(randomRot));
             }
 
             _lightningInCooldown = true;
