@@ -54,7 +54,7 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
 
         _rangedEnemyScript.gameObject.transform.rotation = Quaternion.RotateTowards(_rangedEnemyScript.gameObject.transform.rotation, Quaternion.Euler(_targetRot), step);
 
-        if (_rangedEnemyScript.gameObject.transform.rotation.eulerAngles == _targetRot)
+        if (Mathf.Abs(_rangedEnemyScript.gameObject.transform.rotation.eulerAngles.y - _targetRot.y) <= 0.1)
         {
             StartCoroutine(LookAroundCooldown());
         }
