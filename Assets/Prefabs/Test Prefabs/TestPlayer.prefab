@@ -482,6 +482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cursorTexture: {fileID: 2800000, guid: e85001b44d900414f840c60db0fd6967, type: 3}
-  playerSpeed: 5
-  rotateSpeed: 4
+  playerSpeed: 2.2
   _lightningSpawnLocation: {fileID: 4107556684961624553}
+  jumpForce: 0.75
+  maxHealth: 100
+  healthMask: {fileID: 0}
+  invincibilityFramesDuration: 0.1
