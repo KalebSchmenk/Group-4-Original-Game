@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lightningStrikePrefab: {fileID: 4678663161969096019, guid: 6bd7f9fe84509e341ad626e2edf453a3, type: 3}
-  _cooldownTime: 2.5
+  _cooldownTime: 7.5
 --- !u!114 &8099579940388367207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _testFireballPrefab: {fileID: 518538449813554679, guid: 322e28516882a2344b1be183bf4946f3, type: 3}
   _spellCastLocation: {fileID: 7594360951841907115}
-  _cooldownTime: 2.5
+  _cooldownTime: 3.5
 --- !u!114 &6865484055918532034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8acc042e8d7e64d8abcc6fca1e7d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullSpellCooldown: 1
-  _pushSpellCooldown: 1
-  _levitateSpellCooldown: 1
+  _pullSpellCooldown: 3
+  _pushSpellCooldown: 5
+  _levitateSpellCooldown: 15
 --- !u!114 &925323514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guardSphere: {fileID: 3656716796380723084, guid: 3895277a45f012e44a87653522498496, type: 3}
-  _cooldownTime: 2
+  _cooldownTime: 5
 --- !u!114 &1589289144
 MonoBehaviour:
   m_ObjectHideFlags: 0

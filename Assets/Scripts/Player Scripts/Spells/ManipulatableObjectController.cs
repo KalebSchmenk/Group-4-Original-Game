@@ -50,7 +50,13 @@ public class ManipulatableObjectController : MonoBehaviour
 
         if (targetObj != null)
         {
-            targetObj.GetComponent<PushController>().Push(this.gameObject);
+            try
+            {
+                targetObj.GetComponent<PushController>().Push(this.gameObject);
+            }
+            catch
+            {}
+            
 
             StartCoroutine(PushSpellCooldown());
         }
@@ -62,7 +68,12 @@ public class ManipulatableObjectController : MonoBehaviour
 
         if (targetObj != null)
         {
-            targetObj.GetComponent<PullController>().Pull(this.gameObject);
+            try
+            {
+                targetObj.GetComponent<PullController>().Pull(this.gameObject);
+            }
+            catch
+            { }
 
             StartCoroutine(PullSpellCooldown());
         }

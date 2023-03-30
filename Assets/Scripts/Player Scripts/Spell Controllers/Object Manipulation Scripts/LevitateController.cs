@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class LevitateController : MonoBehaviour
 {
-    private Rigidbody rb;
-
     private bool _isLevitating = false;
+    private bool _fallingDown = false;
     private Vector3 _startPos;
     private Vector3 _endPos;
     
@@ -14,10 +13,7 @@ public class LevitateController : MonoBehaviour
     private float _speed = 3.0f;
     private float _journeyLength;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+
 
     private void Update()
     {
@@ -28,6 +24,20 @@ public class LevitateController : MonoBehaviour
             float fracOfJourney = distCovered / _journeyLength;
 
             transform.position = Vector3.Slerp(_startPos, _endPos, fracOfJourney);
+        }
+
+        if (_fallingDown)
+        {
+            float distCovered = (Time.time - _startTime) * _speed;
+
+            float fracOfJourney = distCovered / _journeyLength;
+
+            transform.position = Vector3.Slerp(_startPos, _endPos, fracOfJourney);
+
+            if (transform.position == _endPos)
+            {
+                _fallingDown = false;
+            }
         }
     }
 
@@ -54,10 +64,15 @@ public class LevitateController : MonoBehaviour
     {
         yield return new WaitForSeconds(10.0f);
 
-        rb.velocity = Vector3.zero;
-
         Debug.Log("Levitation spelll dropped!");
 
         _isLevitating = false;
+
+        _startPos = this.transform.position;
+        _endPos = new Vector3(_startPos.x, _startPos.y - 8, _startPos.z);
+
+        _startTime = Time.time;
+        _journeyLength = Vector3.Distance(_startPos, _endPos);
+        _fallingDown = true;
     }
 }
