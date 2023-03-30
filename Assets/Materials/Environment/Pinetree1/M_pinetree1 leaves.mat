@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5891827464029583306
+--- !u!114 &-3182567792837247377
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pinetree2 stump
+  m_Name: M_pinetree1 leaves
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _METALLICSPECGLOSSMAP
@@ -37,11 +37,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 85013c4e95a657348b272f4ac53ab879, type: 3}
+        m_Texture: {fileID: 2800000, guid: d652c6e19a9c75f4296b600f8f88b467, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 25be4f273d47bc547859c65318430bc4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1717e0bebfd049745af610d07e24cd45, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -57,15 +57,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: ed2a22a7cab14b94fad2b1528e0472c3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8aa4e06c2d8ace44da09f459ba4b03f8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 85013c4e95a657348b272f4ac53ab879, type: 3}
+        m_Texture: {fileID: 2800000, guid: d652c6e19a9c75f4296b600f8f88b467, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 6a7d1a6dfa3004249b72a771a039d311, type: 3}
+        m_Texture: {fileID: 2800000, guid: 098ffb3c2f3c76f40807b194404e6c18, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
