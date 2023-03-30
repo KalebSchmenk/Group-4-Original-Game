@@ -14,6 +14,11 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private float _attackCooldownTime = 5.0f;
 
+    private bool _canSeePlayer = false;
+
+    private float _proximityRange = 35f;
+
+
     public override void EnterState(RangedEnemyController rangedEnemy)
     {
         this._rangedEnemyScript = rangedEnemy;
@@ -21,6 +26,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         this._player = rangedEnemy._player;
 
         StartCoroutine(AttackCooldown());
+        StartCoroutine(LookForPlayer());
     }
 
     public override void UpdateState(RangedEnemyController rangedEnemy)
@@ -29,7 +35,12 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
         RotateToPlayer();
 
-        if (!_inAttackCooldown)
+        if (_canSeePlayer == false)
+        {
+            StartCoroutine(CantSeePlayer());
+        }
+
+        if (!_inAttackCooldown && _canSeePlayer)
         {
             CastSpellAttack();
         }
@@ -83,6 +94,50 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         Transform spawnAt = _player.GetComponent<PlayerController>()._lightningSpawnLocation.transform;
         var randomRot = new Vector3(0, Random.Range(0, 360), 0);
         Instantiate(_rangedEnemyScript._lightningStrikePrefab, spawnAt.position, Quaternion.Euler(randomRot));
+    }
+
+    private IEnumerator LookForPlayer()
+    {
+        while (true)
+        {
+            RaycastHit hit;
+
+            var rayOrigin = _rangedEnemyScript.gameObject.transform.position;
+            var rayTarget = _player.transform.position - _rangedEnemyScript.gameObject.transform.position;
+            rayOrigin.y += 2f;
+            rayTarget.y -= 2;
+
+            if (Physics.Raycast(rayOrigin, rayTarget, out hit, _proximityRange))
+            {
+                if (hit.transform.gameObject.CompareTag("Player"))
+                {
+                    _canSeePlayer = true;
+                }
+                else
+                {
+                    _canSeePlayer = false;
+                }
+            }
+            else
+            {
+                _canSeePlayer = false;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private IEnumerator CantSeePlayer()
+    {
+        yield return new WaitForSeconds(3.5f);
+
+        if (_canSeePlayer == false)
+        {
+            var newState = this.gameObject.AddComponent<RangedEnemyLookAroundState>();
+            newState.EnterState(_rangedEnemyScript);
+            _rangedEnemyScript.currentState = newState;
+            Destroy(this);
+        }
     }
 
 }

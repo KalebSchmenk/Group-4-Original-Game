@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 7594360953368868664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.015131, y: 1.17, z: -0.79745674}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7594360951841907115}
@@ -336,7 +336,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7594360953368868663
 Rigidbody:
@@ -351,9 +351,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &7594360953368868656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8acc042e8d7e64d8abcc6fca1e7d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullSpellCooldown: 3
-  _pushSpellCooldown: 5
-  _levitateSpellCooldown: 15
+  _pullSpellCooldown: 1.5
+  _pushSpellCooldown: 1.5
+  _levitateSpellCooldown: 12.5
 --- !u!114 &925323514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,3 +488,4 @@ MonoBehaviour:
   maxHealth: 100
   healthMask: {fileID: 0}
   invincibilityFramesDuration: 0.1
+  _onPlatform: 0

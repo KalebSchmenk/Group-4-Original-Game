@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
     float normSize;
     bool isInvincible;
     [SerializeField] float invincibilityFramesDuration = 1.5f;
-     
-    
-    
+
+
+    public bool _onPlatform = false;
 
 
     private void Start()
@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("GAME QUIT");
         }
 
-        
 
         //Walking Stuff
         moveInput = move.ReadValue<Vector2>();
@@ -77,15 +76,18 @@ public class PlayerController : MonoBehaviour
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
 
-
-        
-
-        if(onGround == true && verticalVelocity < 0){
-            verticalVelocity = 0f;
+        if (!_onPlatform)
+        {
+            if (onGround == true && verticalVelocity < 0)
+            {
+                verticalVelocity = 0f;
+            }
+            verticalVelocity += gravityValue * Time.deltaTime;
         }
-        verticalVelocity += gravityValue * Time.deltaTime;
         
+
         //moveDirection.y = verticalVelocity;
+
 
         Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
         transform.rotation = rotation;
@@ -94,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
 
         //Jumping Stuff
-        
         onGround = controller.isGrounded;
         if(onGround){
             impactTimer = 0.2f;
@@ -111,9 +112,7 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
-        
-        
+ 
 
         //What actually moves the player
         moveDirection = moveDirection.normalized;
@@ -125,32 +124,17 @@ public class PlayerController : MonoBehaviour
         controller.Move(moving * playerSpeed * Time.deltaTime);
 
 
-
-
-        // OLD
-        /*if(moveInput != Vector3.zero){
-            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg +cameraMainTransform.eulerAngles.y;
-            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
-        }*/
-
-        //float targetAngle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
-        //Quaternion rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y , 0f);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
-        //transform.rotation = rotation;
-
         //Updates Health UI element
         HealthVisual(currentHeath/maxHealth);
 
         if(currentHeath <= 0){
             Debug.Log("Dead");
+
+            transform.position = CheckpointManager._currentCheckpoint.position;
+            currentHeath = maxHealth;
         }
 
         //Debug.Log("Current HP: " +currentHeath +"/" + maxHealth);
-
-
-
     }
 
     void FixedUpdate()
