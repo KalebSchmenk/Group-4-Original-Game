@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_RatBase
+  m_Name: M_Rat_01
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _METALLICSPECGLOSSMAP
@@ -24,11 +24,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: f1a1c42a75a547c4f9dbf548f7a527ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 98ab951f6a40ad643ae0d6bb6ec46b0d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 56d9b0c222ed6ec479fd577fa229de20, type: 3}
+        m_Texture: {fileID: 2800000, guid: eb6b0a996f4147d4883b1e4b8413b12d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -44,15 +44,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 9b42c3bf7898aeb4cb53bdaaac244b59, type: 3}
+        m_Texture: {fileID: 2800000, guid: f12767a9123295143b41a349ebcda5ee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f1a1c42a75a547c4f9dbf548f7a527ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 98ab951f6a40ad643ae0d6bb6ec46b0d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 1c1997dd42baea04396f472f04270522, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5c0019f5baf58ed4489a7747a227a54d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -113,7 +113,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5527280875499918361
+--- !u!114 &4161549421955760107
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
