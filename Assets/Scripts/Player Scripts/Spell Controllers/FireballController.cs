@@ -9,6 +9,13 @@ public class FireballController : MonoBehaviour
     
     [SerializeField] Rigidbody rb;
 
+    [SerializeField] private GameObject _fireballImpactSound;
+    
+    private Vector3 impactPostion;
+
+    [Header("Player Sounds")]
+    [SerializeField] AudioSource playerFireBallImpactObject;
+    [SerializeField] AudioClip  playerFireBallImpactClip;
 
     public void Fire(Vector3 lookAt)
     {
@@ -26,6 +33,12 @@ public class FireballController : MonoBehaviour
 
             if (script != null) script.TakeDamage(_damageOutput);
         }
+
+        impactPostion = transform.position;
+        Instantiate(_fireballImpactSound, impactPostion, Quaternion.identity);
+        playerFireBallImpactObject.clip = playerFireBallImpactClip;
+        playerFireBallImpactObject.Play();
+
         Destroy(this.gameObject);
     }
 }

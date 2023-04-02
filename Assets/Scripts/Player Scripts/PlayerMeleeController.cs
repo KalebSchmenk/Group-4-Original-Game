@@ -14,6 +14,10 @@ public class PlayerMeleeController : MonoBehaviour
 
     [SerializeField] Transform _attackLocation;
 
+    [Header("Player Sounds")]
+    [SerializeField] AudioSource playerMeleeObject;
+    [SerializeField] AudioClip playerMeleeClip;
+
 
     void Update()
     {
@@ -28,7 +32,8 @@ public class PlayerMeleeController : MonoBehaviour
         // Melee Anim
 
         Instantiate(_playerAttackSphere, _attackLocation.position, Quaternion.identity);
-
+        playerMeleeObject.clip = playerMeleeClip;
+        playerMeleeObject.Play();
         StartCoroutine(MeleeCooldownTimer());
     }
 

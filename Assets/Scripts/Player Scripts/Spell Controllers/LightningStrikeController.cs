@@ -7,6 +7,7 @@ public class LightningStrikeController : MonoBehaviour
 {
     [SerializeField] private int _damageOutput = 5;
     [SerializeField] private float _destroyIn = 2.5f;
+
     private void Awake()
     {
         StartCoroutine(DestroyIn());
@@ -34,5 +35,7 @@ public class LightningStrikeController : MonoBehaviour
                 Debug.LogError("Enemy script not found!");
             }
         }
+
+
     }
 }

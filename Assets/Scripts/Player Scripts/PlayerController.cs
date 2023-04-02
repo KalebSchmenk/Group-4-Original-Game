@@ -9,36 +9,55 @@ public class PlayerController : MonoBehaviour
     public PlayerInputActions playerControls;
     private InputAction move;
     private InputAction jump;
+    private InputAction pause;
     Vector3 moveInput;
     Vector3 moveDirection;
     Rigidbody rb;
     private CharacterController controller;
-
-    [SerializeField] private Texture2D _cursorTexture;
     private CursorMode _cursorMode = CursorMode.Auto;
-
-    [SerializeField] float playerSpeed = 10.0f;
     //[SerializeField] float rotateSpeed = 4f;
     private Transform cameraMainTransform;
-
-    public Transform _lightningSpawnLocation;
-
     private float gravityValue = -9.81f;
     private bool onGround;
-
     private float verticalVelocity;
-    [SerializeField] float jumpForce = 1.0f;
     private float impactTimer;
     private float jumpSpeed;
-    [SerializeField] private float maxHealth = 100;
     private float currentHeath;
-    public Image healthMask;
     float normSize;
     bool isInvincible;
+    
+
+    
+
+    [Header("Player Info")]
     [SerializeField] float invincibilityFramesDuration = 1.5f;
-
-
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] float jumpForce = 1.0f;
+    [SerializeField] float playerSpeed = 10.0f;
     public bool _onPlatform = false;
+    [SerializeField] float slopeRayDistance = 0.2f;
+    public bool _isMoving;
+    
+
+    [Header("Healthbar References")]
+    public Image healthMask;
+
+    [Header("Misc")]
+    public Transform _lightningSpawnLocation;
+    [SerializeField] private Texture2D _cursorTexture;
+
+    [Header("Player Sounds")]
+    [SerializeField] AudioSource playerHurtObject;
+    [SerializeField] AudioClip playerHurtClip;
+    [SerializeField] GameObject walkingSound;
+
+    [Header("Pause Menu")]
+    [SerializeField] GameObject pauseMenu;
+    
+    
+    
+
+    
 
 
     private void Start()
@@ -48,6 +67,10 @@ public class PlayerController : MonoBehaviour
         cameraMainTransform = Camera.main.transform;
         currentHeath = maxHealth;
         normSize = healthMask.rectTransform.rect.width;
+        Cursor.visible = false;
+
+        
+        
     }
 
     void Awake()
@@ -66,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current[Key.Escape].isPressed)
         {
             Application.Quit();
-            Debug.Log("GAME QUIT");
+            //Debug.Log("GAME QUIT");
         }
 
 
@@ -99,6 +122,7 @@ public class PlayerController : MonoBehaviour
         onGround = controller.isGrounded;
         if(onGround){
             impactTimer = 0.2f;
+            
         }
 
         if(impactTimer > 0){
@@ -109,16 +133,24 @@ public class PlayerController : MonoBehaviour
             if(impactTimer > 0){
                 impactTimer = 0;
                 verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
+                
 
             }
         }
+
+        
+
+
  
 
         //What actually moves the player
         moveDirection = moveDirection.normalized;
         Vector3 moving = moveDirection * magnitude;
         
-        moving.y = verticalVelocity;
+        moving = ChangeVelocityToSlope(moving);
+        moving.y += verticalVelocity;
+
+        
         
         //controller.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);
         controller.Move(moving * playerSpeed * Time.deltaTime);
@@ -135,6 +167,26 @@ public class PlayerController : MonoBehaviour
         }
 
         //Debug.Log("Current HP: " +currentHeath +"/" + maxHealth);
+        
+        if(moving.x != 0){
+            _isMoving = true;
+        }
+        else{
+            _isMoving = false;
+        }
+
+        if(onGround && _isMoving){
+            walkingSound.SetActive(true);
+        }
+        else{
+            walkingSound.SetActive(false);
+        }
+
+        if(pause.triggered){
+            
+        }
+
+
     }
 
     void FixedUpdate()
@@ -149,12 +201,15 @@ public class PlayerController : MonoBehaviour
         jump = playerControls.Player.Jump;
         jump.Enable();
         move.Enable();
+        pause = playerControls.Player.Pause;
+        pause.Enable();
     }
 
     private void OnDisable()
     {
         move.Disable();
-        jump.Enable();
+        jump.Disable();
+        pause.Disable();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -168,18 +223,28 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.CompareTag("DamageCollider")){
                 if(isInvincible == false){
                     currentHeath -= 10;
+                    //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
+                    playerHurtObject.clip = playerHurtClip;
+                    playerHurtObject.Play();
                     StartCoroutine(InvincibilityFrames());
+
                 }
             }
             if(other.gameObject.CompareTag("Fireball")){
                 if(isInvincible == false){
                     currentHeath -= 30;
+                    //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
+                    playerHurtObject.clip = playerHurtClip;
+                    playerHurtObject.Play();
                     StartCoroutine(InvincibilityFrames());
                 }
             }
             if(other.gameObject.CompareTag("LightningStrike")){
                 if(isInvincible == false){
                     currentHeath -= 50;
+                    //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
+                    playerHurtObject.clip = playerHurtClip;
+                    playerHurtObject.Play();
                     StartCoroutine(InvincibilityFrames());
                 }
             }
@@ -197,6 +262,21 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(invincibilityFramesDuration);
         isInvincible = false;
         Debug.Log("Not Invincible");
+    }
+
+    private Vector3 ChangeVelocityToSlope(Vector3 velocity){
+        var slopeRay = new Ray(transform.position, Vector3.down);
+
+        if(Physics.Raycast(slopeRay, out RaycastHit hitInfo, slopeRayDistance)){
+            var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            var slopeVelocity = slopeRotation * velocity;
+
+            if(slopeVelocity.y < 0){
+                return slopeVelocity;
+            }
+        }
+
+        return velocity;
     }
 
     

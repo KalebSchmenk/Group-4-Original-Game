@@ -18,6 +18,9 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private float _proximityRange = 35f;
 
+    [SerializeField] AudioSource EnemySpottedObject;
+    [SerializeField] AudioClip  EnemySpottedClip; 
+
 
     public override void EnterState(RangedEnemyController rangedEnemy)
     {
@@ -112,6 +115,8 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
                     _canSeePlayer = true;
+                    EnemySpottedObject.clip = EnemySpottedClip;
+                    EnemySpottedObject.Play();
                 }
                 else
                 {

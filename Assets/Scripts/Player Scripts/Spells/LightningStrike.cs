@@ -13,6 +13,15 @@ public class LightningStrike : MonoBehaviour
     private Camera _mainCam;
     private bool _lightningInCooldown = false;
 
+    
+
+    [Header("Player Sounds")]
+    [SerializeField] AudioSource playerLightningImpactObject;
+    [SerializeField] AudioClip  playerLightningImpactClip;
+    [SerializeField] private GameObject _lightningImpactSound;
+    [SerializeField] AudioSource playerLightningCastObject;
+    [SerializeField] AudioClip playerLightningCastClip;
+
     void Start()
     {
         _mainCam = Camera.main;    
@@ -22,6 +31,8 @@ public class LightningStrike : MonoBehaviour
     {
         if (Mouse.current.leftButton.isPressed && !_lightningInCooldown)
         {
+            playerLightningCastObject.clip = playerLightningCastClip;
+           playerLightningCastObject.Play();
             CastLightning();
         }
     }
@@ -48,6 +59,11 @@ public class LightningStrike : MonoBehaviour
 
             _lightningInCooldown = true;
         }
+
+        
+        Instantiate(_lightningImpactSound, hit.point, Quaternion.identity);
+        playerLightningImpactObject.clip = playerLightningImpactClip;
+        playerLightningImpactObject.Play();
         
         StartCoroutine(LightningCooldown());
     }

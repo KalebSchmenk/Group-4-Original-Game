@@ -13,7 +13,9 @@ public class FireballSpell : MonoBehaviour
     private Camera _mainCam;
 
     private bool _fireballCooldown = false;
-
+    [Header("Player Sounds")]
+    [SerializeField] AudioSource playerFireBallCastObject;
+    [SerializeField] AudioClip playerFireBallCastClip;
 
     void Start()
     {
@@ -44,6 +46,9 @@ public class FireballSpell : MonoBehaviour
 
             tempFireballControl.Fire(hit.point);
         }
+
+        playerFireBallCastObject.clip = playerFireBallCastClip;
+        playerFireBallCastObject.Play();
 
         StartCoroutine(FireballCooldown());
     }

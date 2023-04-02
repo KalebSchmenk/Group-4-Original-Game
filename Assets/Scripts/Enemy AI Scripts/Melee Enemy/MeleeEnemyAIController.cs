@@ -14,6 +14,16 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         Chase
     }
 
+    [SerializeField] AudioSource EnemyAttackObject;
+    [SerializeField] AudioClip  EnemyAttackClip; 
+
+    [SerializeField] AudioSource EnemySpottedObject;
+    [SerializeField] AudioClip  EnemySpottedClip; 
+
+    bool playSpottedSound;
+
+    
+    
     private AIState _AIState;
     private NavMeshAgent _navMeshAgent;
     private Rigidbody _rb;
@@ -76,6 +86,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     void Update()
     {
+
         CheckDistance();
         CheckHealth();
 
@@ -133,6 +144,9 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
                 break;
 
         }
+        if(_canSeePlayer == true){
+            playSpottedSound = true;
+        }
     }
 
 
@@ -166,6 +180,9 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         Instantiate(_attackSphere, _attackSphereLocation.position, Quaternion.identity);
 
         _inAttackCooldown = true;
+
+        EnemyAttackObject.clip = EnemyAttackClip;
+        EnemyAttackObject.Play();
 
         StartCoroutine(AttackCooldown());
 
@@ -216,6 +233,11 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     // Guard Chases Player
     private void Chase()
     {
+        if(playSpottedSound == true){
+        EnemySpottedObject.clip = EnemyAttackClip;
+        EnemyAttackObject.Play();
+        playSpottedSound = false;
+        }
         _navMeshAgent.SetDestination(_player.transform.position);
         _navMeshAgent.speed = _navMeshAgentSprintSpeed;
     }

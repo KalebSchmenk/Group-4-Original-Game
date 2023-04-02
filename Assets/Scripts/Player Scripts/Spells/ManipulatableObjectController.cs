@@ -13,6 +13,25 @@ public class ManipulatableObjectController : MonoBehaviour
     private bool _pullInCooldown = false;
     private bool _levitateInCooldown = false;
 
+    [Header("Levitate Sounds")]
+    [SerializeField] AudioSource playerLevitateCastObject;
+    [SerializeField] AudioClip  playerLevitateCastClip;
+
+    [Header("Push Sounds")]
+    [SerializeField] AudioSource playerPushCastObject;
+    [SerializeField] AudioClip  playerPushCastClip;
+   // [SerializeField] AudioSource playerPushHoldObject;
+    //[SerializeField] AudioClip playerPushHoldSound;
+
+
+    [Header("Pull Sounds")]
+    [SerializeField] AudioSource playerPullCastObject;
+    [SerializeField] AudioClip  playerPullCastClip;
+   // [SerializeField] AudioSource playerPullHoldObject;
+   // [SerializeField] AudioClip playerPullHoldSound;
+
+
+
 
     private void Update()
     {
@@ -28,6 +47,7 @@ public class ManipulatableObjectController : MonoBehaviour
 
         if (Keyboard.current[Key.Y].isPressed && !_pullInCooldown)
         {
+
             PullObject();
         }
     }
@@ -39,6 +59,10 @@ public class ManipulatableObjectController : MonoBehaviour
         if (targetObj != null)
         {
             targetObj.GetComponent<LevitateController>().BeginLevitating();
+
+            playerLevitateCastObject.clip = playerLevitateCastClip;
+            playerLevitateCastObject.Play();
+            
 
             StartCoroutine(LevitateSpellCooldown());
         }
@@ -57,7 +81,9 @@ public class ManipulatableObjectController : MonoBehaviour
             catch
             {}
             
-
+            playerPushCastObject.clip = playerPushCastClip;
+            playerPushCastObject.Play();
+            
             StartCoroutine(PushSpellCooldown());
         }
     }
@@ -74,6 +100,9 @@ public class ManipulatableObjectController : MonoBehaviour
             }
             catch
             { }
+
+            playerPullCastObject.clip = playerPullCastClip;
+            playerPullCastObject.Play();
 
             StartCoroutine(PullSpellCooldown());
         }
