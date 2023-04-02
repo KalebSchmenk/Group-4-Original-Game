@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMeleeController : MonoBehaviour
 {
+    public PlayerInputActions _playerInput;
+    private InputAction _melee;
+
     private bool inMeleeCooldown = false;
 
     [SerializeField] private float _meleeCooldownTime = 1.0f;
@@ -18,10 +21,24 @@ public class PlayerMeleeController : MonoBehaviour
     [SerializeField] AudioSource playerMeleeObject;
     [SerializeField] AudioClip playerMeleeClip;
 
+    private void Awake()
+    {
+        _playerInput = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        _melee = _playerInput.Player.Melee;
+        _melee.Enable();
+    }
+    private void OnDisable()
+    {
+        _melee.Enable();
+    }
 
     void Update()
     {
-        if (Keyboard.current[Key.V].isPressed == true && !inMeleeCooldown) 
+        if (_melee.triggered == true && !inMeleeCooldown) 
         {
             Melee();
         }

@@ -8,8 +8,11 @@ public class LightningStrikeController : MonoBehaviour
     [SerializeField] private int _damageOutput = 5;
     [SerializeField] private float _destroyIn = 2.5f;
 
+    [SerializeField] private GameObject _lightningSoundPrefab;
+
     private void Awake()
     {
+        Instantiate(_lightningSoundPrefab, transform.position, Quaternion.identity);
         StartCoroutine(DestroyIn());
     }
 

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction jump;
     private InputAction pause;
+    private InputAction changeSpellSelection;
     Vector3 moveInput;
     Vector3 moveDirection;
     Rigidbody rb;
@@ -25,9 +26,10 @@ public class PlayerController : MonoBehaviour
     private float currentHeath;
     float normSize;
     bool isInvincible;
-    
 
-    
+    private List<MonoBehaviour> _listOfCombatSpells = new List<MonoBehaviour>();
+    private ManipulatableObjectController _telekensisSpellContainer;
+
 
     [Header("Player Info")]
     [SerializeField] float invincibilityFramesDuration = 1.5f;
@@ -53,11 +55,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenu;
-    
-    
-    
-
-    
 
 
     private void Start()
@@ -69,9 +66,14 @@ public class PlayerController : MonoBehaviour
         normSize = healthMask.rectTransform.rect.width;
         Cursor.visible = false;
 
-        
-        
-    }
+        _listOfCombatSpells.Add(this.gameObject.GetComponent<LightningStrike>());
+        _listOfCombatSpells.Add(this.gameObject.GetComponent<FireballSpell>());
+        _listOfCombatSpells.Add(this.gameObject.GetComponent<PlayerGuardSpell>());
+
+        _telekensisSpellContainer = this.gameObject.GetComponent<ManipulatableObjectController>();
+
+        _telekensisSpellContainer.enabled = false;
+}
 
     void Awake()
     {
@@ -85,8 +87,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Switches spell from combat to telekenesis and back again
+        if (changeSpellSelection.triggered)
+        {
+            if (_telekensisSpellContainer.enabled == true)
+            {
+                foreach (MonoBehaviour script in _listOfCombatSpells)
+                {
+                    script.enabled = true;
+                }
+
+                _telekensisSpellContainer.enabled = false;
+            }
+            else
+            {
+                foreach (MonoBehaviour script in _listOfCombatSpells)
+                {
+                    script.enabled = false;
+                }
+
+                _telekensisSpellContainer.enabled = true;
+            }
+        }
+
         // DELETE ON MAIN BUILD! REPLACE WITH PAUSE MENU!
-        if (Keyboard.current[Key.Escape].isPressed)
+            if (Keyboard.current[Key.Escape].isPressed)
         {
             Application.Quit();
             //Debug.Log("GAME QUIT");
@@ -139,8 +164,6 @@ public class PlayerController : MonoBehaviour
         }
 
         
-
-
  
 
         //What actually moves the player
@@ -203,6 +226,9 @@ public class PlayerController : MonoBehaviour
         move.Enable();
         pause = playerControls.Player.Pause;
         pause.Enable();
+
+        changeSpellSelection = playerControls.Player.SwitchSpell;
+        changeSpellSelection.Enable();
     }
 
     private void OnDisable()
@@ -210,17 +236,18 @@ public class PlayerController : MonoBehaviour
         move.Disable();
         jump.Disable();
         pause.Disable();
+        changeSpellSelection.Disable();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         // Implement different damage values for each type of incoming damage. Damage collider is melee damage and should do least damage,
         // fireball damage is from a fireball and should do midrange damage, and lightning strike damage is from a lightning strike and should do a decent amount of damage
-        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("Fireball") || other.gameObject.CompareTag("LightningStrike"))
+        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("LightningStrike"))
         {
             //Debug.Log("Took damage!");
-            if(other.gameObject.CompareTag("DamageCollider")){
+            if(other.gameObject.CompareTag("DamageCollider"))
+            {
                 if(isInvincible == false){
                     currentHeath -= 10;
                     //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
@@ -230,16 +257,8 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-            if(other.gameObject.CompareTag("Fireball")){
-                if(isInvincible == false){
-                    currentHeath -= 30;
-                    //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
-                    playerHurtObject.clip = playerHurtClip;
-                    playerHurtObject.Play();
-                    StartCoroutine(InvincibilityFrames());
-                }
-            }
-            if(other.gameObject.CompareTag("LightningStrike")){
+            if(other.gameObject.CompareTag("LightningStrike"))
+            {
                 if(isInvincible == false){
                     currentHeath -= 50;
                     //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
@@ -247,6 +266,23 @@ public class PlayerController : MonoBehaviour
                     playerHurtObject.Play();
                     StartCoroutine(InvincibilityFrames());
                 }
+            }
+        }
+    }
+
+    // May eventually change firball to be a big trigger on explosion
+    // So this may go back in to trigger enter 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Fireball"))
+        {
+            if (isInvincible == false)
+            {
+                currentHeath -= 30;
+                //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
+                playerHurtObject.clip = playerHurtClip;
+                playerHurtObject.Play();
+                StartCoroutine(InvincibilityFrames());
             }
         }
     }

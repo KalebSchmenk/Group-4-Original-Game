@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class ManipulatableObjectController : MonoBehaviour
 {
+    public PlayerInputActions _playerInput;
+    private InputAction _levitate;
+    private InputAction _push;
+    private InputAction _pull;
+
     [SerializeField] private float _pullSpellCooldown = 2.5f;
     [SerializeField] private float _pushSpellCooldown = 2.5f;
     [SerializeField] private float _levitateSpellCooldown = 2.5f;
@@ -27,25 +32,44 @@ public class ManipulatableObjectController : MonoBehaviour
     [Header("Pull Sounds")]
     [SerializeField] AudioSource playerPullCastObject;
     [SerializeField] AudioClip  playerPullCastClip;
-   // [SerializeField] AudioSource playerPullHoldObject;
-   // [SerializeField] AudioClip playerPullHoldSound;
+    // [SerializeField] AudioSource playerPullHoldObject;
+    // [SerializeField] AudioClip playerPullHoldSound;
 
+    private void Awake()
+    {
+        _playerInput = new PlayerInputActions();
+    }
 
+    private void OnEnable()
+    {
+        _levitate = _playerInput.Player.LevitateSpell;
+        _push = _playerInput.Player.PushSpell;
+        _pull = _playerInput.Player.PullSpell;
 
+        _levitate.Enable();
+        _pull.Enable();
+        _push.Enable();
+    }
+    private void OnDisable()
+    {
+        _levitate.Disable();
+        _pull.Disable();
+        _push.Disable();
+    }
 
     private void Update()
     {
-        if (Keyboard.current[Key.R].isPressed && !_levitateInCooldown)
+        if (_levitate.triggered && !_levitateInCooldown)
         {
             LevitateObject();
         }
 
-        if (Keyboard.current[Key.T].isPressed && !_pushInCooldown)
+        if (_push.triggered && !_pushInCooldown)
         {
             PushObject();
         }
 
-        if (Keyboard.current[Key.Y].isPressed && !_pullInCooldown)
+        if (_pull.triggered && !_pullInCooldown)
         {
 
             PullObject();

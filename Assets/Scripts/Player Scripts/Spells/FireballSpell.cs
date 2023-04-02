@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class FireballSpell : MonoBehaviour
 {
+    public PlayerInputActions _playerInput;
+    private InputAction _fireball;
+
     [SerializeField] private GameObject _testFireballPrefab;
     [SerializeField] private Transform _spellCastLocation;
     [SerializeField] float _cooldownTime = 2.5f;
@@ -21,11 +24,24 @@ public class FireballSpell : MonoBehaviour
     {
         _mainCam = Camera.main;
     }
+    private void Awake()
+    {
+        _playerInput = new PlayerInputActions();
+    }
 
+    private void OnEnable()
+    {
+        _fireball = _playerInput.Player.Fireball;
+        _fireball.Enable();
+    }
+    private void OnDisable()
+    {
+        _fireball.Enable();
+    }
 
     void Update()
     {
-        if (Keyboard.current[Key.F].isPressed && !_fireballCooldown)
+        if (_fireball.triggered && !_fireballCooldown)
         {
             CastFireball();
         }

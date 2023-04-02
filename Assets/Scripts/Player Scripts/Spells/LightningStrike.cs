@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class LightningStrike : MonoBehaviour
 {
+    public PlayerInputActions _playerInput;
+    private InputAction _lightningStrike;
 
     [SerializeField] GameObject _lightningStrikePrefab;
     [SerializeField] float _cooldownTime = 2.5f;
@@ -26,13 +28,25 @@ public class LightningStrike : MonoBehaviour
     {
         _mainCam = Camera.main;    
     }
+    private void Awake()
+    {
+        _playerInput = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        _lightningStrike = _playerInput.Player.LightningStrike;
+        _lightningStrike.Enable();
+    }
+    private void OnDisable()
+    {
+        _lightningStrike.Enable();
+    }
 
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed && !_lightningInCooldown)
+        if (_lightningStrike.triggered && !_lightningInCooldown)
         {
-            playerLightningCastObject.clip = playerLightningCastClip;
-           playerLightningCastObject.Play();
             CastLightning();
         }
     }
@@ -57,13 +71,10 @@ public class LightningStrike : MonoBehaviour
                 Instantiate(_lightningStrikePrefab, spawnLightningAt, Quaternion.Euler(randomRot));
             }
 
-            _lightningInCooldown = true;
+            Instantiate(_lightningImpactSound, hit.point, Quaternion.identity);
+            playerLightningImpactObject.clip = playerLightningImpactClip;
+            playerLightningImpactObject.Play();
         }
-
-        
-        Instantiate(_lightningImpactSound, hit.point, Quaternion.identity);
-        playerLightningImpactObject.clip = playerLightningImpactClip;
-        playerLightningImpactObject.Play();
         
         StartCoroutine(LightningCooldown());
     }
@@ -71,6 +82,9 @@ public class LightningStrike : MonoBehaviour
     private IEnumerator LightningCooldown()
     {
         Debug.Log("Lightning cooling down");
+
+        _lightningInCooldown = true;
+
         yield return new WaitForSeconds(_cooldownTime);
 
         _lightningInCooldown = false;

@@ -24,12 +24,11 @@ public class FireballController : MonoBehaviour
         rb.AddForce(transform.forward * _fireballSpeed);
     }
 
-  
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyHealthInterface script = other.transform.gameObject.GetComponent<EnemyHealthInterface>();
+            EnemyHealthInterface script = collision.transform.gameObject.GetComponent<EnemyHealthInterface>();
 
             if (script != null) script.TakeDamage(_damageOutput);
         }
@@ -41,4 +40,5 @@ public class FireballController : MonoBehaviour
 
         Destroy(this.gameObject);
     }
+
 }
