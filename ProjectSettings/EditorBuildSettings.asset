@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Prototypes/Gameplay Prototype.unity
     guid: d833dc5e289154849ae9af3a54b4a1e3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototypes/Art Prototype.unity
     guid: ada24dbf455a40440bc315420e0c8f0e
+  - enabled: 1
+    path: Assets/Scenes/Final Game Levels/MainMenu.unity
+    guid: f64287bc38847594fb511be9796e4501
+  - enabled: 1
+    path: Assets/Scenes/Final Game Levels/PuzzleDesign.unity
+    guid: 75588ad51f14f1f4397a18ff9d0d79bb
   m_configObjects: {}

@@ -11,7 +11,7 @@ public class FireballController : MonoBehaviour
 
     [SerializeField] private GameObject _fireballImpactSound;
     
-    private Vector3 impactPostion;
+    private Vector3 impactPosition;
 
     [Header("Player Sounds")]
     [SerializeField] AudioSource playerFireBallImpactObject;
@@ -33,8 +33,8 @@ public class FireballController : MonoBehaviour
             if (script != null) script.TakeDamage(_damageOutput);
         }
 
-        impactPostion = transform.position;
-        Instantiate(_fireballImpactSound, impactPostion, Quaternion.identity);
+        impactPosition = transform.position;
+        Instantiate(_fireballImpactSound, impactPosition, Quaternion.identity);
         playerFireBallImpactObject.clip = playerFireBallImpactClip;
         playerFireBallImpactObject.Play();
 

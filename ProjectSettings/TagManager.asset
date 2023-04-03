@@ -13,6 +13,7 @@ TagManager:
   - DamageCollider
   - PlayerAttackSphere
   - DazeSphere
+  - Pickup
   layers:
   - Default
   - TransparentFX

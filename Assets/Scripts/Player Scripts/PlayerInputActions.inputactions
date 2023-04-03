@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "aa8216b5-9470-4ea9-b8ab-2754aaa08bd6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Lightning Strike",
                     "type": "Button",
                     "id": "68932c76-eae5-48e1-a828-052827049f27",
@@ -126,6 +117,15 @@
                     "name": "Melee",
                     "type": "Button",
                     "id": "f98e4892-1a50-4aea-b5e6-aa042df64f19",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "a28b0c33-afcd-4933-be3e-a0d312794144",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -377,28 +377,6 @@
                 },
                 {
                     "name": "",
-                    "id": "2685de4e-71e4-4413-a65f-e56864b089c2",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "33b299ca-0445-4a21-ac4d-0ab0a0d6a345",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "fbfb95e6-d5f6-40ff-81a6-f37c38facbd3",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -592,6 +570,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3f6c48a-dce5-4d48-a7cb-3c6df94139ba",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b75136b2-578f-4d92-8a66-9c78f37db420",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

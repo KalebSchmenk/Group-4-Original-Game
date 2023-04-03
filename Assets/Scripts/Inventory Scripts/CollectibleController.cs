@@ -35,7 +35,6 @@ public class CollectibleController : MonoBehaviour
         {
             InventoryController._pebbleCount += 1;
         }
-
         Destroy(this.gameObject);
     }
 }

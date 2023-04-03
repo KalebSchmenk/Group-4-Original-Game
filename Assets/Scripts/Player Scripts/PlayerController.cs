@@ -52,9 +52,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource playerHurtObject;
     [SerializeField] AudioClip playerHurtClip;
     [SerializeField] GameObject walkingSound;
+    [SerializeField] AudioSource jumpSoundObject;
+    [SerializeField] AudioClip jumpSoundClip;
+    [SerializeField] AudioSource jumpLandObject;
+    [SerializeField] AudioClip jumpLandClip;
+    bool playLandingSound = false;
+
 
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenu;
+    
 
 
     private void Start()
@@ -147,6 +154,11 @@ public class PlayerController : MonoBehaviour
         onGround = controller.isGrounded;
         if(onGround){
             impactTimer = 0.2f;
+            if(playLandingSound){
+                jumpLandObject.clip = jumpLandClip;
+                jumpLandObject.Play();
+                playLandingSound = false;
+            }
             
         }
 
@@ -157,6 +169,9 @@ public class PlayerController : MonoBehaviour
         if(jump.triggered){
             if(impactTimer > 0){
                 impactTimer = 0;
+                jumpSoundObject.clip = jumpSoundClip;
+                jumpSoundObject.Play();
+                playLandingSound = true;
                 verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
                 
 
@@ -205,10 +220,6 @@ public class PlayerController : MonoBehaviour
             walkingSound.SetActive(false);
         }
 
-        if(pause.triggered){
-            
-        }
-
 
     }
 
@@ -222,10 +233,11 @@ public class PlayerController : MonoBehaviour
     {
         move = playerControls.Player.Move;
         jump = playerControls.Player.Jump;
+ 
         jump.Enable();
         move.Enable();
-        pause = playerControls.Player.Pause;
-        pause.Enable();
+   
+
 
         changeSpellSelection = playerControls.Player.SwitchSpell;
         changeSpellSelection.Enable();
@@ -235,8 +247,8 @@ public class PlayerController : MonoBehaviour
     {
         move.Disable();
         jump.Disable();
-        pause.Disable();
         changeSpellSelection.Disable();
+ 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -267,6 +279,7 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(InvincibilityFrames());
                 }
             }
+
         }
     }
 
@@ -279,7 +292,6 @@ public class PlayerController : MonoBehaviour
             if (isInvincible == false)
             {
                 currentHeath -= 30;
-                //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
                 playerHurtObject.clip = playerHurtClip;
                 playerHurtObject.Play();
                 StartCoroutine(InvincibilityFrames());
@@ -314,6 +326,7 @@ public class PlayerController : MonoBehaviour
 
         return velocity;
     }
+    
 
     
 }
