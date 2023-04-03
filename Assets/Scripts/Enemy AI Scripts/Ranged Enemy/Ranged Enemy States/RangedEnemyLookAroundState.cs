@@ -87,6 +87,7 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
                     _canSeePlayer = true;
+                    _rangedEnemyScript._enemySpottedObject.Play();
                 }
                 else
                 {

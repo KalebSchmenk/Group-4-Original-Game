@@ -20,6 +20,9 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     public GameObject _fireballPrefab;
     public GameObject _lightningStrikePrefab;
 
+    public AudioSource _enemySpottedObject;
+    public AudioClip _enemySpottedClip;
+
     public RangedEnemyBaseState currentState;
 
 
@@ -27,6 +30,8 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerScript = _player.GetComponent<PlayerController>();
+
+        _enemySpottedObject.clip = _enemySpottedClip;
 
         currentState = this.AddComponent<RangedEnemyLookAroundState>();
         currentState.EnterState(this);

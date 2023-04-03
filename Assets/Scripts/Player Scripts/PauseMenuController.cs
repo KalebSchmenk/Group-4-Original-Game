@@ -24,25 +24,32 @@ public class PauseMenuController : MonoBehaviour
     private float storedCinemachineXSpeed;
     private float storedCinemachineYSpeed;
     public CinemachineFreeLook cinemachineFL;
-private void Awake() {
-    playerControls = new PlayerInputActions();
-    storedCinemachineXSpeed = cinemachineFL.m_XAxis.m_MaxSpeed;
-    storedCinemachineYSpeed = cinemachineFL.m_YAxis.m_MaxSpeed;
-
-}
-
-private void OnEnable() {
-    pause = playerControls.Player.Pause;
-    pause.Enable();
-}
-
-private void OnDisable() {
-    pause.Disable();
     
-}
+    
+    private void Awake() 
+    {
+        playerControls = new PlayerInputActions();
+        storedCinemachineXSpeed = cinemachineFL.m_XAxis.m_MaxSpeed;
+        storedCinemachineYSpeed = cinemachineFL.m_YAxis.m_MaxSpeed;
 
-public void Update() {
-        if(pause.triggered){
+    }
+
+    private void OnEnable() 
+    {
+        pause = playerControls.Player.Pause;
+        pause.Enable();
+    }
+
+    private void OnDisable() 
+    {
+        pause.Disable();
+    
+    }
+
+    public void Update() 
+    {
+        if(pause.triggered)
+        {
             if (pauseMenu.activeSelf == false){
                 PauseGame();
             }
@@ -52,7 +59,8 @@ public void Update() {
         }
     }
 
-    public void PauseGame(){
+    public void PauseGame()
+    {
 
         
         Debug.Log("Game Paused");
@@ -62,13 +70,14 @@ public void Update() {
         }
         pauseMenu.SetActive(true);
         Cursor.visible = true;
-        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
         cinemachineFL.m_XAxis.m_MaxSpeed = 0.0f;
         cinemachineFL.m_YAxis.m_MaxSpeed = 0.0f;
     }
 
-    public void ResumeGame(){
+    public void ResumeGame()
+    {
         menuSoundsObject.PlayOneShot(buttonPressClip);
         
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
@@ -76,24 +85,27 @@ public void Update() {
             a.mute = false;
         }
         Cursor.visible = false;
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
         cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
     }
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
         StartCoroutine(SoundBeforeMainMenu());
     }
 
 
-    private IEnumerator SoundBeforeMainMenu(){
-            menuSoundsObject.PlayOneShot(buttonPressClip);
-            yield return new WaitForSecondsRealtime(0.3f);
-            
-            SceneManager.LoadScene("MainMenu");
-        }
+    private IEnumerator SoundBeforeMainMenu()
+    {
+        menuSoundsObject.PlayOneShot(buttonPressClip);
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
 
 
 

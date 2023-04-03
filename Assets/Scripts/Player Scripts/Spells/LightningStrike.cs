@@ -56,7 +56,7 @@ public class LightningStrike : MonoBehaviour
         RaycastHit hit;
         Ray ray = _mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 50))
         {
             var spawnLightningAt = hit.point;
             var randomRot = new Vector3(0, Random.Range(0, 360), 0);
@@ -74,9 +74,9 @@ public class LightningStrike : MonoBehaviour
             Instantiate(_lightningImpactSound, hit.point, Quaternion.identity);
             playerLightningImpactObject.clip = playerLightningImpactClip;
             playerLightningImpactObject.Play();
+
+            StartCoroutine(LightningCooldown());
         }
-        
-        StartCoroutine(LightningCooldown());
     }
 
     private IEnumerator LightningCooldown()

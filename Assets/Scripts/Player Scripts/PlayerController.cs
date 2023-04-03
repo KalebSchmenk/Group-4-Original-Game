@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -61,8 +62,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenu;
-    
 
+    [SerializeField] TMP_Text spellActive;
 
     private void Start()
     {
@@ -85,11 +86,14 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerInputActions();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
     }
     private void OnGUI()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
     }
 
     void Update()
@@ -104,6 +108,7 @@ public class PlayerController : MonoBehaviour
                     script.enabled = true;
                 }
 
+                spellActive.text = "Combat";
                 _telekensisSpellContainer.enabled = false;
             }
             else
@@ -113,6 +118,7 @@ public class PlayerController : MonoBehaviour
                     script.enabled = false;
                 }
 
+                spellActive.text = "Telekenesis";
                 _telekensisSpellContainer.enabled = true;
             }
         }

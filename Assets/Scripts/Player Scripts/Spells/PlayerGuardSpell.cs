@@ -41,7 +41,10 @@ public class PlayerGuardSpell : MonoBehaviour
 
     private void GuardSphere()
     {
-        Instantiate(_guardSphere, this.transform.position, Quaternion.identity);
+        Vector3 upPos = this.transform.position;
+        upPos.y += 0.5f;
+
+        Instantiate(_guardSphere, upPos, Quaternion.identity);
         StartCoroutine(Cooldown());
     }
 

@@ -137,7 +137,7 @@ public class ManipulatableObjectController : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 50))
         {
             if (hit.transform.gameObject.CompareTag("CanManipulate"))
             {
