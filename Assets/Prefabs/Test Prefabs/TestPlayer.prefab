@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &616605568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616605569}
+  - component: {fileID: 616605570}
+  m_Layer: 0
+  m_Name: PlayerWalk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &616605569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616605568}
+  m_LocalRotation: {x: 0.10802142, y: -0.000000011314359, z: 0.0000000012293868, w: 0.9941486}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7594360953368868661}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &616605570
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616605568}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 585ab05938ae6864a8efd73210994fc0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &660452232
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +273,7 @@ GameObject:
   - component: {fileID: 4010343805316009056}
   - component: {fileID: 1589289144}
   - component: {fileID: 1589289158}
+  - component: {fileID: 1558141165}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -168,6 +297,7 @@ Transform:
   - {fileID: 660452233}
   - {fileID: 4520454993982703707}
   - {fileID: 4107556684961624553}
+  - {fileID: 616605569}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,8 +397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bb3225be5470947abb3f0fdea048a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightningStrikePrefab: {fileID: 4678663161969096019, guid: 6bd7f9fe84509e341ad626e2edf453a3, type: 3}
+  _lightningStrikePrefab: {fileID: 3712611845727404085, guid: 23109479cc341054d973dde084952116, type: 3}
   _cooldownTime: 7.5
+  playerLightningImpactObject: {fileID: 7517116688967813431, guid: 0bc108359061e2448818c0442f843a3c, type: 3}
+  playerLightningImpactClip: {fileID: 8300000, guid: 04d921b17d9ca634c8d3b0ae8ae3ad36, type: 3}
+  _lightningImpactSound: {fileID: 7519050577918950359, guid: 0bc108359061e2448818c0442f843a3c, type: 3}
+  playerLightningCastObject: {fileID: 0}
+  playerLightningCastClip: {fileID: 8300000, guid: 8191bf64383f2c147981a2cd616ee5bf, type: 3}
 --- !u!114 &8099579940388367207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +419,8 @@ MonoBehaviour:
   _testFireballPrefab: {fileID: 518538449813554679, guid: 322e28516882a2344b1be183bf4946f3, type: 3}
   _spellCastLocation: {fileID: 7594360951841907115}
   _cooldownTime: 3.5
+  playerFireBallCastObject: {fileID: 0}
+  playerFireBallCastClip: {fileID: 8300000, guid: 64f810012819a6c4697c90af683f852a, type: 3}
 --- !u!114 &6865484055918532034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +436,12 @@ MonoBehaviour:
   _pullSpellCooldown: 1.5
   _pushSpellCooldown: 1.5
   _levitateSpellCooldown: 12.5
+  playerLevitateCastObject: {fileID: 0}
+  playerLevitateCastClip: {fileID: 8300000, guid: 2ebd65026b9ce9b458b9a8b5ef0eca43, type: 3}
+  playerPushCastObject: {fileID: 0}
+  playerPushCastClip: {fileID: 8300000, guid: 2da7361adfb857048839fa551fa5da1e, type: 3}
+  playerPullCastObject: {fileID: 0}
+  playerPullCastClip: {fileID: 8300000, guid: a2a8547b8eb58224a84b804785c48396, type: 3}
 --- !u!114 &925323514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5859c9857096ea4da7b8009afe6a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canCraftHealth: {fileID: 0}
+  _canNotCraftHealth: {fileID: 0}
 --- !u!114 &6137025278929678474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +471,8 @@ MonoBehaviour:
   _meleeCooldownTime: 1
   _playerAttackSphere: {fileID: 2449039605055690541, guid: f9478d8ef49bd16488ea74ad844ab44d, type: 3}
   _attackLocation: {fileID: 4520454993982703707}
+  playerMeleeObject: {fileID: 0}
+  playerMeleeClip: {fileID: 8300000, guid: 340c15bdeaf2ce54e86476b0871a96c6, type: 3}
 --- !u!114 &4010343805316009056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,11 +529,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af8f1c5d14daf04b95b28f941e83de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cursorTexture: {fileID: 2800000, guid: e85001b44d900414f840c60db0fd6967, type: 3}
-  playerSpeed: 2.2
-  _lightningSpawnLocation: {fileID: 4107556684961624553}
-  jumpForce: 0.75
-  maxHealth: 100
-  healthMask: {fileID: 0}
   invincibilityFramesDuration: 0.1
+  maxHealth: 100
+  jumpForce: 0.75
+  playerSpeed: 2.2
   _onPlatform: 0
+  slopeRayDistance: 0.5
+  _isMoving: 0
+  healthMask: {fileID: 0}
+  _lightningSpawnLocation: {fileID: 4107556684961624553}
+  _cursorTexture: {fileID: 2800000, guid: e85001b44d900414f840c60db0fd6967, type: 3}
+  playerHurtObject: {fileID: 0}
+  playerHurtClip: {fileID: 8300000, guid: f1d6df568dfc40b4e969cd4cc4fc1622, type: 3}
+  walkingSound: {fileID: 616605568}
+  pauseMenu: {fileID: 0}
+--- !u!136 &1558141165
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594360953368868664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.34
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
