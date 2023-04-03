@@ -28,6 +28,8 @@ public class PauseMenuController : MonoBehaviour
     private PlayerController playerScript;
     bool _gameOver;
     bool _win;
+    [SerializeField] AudioSource menuMusic;
+    [SerializeField] AudioClip menuMusicClip;
     
     
     
@@ -37,6 +39,8 @@ public class PauseMenuController : MonoBehaviour
         storedCinemachineXSpeed = cinemachineFL.m_XAxis.m_MaxSpeed;
         storedCinemachineYSpeed = cinemachineFL.m_YAxis.m_MaxSpeed;
         playerScript = playerObject.GetComponent<PlayerController>();
+        menuSoundsObject.clip = buttonPressClip;
+        menuMusic.clip = menuMusicClip;
        
         
 
@@ -68,6 +72,7 @@ public class PauseMenuController : MonoBehaviour
             else{
                 if(_gameOver == false && _win == false){
                     ResumeGame();
+                    
                 }   
             }
         }
@@ -76,13 +81,15 @@ public class PauseMenuController : MonoBehaviour
     public void PauseGame()
     {
 
-        
+
             Debug.Log("Game Paused");
             AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
             foreach (AudioSource a in audioSources){
                 a.mute = true;
             }
             pauseMenu.SetActive(true);
+            menuMusic.mute = false;
+            menuMusic.Play();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
@@ -93,12 +100,14 @@ public class PauseMenuController : MonoBehaviour
 
     public void ResumeGame()
     {
-        menuSoundsObject.PlayOneShot(buttonPressClip);
+        menuSoundsObject.Play();
         
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource a in audioSources){
             a.mute = false;
         }
+        menuMusic.mute = true;
+        menuMusic.Stop();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
@@ -114,13 +123,13 @@ public class PauseMenuController : MonoBehaviour
 
     private IEnumerator SoundBeforeMainMenu()
     {
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        yield return new WaitForSecondsRealtime(0.3f);
+        SceneManager.LoadScene("MainMenu");
         cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
         cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
-        menuSoundsObject.PlayOneShot(buttonPressClip);
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        
     }
 
 

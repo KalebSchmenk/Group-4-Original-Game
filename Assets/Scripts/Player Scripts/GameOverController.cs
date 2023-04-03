@@ -28,11 +28,11 @@ public class GameOverController : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject winMenu;
-    
-    
+    bool gameOverTriggered;
 
+    [SerializeField] AudioSource menuMusic;
+    [SerializeField] AudioClip menuMusicClip;
     
-
     // Start is called before the first frame update
 
     void Start()
@@ -40,58 +40,29 @@ public class GameOverController : MonoBehaviour
         playerScript = playerObject.GetComponent<PlayerController>();
         storedCinemachineXSpeed = cinemachineFL.m_XAxis.m_MaxSpeed;
         storedCinemachineYSpeed = cinemachineFL.m_YAxis.m_MaxSpeed;
+        menuMusic.clip = menuMusicClip;
     }
-
     void Update(){
         _gameOver = playerScript._gameOver;
         _win = playerScript._win;
         
-        if(_gameOver && _win == false){
+        if(_gameOver && _win == false && gameOverTriggered == false){
             GameOver();
+            gameOverTriggered = true;
         }
 
-        if(_win){
+        if(_win && gameOverTriggered == false){
             Win();
+            gameOverTriggered = true;
         }
     }
-
-
-
-
     public void QuitGame()
     {
-        StartCoroutine(SoundBeforeMainMenu());
+        StartCoroutine(SoundBeforeSceneChange("MainMenu"));
     }
-
-
-    private IEnumerator SoundBeforeMainMenu()
-    {
-        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
-        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
-        menuSoundsObject.PlayOneShot(buttonPressClip);
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
-    }
-
-
     public void RestartGame(){
-        StartCoroutine(SoundBeforeRestart());
+        StartCoroutine(SoundBeforeSceneChange("PuzzleDesign"));
 
-    }
-
-
-
-    private IEnumerator SoundBeforeRestart()
-    {
-        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
-        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
-        menuSoundsObject.PlayOneShot(buttonPressClip);
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        Time.timeScale = 1;
-        SceneManager.LoadScene("PuzzleDesign");
     }
 
     void GameOver(){
@@ -100,6 +71,8 @@ public class GameOverController : MonoBehaviour
             foreach (AudioSource a in audioSources){
                 a.mute = true;
             }
+            menuMusic.mute = false;
+            menuMusic.Play();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
@@ -113,10 +86,21 @@ public class GameOverController : MonoBehaviour
             foreach (AudioSource a in audioSources){
                 a.mute = true;
             }
+            menuMusic.mute = false;
+            menuMusic.Play();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             cinemachineFL.m_XAxis.m_MaxSpeed = 0.0f;
             cinemachineFL.m_YAxis.m_MaxSpeed = 0.0f;
     }
+
+    private IEnumerator SoundBeforeSceneChange(string scene){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        yield return new WaitForSecondsRealtime(0.3f);
+        SceneManager.LoadScene(scene);
+        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
+        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
+}
 }
