@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
     public bool _onPlatform = false;
     [SerializeField] float slopeRayDistance = 0.2f;
     public bool _isMoving;
-    
+    public bool _gameOver;
+    public bool _win;
 
     [Header("Healthbar References")]
     public Image healthMask;
@@ -60,9 +61,10 @@ public class PlayerController : MonoBehaviour
     bool playLandingSound = false;
 
 
-    [Header("Pause Menu")]
+    [Header("Menu Items")]
     [SerializeField] GameObject pauseMenu;
-
+    [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject winMenu;
     [SerializeField] TMP_Text spellActive;
 
     private void Start()
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
         _telekensisSpellContainer = this.gameObject.GetComponent<ManipulatableObjectController>();
 
         _telekensisSpellContainer.enabled = false;
+        Time.timeScale = 1f;
 }
 
     void Awake()
@@ -204,10 +207,9 @@ public class PlayerController : MonoBehaviour
         HealthVisual(currentHeath/maxHealth);
 
         if(currentHeath <= 0){
-            Debug.Log("Dead");
-
-            transform.position = CheckpointManager._currentCheckpoint.position;
-            currentHeath = maxHealth;
+            _gameOver = true;
+            //transform.position = CheckpointManager._currentCheckpoint.position;
+            //currentHeath = maxHealth;
         }
 
         //Debug.Log("Current HP: " +currentHeath +"/" + maxHealth);
@@ -225,7 +227,6 @@ public class PlayerController : MonoBehaviour
         else{
             walkingSound.SetActive(false);
         }
-
 
     }
 
@@ -287,6 +288,15 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+        //REMOVE
+        if(other.gameObject.CompareTag("InstaKill")){
+            currentHeath = 0;
+        }
+
+        if(other.gameObject.CompareTag("Win")){
+            _win = true;
+        }
+        //REMOVE
     }
 
     // May eventually change firball to be a big trigger on explosion
