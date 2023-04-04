@@ -40,7 +40,7 @@ public class LightningStrike : MonoBehaviour
     }
     private void OnDisable()
     {
-        _lightningStrike.Enable();
+        _lightningStrike.Disable();
     }
 
     void Update()

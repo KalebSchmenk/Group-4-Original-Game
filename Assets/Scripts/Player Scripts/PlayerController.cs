@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         _telekensisSpellContainer = this.gameObject.GetComponent<ManipulatableObjectController>();
 
-        _telekensisSpellContainer.enabled = false;
+        if (_telekensisSpellContainer != null) _telekensisSpellContainer.enabled = false;
         Time.timeScale = 1f;
 }
 

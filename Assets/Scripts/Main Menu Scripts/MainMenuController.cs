@@ -16,7 +16,7 @@ private void Start() {
     menuSounds.clip = buttonPressClip;
 }
 public void StartGame(){
-    StartCoroutine(SoundBeforeSceneChange("PuzzleDesign"));
+    StartCoroutine(SoundBeforeSceneChange("HUBLevel"));
 }
 
 public void QuitGame(){               

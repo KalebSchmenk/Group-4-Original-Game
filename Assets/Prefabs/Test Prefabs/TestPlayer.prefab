@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &565689732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565689733}
+  - component: {fileID: 565689734}
+  m_Layer: 8
+  m_Name: Jump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565689733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565689732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7594360953368868661}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &565689734
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565689732}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &616605568
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616605569}
   - component: {fileID: 616605570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660452233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cam Look At
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,6 +287,134 @@ Transform:
   m_Father: {fileID: 7594360953368868661}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1436178223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436178224}
+  - component: {fileID: 1436178225}
+  m_Layer: 8
+  m_Name: JumpLand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436178224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436178223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7594360953368868661}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1436178225
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436178223}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1971329745483267721
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107556684961624553}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lightning Strike Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520454993982703707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attack Sphere Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7594360951841907115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spell Spawn Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +530,9 @@ GameObject:
   - component: {fileID: 1589289144}
   - component: {fileID: 1589289158}
   - component: {fileID: 1558141165}
-  m_Layer: 0
+  - component: {fileID: 860545615}
+  - component: {fileID: 860545629}
+  m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -298,6 +556,8 @@ Transform:
   - {fileID: 4520454993982703707}
   - {fileID: 4107556684961624553}
   - {fileID: 616605569}
+  - {fileID: 565689733}
+  - {fileID: 1436178224}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -536,13 +796,22 @@ MonoBehaviour:
   _onPlatform: 0
   slopeRayDistance: 0.5
   _isMoving: 0
+  _gameOver: 0
+  _win: 0
   healthMask: {fileID: 0}
   _lightningSpawnLocation: {fileID: 4107556684961624553}
   _cursorTexture: {fileID: 2800000, guid: e85001b44d900414f840c60db0fd6967, type: 3}
   playerHurtObject: {fileID: 0}
   playerHurtClip: {fileID: 8300000, guid: f1d6df568dfc40b4e969cd4cc4fc1622, type: 3}
   walkingSound: {fileID: 616605568}
+  jumpSoundObject: {fileID: 565689734}
+  jumpSoundClip: {fileID: 8300000, guid: 95fc9d21530cc60438cdf7aafdef59df, type: 3}
+  jumpLandObject: {fileID: 1436178225}
+  jumpLandClip: {fileID: 8300000, guid: 4a48984bc039fa5418824da404cc0fae, type: 3}
   pauseMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  winMenu: {fileID: 0}
+  spellActive: {fileID: 0}
 --- !u!136 &1558141165
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -557,3 +826,47 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &860545615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594360953368868664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f18fd02f2e17c4aac4c79ca02cf2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSoundsObject: {fileID: 0}
+  buttonPressClip: {fileID: 8300000, guid: dfaad0b956a96134185f69545dc0901d, type: 3}
+  resumeGameButton: {fileID: 0}
+  quitGameButton: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  cinemachineFL: {fileID: 0}
+  playerObject: {fileID: 7594360953368868664}
+  menuMusic: {fileID: 0}
+  menuMusicClip: {fileID: 8300000, guid: 6e73bbc35429b3f41b004381b9bbe093, type: 3}
+--- !u!114 &860545629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594360953368868664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71129278caf37e847a3c713bd3046cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSoundsObject: {fileID: 0}
+  buttonPressClip: {fileID: 8300000, guid: dfaad0b956a96134185f69545dc0901d, type: 3}
+  restartGameButton: {fileID: 0}
+  quitGameButton: {fileID: 0}
+  cinemachineFL: {fileID: 0}
+  playerObject: {fileID: 7594360953368868664}
+  pauseMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  winMenu: {fileID: 0}
+  menuMusic: {fileID: 0}
+  menuMusicClip: {fileID: 8300000, guid: 6e73bbc35429b3f41b004381b9bbe093, type: 3}
