@@ -61,7 +61,7 @@ public class GameOverController : MonoBehaviour
         StartCoroutine(SoundBeforeSceneChange("MainMenu"));
     }
     public void RestartGame(){
-        StartCoroutine(SoundBeforeSceneChange("PuzzleDesign"));
+        StartCoroutine(SoundBeforeSceneChange("Restart"));
 
     }
 
@@ -96,11 +96,31 @@ public class GameOverController : MonoBehaviour
     }
 
     private IEnumerator SoundBeforeSceneChange(string scene){
+    if(scene == "Restart"){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        yield return new WaitForSecondsRealtime(0.3f);
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
+        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
+    }
+
+    if(_win == true && scene != "MainMenu"){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        yield return new WaitForSecondsRealtime(0.3f);
+        SceneManager.LoadScene("HUBLevel");
+        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
+        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed; 
+    }
+    else{
         menuSoundsObject.mute = false;
         menuSoundsObject.Play();
         yield return new WaitForSecondsRealtime(0.3f);
         SceneManager.LoadScene(scene);
         cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
-        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
+        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;  
+    }
 }
 }
