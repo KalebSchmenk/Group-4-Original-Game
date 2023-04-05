@@ -127,6 +127,7 @@ public class PauseMenuController : MonoBehaviour
 
     private IEnumerator SoundBeforeMainMenu()
     {
+        Time.timeScale = 1;
         menuSoundsObject.mute = false;
         menuSoundsObject.Play();
         yield return new WaitForSecondsRealtime(0.3f);
