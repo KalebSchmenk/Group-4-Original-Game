@@ -60,8 +60,6 @@ public class FireballSpell : MonoBehaviour
         {
             _anim.SetTrigger("Spell");
 
-            _fireballCooldown = true;
-
             var fireball = Instantiate(_testFireballPrefab, _spellCastLocation.position, Quaternion.identity);
 
             FireballController tempFireballControl = fireball.GetComponent<FireballController>();
@@ -77,6 +75,8 @@ public class FireballSpell : MonoBehaviour
 
     private IEnumerator FireballCooldown()
     {
+        _fireballCooldown = true;
+
         yield return new WaitForSeconds(_cooldownTime);
 
         _fireballCooldown = false;
