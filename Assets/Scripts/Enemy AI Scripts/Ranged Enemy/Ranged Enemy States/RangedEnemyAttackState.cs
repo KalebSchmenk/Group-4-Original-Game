@@ -18,8 +18,15 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private float _proximityRange = 35f;
 
+    private Animator _anim;
 
 
+
+    void Start()
+    {
+        _anim = GetComponent<RangedEnemyController>()._anim;
+    }
+    
     public override void EnterState(RangedEnemyController rangedEnemy)
     {
         this._rangedEnemyScript = rangedEnemy;
@@ -60,6 +67,8 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private void CastSpellAttack()
     {
+        _anim.SetTrigger("Spell");
+
         StartCoroutine(AttackCooldown());
 
         int randomNumber = Random.Range(1, 10);

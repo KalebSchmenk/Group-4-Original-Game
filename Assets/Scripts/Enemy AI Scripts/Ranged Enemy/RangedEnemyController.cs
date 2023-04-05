@@ -10,6 +10,8 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     [System.NonSerialized] public GameObject _player;
     private PlayerController _playerScript;
 
+    public Animator _anim;
+
     private int _health = 5;
     public int health { get { return _health; } set { _health = value; } }
 
