@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectibleController : MonoBehaviour
 {
+    [SerializeField] AudioClip _pickupSound;
+
     private enum CollectibleObject
     {
         Mushroom,
@@ -35,6 +37,9 @@ public class CollectibleController : MonoBehaviour
         {
             InventoryController._pebbleCount += 1;
         }
+
+        other.gameObject.GetComponent<AudioSource>().Play();
+
         Destroy(this.gameObject);
     }
 }

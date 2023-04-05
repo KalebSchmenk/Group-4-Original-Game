@@ -195,8 +195,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lightningStrikeLocation: {fileID: 4990698118063304081}
   _spellCastLocation: {fileID: 21798055}
-  _fireballPrefab: {fileID: 518538449813554679, guid: 322e28516882a2344b1be183bf4946f3, type: 3}
+  _fireballPrefab: {fileID: 8814712884016201762, guid: 220ce421457abc94d84e569b0e11468b, type: 3}
   _lightningStrikePrefab: {fileID: 3712611845727404085, guid: 23109479cc341054d973dde084952116, type: 3}
+  _enemySpottedObject: {fileID: 0}
+  _enemySpottedClip: {fileID: 0}
   currentState: {fileID: 0}
 --- !u!1 &8173069053034636727
 GameObject:

@@ -27,11 +27,14 @@ public class PlayerController : MonoBehaviour
     private float currentHealth;
     float normSize;
     bool isInvincible;
+    bool isJumping = false;
     
     public Animator _anim;
 
     private List<MonoBehaviour> _listOfCombatSpells = new List<MonoBehaviour>();
     private ManipulatableObjectController _telekensisSpellContainer;
+
+    [SerializeField] bool _isHubLevel = false;
 
     [Header("Player Info")]
     [SerializeField] float invincibilityFramesDuration = 1.5f;
@@ -94,16 +97,12 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
     }
-    private void OnGUI()
-    {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
-    }
+
 
     void Update()
     {
         // Switches spell from combat to telekenesis and back again
-        if (changeSpellSelection.triggered)
+        if (changeSpellSelection.triggered && _isHubLevel == false)
         {
             if (_telekensisSpellContainer.enabled == true)
             {
@@ -127,19 +126,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // DELETE ON MAIN BUILD! REPLACE WITH PAUSE MENU!
-            if (Keyboard.current[Key.Escape].isPressed)
-        {
-            Application.Quit();
-            //Debug.Log("GAME QUIT");
-        }
-
 
         //Walking Stuff
         moveInput = move.ReadValue<Vector2>();
         moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
+
 
         if (moveInput.y > 0)
         {
@@ -204,9 +197,9 @@ public class PlayerController : MonoBehaviour
             impactTimer -= Time.deltaTime;
         }
 
-        if(jump.triggered){
+        if(jump.triggered && !isJumping){
             if(impactTimer > 0){
-                
+
                 _anim.SetTrigger("Jump");
                 StartCoroutine(JumpDelay());
 
@@ -238,7 +231,6 @@ public class PlayerController : MonoBehaviour
             //currentHeath = maxHealth;
         }
 
-        //Debug.Log("Current HP: " +currentHeath +"/" + maxHealth);
         
         if(moving.x != 0){
             _isMoving = true;
@@ -256,11 +248,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
-    {
-        //controller.Move(moveDirection.normalized * Time.deltaTime * playerSpeed);
-        
-    }
 
     private void OnEnable()
     {
@@ -305,7 +292,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.CompareTag("LightningStrike"))
             {
                 if(isInvincible == false){
-                    currentHealth -= 50;
+                    currentHealth -= 30;
                     //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
                     playerHurtObject.clip = playerHurtClip;
                     playerHurtObject.Play();
@@ -333,7 +320,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isInvincible == false)
             {
-                currentHealth -= 30;
+                currentHealth -= 15;
                 playerHurtObject.clip = playerHurtClip;
                 playerHurtObject.Play();
                 StartCoroutine(InvincibilityFrames());
@@ -384,8 +371,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator JumpDelay()
     {
+        isJumping = true;
+
         yield return new WaitForSeconds(0.5f);
 
+        isJumping = false;
         impactTimer = 0;
         jumpSoundObject.clip = jumpSoundClip;
         jumpSoundObject.Play();

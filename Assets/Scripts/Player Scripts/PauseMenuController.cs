@@ -57,7 +57,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void OnDisable() 
     {
-        pause.Disable();
+         if (pause != null) pause.Disable();
     
     }
 
@@ -88,6 +88,8 @@ public class PauseMenuController : MonoBehaviour
             foreach (AudioSource a in audioSources){
                 a.mute = true;
             }
+
+            Debug.Log("Setting active");
             pauseMenu.SetActive(true);
             menuMusic.mute = false;
             menuMusic.Play();

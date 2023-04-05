@@ -40,10 +40,7 @@ private IEnumerator SoundBeforeSceneChange(string scene){
     menuSounds.Play();
     yield return new WaitForSecondsRealtime(0.3f);
     if(scene == "quit"){
-        Application.Quit();
-        //!!!! Remove before building the game!!!!
-        UnityEditor.EditorApplication.isPlaying = false;
-        //!!!!      
+        Application.Quit();   
     }
     else{
         SceneManager.LoadScene(scene);
