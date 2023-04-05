@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
     private float impactTimer;
     private float jumpSpeed;
-    private float currentHeath;
+    private float currentHealth;
     float normSize;
     bool isInvincible;
 
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
-        currentHeath = maxHealth;
+        currentHealth = maxHealth;
         normSize = healthMask.rectTransform.rect.width;
         Cursor.visible = false;
 
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
                     script.enabled = true;
                 }
 
-                spellActive.text = "Combat";
+                spellActive.text = "Active Spell Type: Combat";
                 _telekensisSpellContainer.enabled = false;
             }
             else
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
                     script.enabled = false;
                 }
 
-                spellActive.text = "Telekenesis";
+                spellActive.text = "Active Spell Type: Telekinesis ";
                 _telekensisSpellContainer.enabled = true;
             }
         }
@@ -204,9 +204,9 @@ public class PlayerController : MonoBehaviour
 
 
         //Updates Health UI element
-        HealthVisual(currentHeath/maxHealth);
+        HealthVisual(currentHealth/maxHealth);
 
-        if(currentHeath <= 0){
+        if(currentHealth <= 0){
             _gameOver = true;
             //transform.position = CheckpointManager._currentCheckpoint.position;
             //currentHeath = maxHealth;
@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.CompareTag("DamageCollider"))
             {
                 if(isInvincible == false){
-                    currentHeath -= 10;
+                    currentHealth -= 10;
                     //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
                     playerHurtObject.clip = playerHurtClip;
                     playerHurtObject.Play();
@@ -279,7 +279,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.CompareTag("LightningStrike"))
             {
                 if(isInvincible == false){
-                    currentHeath -= 50;
+                    currentHealth -= 50;
                     //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
                     playerHurtObject.clip = playerHurtClip;
                     playerHurtObject.Play();
@@ -290,7 +290,7 @@ public class PlayerController : MonoBehaviour
         }
         //REMOVE
         if(other.gameObject.CompareTag("InstaKill")){
-            currentHeath = 0;
+            currentHealth = 0;
         }
 
         if(other.gameObject.CompareTag("Win")){
@@ -307,7 +307,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isInvincible == false)
             {
-                currentHeath -= 30;
+                currentHealth -= 30;
                 playerHurtObject.clip = playerHurtClip;
                 playerHurtObject.Play();
                 StartCoroutine(InvincibilityFrames());
@@ -344,5 +344,15 @@ public class PlayerController : MonoBehaviour
     }
     
 
-    
+    public void Heal()
+    {
+        currentHealth += 45;
+
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+
+    public float GetHealth()
+    {
+        return currentHealth;
+    }
 }
