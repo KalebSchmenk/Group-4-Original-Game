@@ -8,6 +8,8 @@ public class PlayerGuardSpell : MonoBehaviour
     public PlayerInputActions _playerInput;
     private InputAction _guard;
 
+    private Animator _anim;
+
     [SerializeField] GameObject _guardSphere;
 
     [SerializeField] private float _cooldownTime = 2.5f;
@@ -17,6 +19,8 @@ public class PlayerGuardSpell : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInputActions();
+
+        _anim = GetComponent<PlayerController>()._anim;
     }
 
     private void OnEnable()
@@ -41,6 +45,8 @@ public class PlayerGuardSpell : MonoBehaviour
 
     private void GuardSphere()
     {
+        _anim.SetTrigger("Spell");
+        
         Vector3 upPos = this.transform.position;
         upPos.y += 0.5f;
 

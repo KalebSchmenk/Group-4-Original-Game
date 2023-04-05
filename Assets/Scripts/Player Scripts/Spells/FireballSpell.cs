@@ -15,6 +15,8 @@ public class FireballSpell : MonoBehaviour
 
     private Camera _mainCam;
 
+    private Animator _anim;
+
     private bool _fireballCooldown = false;
     [Header("Player Sounds")]
     [SerializeField] AudioSource playerFireBallCastObject;
@@ -23,6 +25,8 @@ public class FireballSpell : MonoBehaviour
     void Start()
     {
         _mainCam = Camera.main;
+
+        _anim = GetComponent<PlayerController>()._anim;
     }
     private void Awake()
     {
@@ -54,6 +58,8 @@ public class FireballSpell : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            _anim.SetTrigger("Spell");
+
             _fireballCooldown = true;
 
             var fireball = Instantiate(_testFireballPrefab, _spellCastLocation.position, Quaternion.identity);

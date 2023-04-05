@@ -10,6 +10,8 @@ public class LightningStrike : MonoBehaviour
     public PlayerInputActions _playerInput;
     private InputAction _lightningStrike;
 
+    private Animator _anim;
+
     [SerializeField] GameObject _lightningStrikePrefab;
     [SerializeField] float _cooldownTime = 2.5f;
     private Camera _mainCam;
@@ -26,7 +28,9 @@ public class LightningStrike : MonoBehaviour
 
     void Start()
     {
-        _mainCam = Camera.main;    
+        _mainCam = Camera.main;
+
+        _anim = GetComponent<PlayerController>()._anim;
     }
     private void Awake()
     {
@@ -58,6 +62,8 @@ public class LightningStrike : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50))
         {
+            _anim.SetTrigger("Spell");
+
             var spawnLightningAt = hit.point;
             var randomRot = new Vector3(0, Random.Range(0, 360), 0);
 

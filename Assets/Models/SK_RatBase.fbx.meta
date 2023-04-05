@@ -1,32 +1,38 @@
 fileFormatVersion: 2
-guid: fc4a3f7ead360c8468613ccf076fa3d2
+guid: 35940558a09f40c4b91053c7592ecfee
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 2742125034596080473
-    second: Armature|A_Attack
+      74: 131851686251071675
+    second: RIG_RatBase|A_Attack
   - first:
-      74: 3823388770769988578
-    second: Armature|A_Idle
+      74: -4709501966675454853
+    second: RIG_RatBase|A_Idle
   - first:
-      74: -5303496511421561409
-    second: Armature|A_Jump_Air
+      74: -8545395799520733154
+    second: RIG_RatBase|A_Jump_Air
   - first:
-      74: 2339347708064574752
-    second: Armature|A_Jump_Fall
+      74: 6739075471157957581
+    second: RIG_RatBase|A_Jump_Fall
   - first:
-      74: 4021168280660058115
-    second: Armature|A_Jump_Up
+      74: 8369112548894544527
+    second: RIG_RatBase|A_Jump_Up
   - first:
-      74: -1784456052013330943
-    second: Armature|A_Run_Back
+      74: 7011833282153680513
+    second: RIG_RatBase|A_Run_Back
   - first:
-      74: -3606067947878572244
-    second: Armature|A_Run_Front
+      74: 3811850151445372898
+    second: RIG_RatBase|A_Run_Front
   - first:
-      74: -7391303594592620913
-    second: Armature|A_Spell
+      74: 4831171842499177238
+    second: RIG_RatBase|A_Run_Side
+  - first:
+      74: -1966393840959518597
+    second: RIG_RatBase|A_Spell
+  - first:
+      74: -1670472244712018303
+    second: RIG_Sword|A_Jump_Up
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -47,7 +53,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

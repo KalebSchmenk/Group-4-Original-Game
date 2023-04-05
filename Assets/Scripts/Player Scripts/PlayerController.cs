@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
     private float currentHealth;
     float normSize;
     bool isInvincible;
+    
+    public Animator _anim;
 
     private List<MonoBehaviour> _listOfCombatSpells = new List<MonoBehaviour>();
     private ManipulatableObjectController _telekensisSpellContainer;
-
 
     [Header("Player Info")]
     [SerializeField] float invincibilityFramesDuration = 1.5f;
@@ -140,6 +141,34 @@ public class PlayerController : MonoBehaviour
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
 
+        if (moveInput.y > 0)
+        {
+            _anim.SetBool("WalkFront", true);
+        }
+        else if (moveInput.y < 0)
+        {
+            _anim.SetBool("WalkBack", true);
+        }
+        else
+        {
+            _anim.SetBool("WalkFront", false);
+            _anim.SetBool("WalkBack", false);
+        }
+
+        if (moveInput.x > 0)
+        {
+            _anim.SetBool("WalkRight", true);
+        }
+        else if (moveInput.x < 0)
+        {
+            _anim.SetBool("WalkLeft", true);
+        }
+        else
+        {
+            _anim.SetBool("WalkRight", false);
+            _anim.SetBool("WalkLeft", false);
+        }
+
         if (!_onPlatform)
         {
             if (onGround == true && verticalVelocity < 0)
@@ -177,12 +206,9 @@ public class PlayerController : MonoBehaviour
 
         if(jump.triggered){
             if(impactTimer > 0){
-                impactTimer = 0;
-                jumpSoundObject.clip = jumpSoundClip;
-                jumpSoundObject.Play();
-                playLandingSound = true;
-                verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
                 
+                _anim.SetTrigger("Jump");
+                StartCoroutine(JumpDelay());
 
             }
         }
@@ -354,5 +380,16 @@ public class PlayerController : MonoBehaviour
     public float GetHealth()
     {
         return currentHealth;
+    }
+
+    private IEnumerator JumpDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        impactTimer = 0;
+        jumpSoundObject.clip = jumpSoundClip;
+        jumpSoundObject.Play();
+        playLandingSound = true;
+        verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
     }
 }

@@ -10,6 +10,8 @@ public class ManipulatableObjectController : MonoBehaviour
     private InputAction _push;
     private InputAction _pull;
 
+    private Animator _anim;
+
     [SerializeField] private float _pullSpellCooldown = 2.5f;
     [SerializeField] private float _pushSpellCooldown = 2.5f;
     [SerializeField] private float _levitateSpellCooldown = 2.5f;
@@ -38,6 +40,8 @@ public class ManipulatableObjectController : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInputActions();
+
+        _anim = GetComponent<PlayerController>()._anim;
     }
 
     private void OnEnable()
@@ -141,6 +145,8 @@ public class ManipulatableObjectController : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("CanManipulate"))
             {
+                _anim.SetTrigger("Spell");
+
                 return hit.transform.gameObject;
             }
             else

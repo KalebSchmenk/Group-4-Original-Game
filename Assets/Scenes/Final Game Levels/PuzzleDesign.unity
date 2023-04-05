@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -635,11 +635,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &58272551 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 660452233, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-  m_PrefabInstance: {fileID: 1562372634}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &64945598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,7 +2915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545615}
+      - m_Target: {fileID: 1851066453}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: HowToPlay
         m_Mode: 1
@@ -3342,7 +3337,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345494628}
-  m_LocalRotation: {x: 0.10802142, y: -0.000000011314356, z: 0.0000000012293865, w: 0.9941486}
+  m_LocalRotation: {x: 0.10802142, y: 0.000000011314359, z: -0.0000000012293868, w: 0.9941486}
   m_LocalPosition: {x: 427.6, y: 22.78, z: 261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4083,8 +4078,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 58272551}
-  m_Follow: {fileID: 58272551}
+  m_LookAt: {fileID: 2051168659}
+  m_Follow: {fileID: 2051168659}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 60.54
@@ -6733,7 +6728,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545615}
+      - m_Target: {fileID: 1851066453}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -7392,7 +7387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545629}
+      - m_Target: {fileID: 1851066439}
         m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -8425,28 +8420,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9fed17f46f04bc40b2fe3ada52390b5, type: 3}
---- !u!114 &860545615 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-  m_PrefabInstance: {fileID: 1562372634}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65f18fd02f2e17c4aac4c79ca02cf2fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &860545629 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-  m_PrefabInstance: {fileID: 1562372634}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71129278caf37e847a3c713bd3046cf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &864402112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8662,7 +8635,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545615}
+      - m_Target: {fileID: 1851066453}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: BackButton
         m_Mode: 1
@@ -11411,7 +11384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206620032}
-  m_LocalRotation: {x: 0.13695033, y: 0.00000000852213, z: -0.0000000011782096, w: 0.99057794}
+  m_LocalRotation: {x: 0.13695033, y: -0.0000000085221314, z: 0.0000000011782099, w: 0.99057794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14627,7 +14600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545615}
+      - m_Target: {fileID: 1851066453}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -15410,183 +15383,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3eb24b1844101d442a3c8a9efecdae7f, type: 3}
---- !u!1001 &1562372634
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: menuMusic
-      value: 
-      objectReference: {fileID: 2067166759}
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 899222190}
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: cinemachineFL
-      value: 
-      objectReference: {fileID: 431682306}
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: howToPlayMenu
-      value: 
-      objectReference: {fileID: 442563300}
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: quitGameButton
-      value: 
-      objectReference: {fileID: 1483663973}
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: menuSoundsObject
-      value: 
-      objectReference: {fileID: 1878748694}
-    - target: {fileID: 860545615, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: resumeGameButton
-      value: 
-      objectReference: {fileID: 2142729302}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: winMenu
-      value: 
-      objectReference: {fileID: 380574144}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: menuMusic
-      value: 
-      objectReference: {fileID: 2067166759}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: gameOverMenu
-      value: 
-      objectReference: {fileID: 1173169041}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: cinemachineFL
-      value: 
-      objectReference: {fileID: 431682306}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: quitGameButton
-      value: 
-      objectReference: {fileID: 2051502516}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: menuSoundsObject
-      value: 
-      objectReference: {fileID: 1878748694}
-    - target: {fileID: 860545629, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: restartGameButton
-      value: 
-      objectReference: {fileID: 1878429091}
-    - target: {fileID: 925323514, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: _canCraftHealth
-      value: 
-      objectReference: {fileID: 411510059}
-    - target: {fileID: 925323514, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: _canNotCraftHealth
-      value: 
-      objectReference: {fileID: 1490447683}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: winMenu
-      value: 
-      objectReference: {fileID: 380574144}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: jumpForce
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: healthMask
-      value: 
-      objectReference: {fileID: 79887702}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: spellActive
-      value: 
-      objectReference: {fileID: 669862822}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: gameOverMenu
-      value: 
-      objectReference: {fileID: 1173169041}
-    - target: {fileID: 1589289158, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerHurtObject
-      value: 
-      objectReference: {fileID: 15959766}
-    - target: {fileID: 6137025278929678474, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerMeleeObject
-      value: 
-      objectReference: {fileID: 764057631}
-    - target: {fileID: 6865484055918532034, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerPullCastObject
-      value: 
-      objectReference: {fileID: 477599965}
-    - target: {fileID: 6865484055918532034, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerPushCastObject
-      value: 
-      objectReference: {fileID: 44048882}
-    - target: {fileID: 6865484055918532034, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerLevitateCastObject
-      value: 
-      objectReference: {fileID: 2130141506}
-    - target: {fileID: 7594360953368868656, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerLightningCastObject
-      value: 
-      objectReference: {fileID: 1302239592}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 425.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 20.288
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 265.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868661, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7594360953368868664, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099579940388367207, guid: 7523142372d245c4497006bdacff3e49, type: 3}
-      propertyPath: playerFireBallCastObject
-      value: 
-      objectReference: {fileID: 1702925502}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7523142372d245c4497006bdacff3e49, type: 3}
 --- !u!1 &1576789101
 GameObject:
   m_ObjectHideFlags: 0
@@ -17627,6 +17423,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844544886}
   m_CullTransparentMesh: 1
+--- !u!114 &1851066439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+  m_PrefabInstance: {fileID: 131004758853143428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71129278caf37e847a3c713bd3046cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1851066453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+  m_PrefabInstance: {fileID: 131004758853143428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f18fd02f2e17c4aac4c79ca02cf2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878429089
 GameObject:
   m_ObjectHideFlags: 0
@@ -17711,7 +17529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545629}
+      - m_Target: {fileID: 1851066439}
         m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -19400,6 +19218,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046013541}
   m_CullTransparentMesh: 1
+--- !u!4 &2051168659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 131004758144160279, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+  m_PrefabInstance: {fileID: 131004758853143428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2051502514
 GameObject:
   m_ObjectHideFlags: 0
@@ -19484,7 +19307,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545615}
+      - m_Target: {fileID: 1851066453}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -19776,7 +19599,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079321384}
-  m_LocalRotation: {x: 0.108021416, y: -0.000000008552848, z: 9.293287e-10, w: 0.9941486}
+  m_LocalRotation: {x: 0.108021416, y: 0.000000008552852, z: -9.293291e-10, w: 0.9941486}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20723,7 +20546,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860545615}
+      - m_Target: {fileID: 1851066453}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -20793,6 +20616,175 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &131004758853143428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 131004758418485604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: _canCraftHealth
+      value: 
+      objectReference: {fileID: 411510059}
+    - target: {fileID: 131004758418485604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: _canNotCraftHealth
+      value: 
+      objectReference: {fileID: 1490447683}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: winMenu
+      value: 
+      objectReference: {fileID: 380574144}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: menuMusic
+      value: 
+      objectReference: {fileID: 2067166759}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 1173169041}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: cinemachineFL
+      value: 
+      objectReference: {fileID: 431682306}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: quitGameButton
+      value: 
+      objectReference: {fileID: 2051502516}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: menuSoundsObject
+      value: 
+      objectReference: {fileID: 1878748694}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: restartGameButton
+      value: 
+      objectReference: {fileID: 1878429091}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: menuMusic
+      value: 
+      objectReference: {fileID: 2067166759}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 899222190}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: cinemachineFL
+      value: 
+      objectReference: {fileID: 431682306}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: howToPlayMenu
+      value: 
+      objectReference: {fileID: 442563300}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: quitGameButton
+      value: 
+      objectReference: {fileID: 1483663973}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: menuSoundsObject
+      value: 
+      objectReference: {fileID: 1878748694}
+    - target: {fileID: 131004758478996433, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: resumeGameButton
+      value: 
+      objectReference: {fileID: 2142729302}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: winMenu
+      value: 
+      objectReference: {fileID: 380574144}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: healthMask
+      value: 
+      objectReference: {fileID: 79887702}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: spellActive
+      value: 
+      objectReference: {fileID: 669862822}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 1173169041}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerHurtObject
+      value: 
+      objectReference: {fileID: 15959766}
+    - target: {fileID: 6123342827624468756, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerMeleeObject
+      value: 
+      objectReference: {fileID: 764057631}
+    - target: {fileID: 6815764268796736604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerPullCastObject
+      value: 
+      objectReference: {fileID: 477599965}
+    - target: {fileID: 6815764268796736604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerPushCastObject
+      value: 
+      objectReference: {fileID: 44048882}
+    - target: {fileID: 6815764268796736604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerLevitateCastObject
+      value: 
+      objectReference: {fileID: 2130141506}
+    - target: {fileID: 7545212929607063206, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 425.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 265.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063211, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545212929607063214, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerLightningCastObject
+      value: 
+      objectReference: {fileID: 1302239592}
+    - target: {fileID: 8193755439150025465, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: _testFireballPrefab
+      value: 
+      objectReference: {fileID: 8814712884016201762, guid: 220ce421457abc94d84e569b0e11468b, type: 3}
+    - target: {fileID: 8193755439150025465, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerFireBallCastObject
+      value: 
+      objectReference: {fileID: 1702925502}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
 --- !u!1001 &586177366278589816
 PrefabInstance:
   m_ObjectHideFlags: 0

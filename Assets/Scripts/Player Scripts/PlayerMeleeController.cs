@@ -9,6 +9,8 @@ public class PlayerMeleeController : MonoBehaviour
     public PlayerInputActions _playerInput;
     private InputAction _melee;
 
+    private Animator _anim;
+
     private bool inMeleeCooldown = false;
 
     [SerializeField] private float _meleeCooldownTime = 1.0f;
@@ -24,6 +26,11 @@ public class PlayerMeleeController : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInputActions();
+    }
+
+    private void Start()
+    {
+        _anim = GetComponent<PlayerController>()._anim;
     }
 
     private void OnEnable()
@@ -47,6 +54,7 @@ public class PlayerMeleeController : MonoBehaviour
     private void Melee()
     {
         // Melee Anim
+        _anim.SetTrigger("Attack");
 
         Instantiate(_playerAttackSphere, _attackLocation.position, Quaternion.identity);
         playerMeleeObject.clip = playerMeleeClip;
