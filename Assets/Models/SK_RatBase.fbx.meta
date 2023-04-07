@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 35940558a09f40c4b91053c7592ecfee
+guid: 593ff0661d3b56342b3c95f6ff750b50
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -25,14 +25,14 @@ ModelImporter:
       74: 3811850151445372898
     second: RIG_RatBase|A_Run_Front
   - first:
-      74: 4831171842499177238
-    second: RIG_RatBase|A_Run_Side
+      74: -923996549944132012
+    second: RIG_RatBase|A_Run_Left
+  - first:
+      74: -8492164473232771705
+    second: RIG_RatBase|A_Run_Right
   - first:
       74: -1966393840959518597
     second: RIG_RatBase|A_Spell
-  - first:
-      74: -1670472244712018303
-    second: RIG_Sword|A_Jump_Up
   externalObjects: {}
   materials:
     materialImportMode: 2

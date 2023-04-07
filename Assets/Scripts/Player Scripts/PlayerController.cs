@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private InputAction jump;
     private InputAction pause;
     private InputAction changeSpellSelection;
-    Vector3 moveInput;
+    public Vector3 moveInput;
     Vector3 moveDirection;
     Rigidbody rb;
     private CharacterController controller;
@@ -133,34 +133,8 @@ public class PlayerController : MonoBehaviour
         moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
         moveDirection.y = 0f;
 
-
-        if (moveInput.y > 0)
-        {
-            _anim.SetBool("WalkFront", true);
-        }
-        else if (moveInput.y < 0)
-        {
-            _anim.SetBool("WalkBack", true);
-        }
-        else
-        {
-            _anim.SetBool("WalkFront", false);
-            _anim.SetBool("WalkBack", false);
-        }
-
-        if (moveInput.x > 0)
-        {
-            _anim.SetBool("WalkRight", true);
-        }
-        else if (moveInput.x < 0)
-        {
-            _anim.SetBool("WalkLeft", true);
-        }
-        else
-        {
-            _anim.SetBool("WalkRight", false);
-            _anim.SetBool("WalkLeft", false);
-        }
+        _anim.SetFloat("Xaxis", moveInput.x, 0.1f, Time.deltaTime);
+        _anim.SetFloat("Yaxis", moveInput.y, 0.1f, Time.deltaTime);
 
         if (!_onPlatform)
         {

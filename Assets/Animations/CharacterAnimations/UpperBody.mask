@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: CH_RatBase
+    m_Weight: 0
+  - m_Path: RIG_RatBase
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/legIKSupport_01_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/legIKSupport_01_L/legIKSupport_01_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/legIKSupport_02_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/legIKSupport_02_L/legPole_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/legIKSupport_02_L/legPole_L/legPole_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/big_toe_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/big_toe_L/big_toe_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/index_toe_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/index_toe_L/index_toe_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/middlle_toe_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/middlle_toe_L/middlle_toe_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/pinky_toe_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_L/upper_leg_L/lower_leg_L/foot_L/pinky_toe_L/pinky_toe_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/legIKSupport_01_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/legIKSupport_01_R/legIKSupport_01_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/legIKSupport_02_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/legIKSupport_02_R/legPole_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/legIKSupport_02_R/legPole_R/legPole_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/big_toe_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/big_toe_R/big_toe_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/index_toe_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/index_toe_R/index_toe_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/middlle_toe_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/middlle_toe_R/middlle_toe_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/pinky_toe_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/hip_R/upper_leg_R/lower_leg_R/foot_R/pinky_toe_R/pinky_toe_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/legIK_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/legIK_L/legIKSupport_03_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/legIK_L/legIKSupport_03_L/legIKSupport_03_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/legIK_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/legIK_R/legIKSupport_03_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/legIK_R/legIKSupport_03_R/legIKSupport_03_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/armIK_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/armIK_L/amrIKSupport_03_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/armIK_L/amrIKSupport_03_L/amrIKSupport_03_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/armIK_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/armIK_R/amrIKSupport_03_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/armIK_R/amrIKSupport_03_R/amrIKSupport_03_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/neck
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/neck/head
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/neck/head/ear_L
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/neck/head/ear_L/ear_L_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/neck/head/ear_R
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/neck/head/ear_R/ear_R_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/amrIKSupport_01_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/amrIKSupport_01_L/amrIKSupport_01_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/amrIKSupport_02_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/amrIKSupport_02_L/armPole_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/amrIKSupport_02_L/armPole_L/armPole_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/index_finger_01_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/index_finger_01_L/index_finger_02_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/index_finger_01_L/index_finger_02_L/index_finger_03_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/index_finger_01_L/index_finger_02_L/index_finger_03_L/index_finger_03_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/middle_finger_01_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/middle_finger_01_L/middle_finger_02_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/middle_finger_01_L/middle_finger_02_L/middle_finger_03_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/middle_finger_01_L/middle_finger_02_L/middle_finger_03_L/middle_finger_03_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/pinky_finger_01_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/pinky_finger_01_L/pinky_finger_02_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/pinky_finger_01_L/pinky_finger_02_L/pinky_finger_03_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/pinky_finger_01_L/pinky_finger_02_L/pinky_finger_03_L/pinky_finger_03_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/thumb_01_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/thumb_01_L/thumb_02_L
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_L/upper_arm_L/lower_arm_L/hand_L/thumb_01_L/thumb_02_L/thumb_02_L_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/amrIKSupport_01_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/amrIKSupport_01_R/amrIKSupport_01_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/amrIKSupport_02_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/amrIKSupport_02_R/armPole_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/amrIKSupport_02_R/armPole_R/armPole_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/index_finger_01_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/index_finger_01_R/index_finger_02_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/index_finger_01_R/index_finger_02_R/index_finger_03_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/index_finger_01_R/index_finger_02_R/index_finger_03_R/index_finger_03_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/middle_finger_01_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/middle_finger_01_R/middle_finger_02_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/middle_finger_01_R/middle_finger_02_R/middle_finger_03_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/middle_finger_01_R/middle_finger_02_R/middle_finger_03_R/middle_finger_03_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/pinky_finger_01_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/pinky_finger_01_R/pinky_finger_02_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/pinky_finger_01_R/pinky_finger_02_R/pinky_finger_03_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/pinky_finger_01_R/pinky_finger_02_R/pinky_finger_03_R/pinky_finger_03_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/thumb_01_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/thumb_01_R/thumb_02_R
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/spine/shoulder_R/upper_arm_R/lower_arm_R/hand_R/thumb_01_R/thumb_02_R/thumb_02_R_end
+    m_Weight: 1
+  - m_Path: RIG_RatBase/spine_base/tail_01
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03/tail_03.001
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03/tail_03.001/tail_04
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03/tail_03.001/tail_04/tail_04.001
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03/tail_03.001/tail_04/tail_04.001/tail_05
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03/tail_03.001/tail_04/tail_04.001/tail_05/tail_05.001
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tail_01/tail_01.001/tail_02/tail_02.001/tail_03/tail_03.001/tail_04/tail_04.001/tail_05/tail_05.001/tail_05.001_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tailIK
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tailIK/tailIK_end
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tailPole
+    m_Weight: 0
+  - m_Path: RIG_RatBase/spine_base/tailPole/tailPole_end
+    m_Weight: 0
+  - m_Path: RIG_Sword
+    m_Weight: 0
+  - m_Path: RIG_Sword/lower_arm_R.001
+    m_Weight: 0
+  - m_Path: RIG_Sword/lower_arm_R.001/lower_arm_R.001_end
+    m_Weight: 0
+  - m_Path: RIG_Sword/lower_arm_R.001/sword
+    m_Weight: 0
