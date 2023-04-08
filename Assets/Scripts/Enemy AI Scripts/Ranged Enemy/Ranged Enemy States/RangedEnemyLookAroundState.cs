@@ -17,7 +17,7 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
     private bool _lookingAround = true;
     private bool _canSeePlayer = false;
 
-    private float _proximityRange = 35f;
+    private float _proximityRange = 70f;
 
 
     public override void EnterState(RangedEnemyController rangedEnemy)
@@ -80,7 +80,7 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
             var rayOrigin = _rangedEnemyScript.gameObject.transform.position;
             var rayTarget = _player.transform.position - _rangedEnemyScript.gameObject.transform.position;
             rayOrigin.y += 2f;
-            rayTarget.y -= 2;
+            rayTarget.y -= 1;
 
             if (Physics.Raycast(rayOrigin, rayTarget, out hit, _proximityRange))
             {

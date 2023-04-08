@@ -167,6 +167,7 @@ MonoBehaviour:
   _damageOutput: 5
   _destroyIn: 0.5
   _lightningSoundPrefab: {fileID: 7519050577918950359, guid: 0bc108359061e2448818c0442f843a3c, type: 3}
+  _explosionEffect: {fileID: 8952452826154758573, guid: f69461407e81bc94f89fdd44ff2103c2, type: 3}
 --- !u!114 &1862210076
 MonoBehaviour:
   m_ObjectHideFlags: 0

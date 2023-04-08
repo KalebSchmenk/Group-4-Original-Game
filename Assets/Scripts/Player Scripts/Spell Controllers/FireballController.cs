@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FireballController : MonoBehaviour
 {
-    [SerializeField] private int _damageOutput = 3;
+    [SerializeField] private GameObject _fireballExplosion;
+
     [SerializeField] float _fireballSpeed = 750f;
     
     [SerializeField] Rigidbody rb;
@@ -26,12 +27,7 @@ public class FireballController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            EnemyHealthInterface script = collision.transform.gameObject.GetComponent<EnemyHealthInterface>();
-
-            if (script != null) script.TakeDamage(_damageOutput);
-        }
+        Instantiate(_fireballExplosion, this.transform.position, Quaternion.identity);
 
         impactPosition = transform.position;
         Instantiate(_fireballImpactSound, impactPosition, Quaternion.identity);

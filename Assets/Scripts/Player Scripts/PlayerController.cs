@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
     {
         // Implement different damage values for each type of incoming damage. Damage collider is melee damage and should do least damage,
         // fireball damage is from a fireball and should do midrange damage, and lightning strike damage is from a lightning strike and should do a decent amount of damage
-        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("LightningStrike"))
+        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("LightningStrike") || other.gameObject.CompareTag("Fireball"))
         {
             //Debug.Log("Took damage!");
             if(other.gameObject.CompareTag("DamageCollider"))
@@ -273,6 +273,16 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(InvincibilityFrames());
                 }
             }
+            if (other.gameObject.CompareTag("Fireball"))
+            {
+                if (isInvincible == false)
+                {
+                    currentHealth -= 15;
+                    playerHurtObject.clip = playerHurtClip;
+                    playerHurtObject.Play();
+                    StartCoroutine(InvincibilityFrames());
+                }
+            }
 
         }
         //REMOVE
@@ -286,21 +296,6 @@ public class PlayerController : MonoBehaviour
         //REMOVE
     }
 
-    // May eventually change firball to be a big trigger on explosion
-    // So this may go back in to trigger enter 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Fireball"))
-        {
-            if (isInvincible == false)
-            {
-                currentHealth -= 15;
-                playerHurtObject.clip = playerHurtClip;
-                playerHurtObject.Play();
-                StartCoroutine(InvincibilityFrames());
-            }
-        }
-    }
 
     //Controls health UI element
     public void HealthVisual(float amount){

@@ -16,7 +16,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     private bool _canSeePlayer = false;
 
-    private float _proximityRange = 35f;
+    private float _proximityRange = 70f;
 
     private Animator _anim;
 
@@ -115,7 +115,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
             var rayOrigin = _rangedEnemyScript.gameObject.transform.position;
             var rayTarget = _player.transform.position - _rangedEnemyScript.gameObject.transform.position;
             rayOrigin.y += 2f;
-            rayTarget.y -= 2;
+            rayTarget.y -= 1;
 
             if (Physics.Raycast(rayOrigin, rayTarget, out hit, _proximityRange))
             {
