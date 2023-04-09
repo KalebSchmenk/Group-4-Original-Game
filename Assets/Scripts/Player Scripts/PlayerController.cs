@@ -69,7 +69,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject winMenu;
-    [SerializeField] TMP_Text spellActive;
+
+    [Header("Spell Type Displays")]
+    [SerializeField] GameObject _combatDisplay;
+    [SerializeField] GameObject _telekinesisDisplay;
 
     private void Start()
     {
@@ -111,7 +114,8 @@ public class PlayerController : MonoBehaviour
                     script.enabled = true;
                 }
 
-                spellActive.text = "Active Spell Type: Combat";
+                _combatDisplay.SetActive(true);
+                _telekinesisDisplay.SetActive(false);
                 _telekensisSpellContainer.enabled = false;
             }
             else
@@ -121,7 +125,8 @@ public class PlayerController : MonoBehaviour
                     script.enabled = false;
                 }
 
-                spellActive.text = "Active Spell Type: Telekinesis ";
+                _telekinesisDisplay.SetActive(true);
+                _combatDisplay.SetActive(false);
                 _telekensisSpellContainer.enabled = true;
             }
         }

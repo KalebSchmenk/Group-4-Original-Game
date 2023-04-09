@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class InventoryController : MonoBehaviour
 {
@@ -16,11 +17,9 @@ public class InventoryController : MonoBehaviour
     public static int _leafCount = 0;
     public static int _pebbleCount = 0;
 
-    [Header("Objects to disable and enable")]
-    [SerializeField] GameObject _canCraftHealth;
-    [SerializeField] GameObject _canNotCraftHealth;
-    //[SerializeField] GameObject _canCraftGreanade;
-    //[SerializeField] GameObject _canNotCraftGreanade;
+    [Header("Health Objects")]
+    [SerializeField] TMP_Text _potionCountText;
+
 
 
     private void Awake()
@@ -47,43 +46,33 @@ public class InventoryController : MonoBehaviour
     void Update()
     {
         CheckForHealthPotion();
-
-        //CheckForGrenade();
     }
 
     private void CheckForHealthPotion()
     {
-        if (_mushroomCount >= 3 && _cherryCount >= 3)
+        if (_mushroomCount >= 1 && _cherryCount >= 1)
         {
-            _canCraftHealth.SetActive(true);
-            _canNotCraftHealth.SetActive(false);
-
             if (_craftHealth.triggered && _playerScript.GetHealth() != 100)
             {
                 _playerScript.Heal();
 
-                _mushroomCount -= 3;
-                _cherryCount -= 3;
+                _mushroomCount -= 1;
+                _cherryCount -= 1;
             }
         }
-        else
-        {
-            _canCraftHealth.SetActive(false);
-            _canNotCraftHealth.SetActive(true);
-        }
+
+        _potionCountText.text = "" + CountHealthPotions();
     }
 
-    /*private void CheckForGrenade()
+    private int CountHealthPotions()
     {
-        if (_leafCount >= 3 && _pebbleCount >= 3)
+        if (_mushroomCount < _cherryCount)
         {
-            _canCraftGreanade.SetActive(true);
-            _canNotCraftGreanade.SetActive(false);
+            return _mushroomCount / 1;
         }
         else
         {
-            _canCraftGreanade.SetActive(false);
-            _canNotCraftGreanade.SetActive(true);
+            return _cherryCount / 1;
         }
-    }*/
+    }
 }
