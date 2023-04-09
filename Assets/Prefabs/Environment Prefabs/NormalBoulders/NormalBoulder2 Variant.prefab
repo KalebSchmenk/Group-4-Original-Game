@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8784486471162194313, guid: cc88640d34ae99f42b6172c0790ba2bb, type: 3}
       propertyPath: m_Name
-      value: NormalBoulder1
+      value: NormalBoulder2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784486471162194313, guid: cc88640d34ae99f42b6172c0790ba2bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5698187979049223364, guid: cc88640d34ae99f42b6172c0790ba2bb, type: 3}

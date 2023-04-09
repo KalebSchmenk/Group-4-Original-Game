@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3740135553269310082, guid: 9ff2c48df8fdf7c41919063634042f6c, type: 3}
       propertyPath: m_Name
-      value: NormalBoulder1
+      value: NormalBoulder1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3740135553269310082, guid: 9ff2c48df8fdf7c41919063634042f6c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4083764120197625912, guid: 9ff2c48df8fdf7c41919063634042f6c, type: 3}
       propertyPath: m_RootOrder

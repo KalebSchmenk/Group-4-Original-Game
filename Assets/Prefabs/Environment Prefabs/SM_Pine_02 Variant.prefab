@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451832631979746722, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595827590423395302, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634921207709744953, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3736690059723149440, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,6 +66,14 @@ PrefabInstance:
     - target: {fileID: 4075954901211433530, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
       propertyPath: m_Name
       value: SM_Pine_02 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075954901211433530, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168974722644337512, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}

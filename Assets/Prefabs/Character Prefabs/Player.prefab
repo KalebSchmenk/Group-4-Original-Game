@@ -677,8 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5859c9857096ea4da7b8009afe6a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canCraftHealth: {fileID: 0}
-  _canNotCraftHealth: {fileID: 0}
+  _potionCountText: {fileID: 0}
 --- !u!114 &6123342827624468756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +776,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   gameOverMenu: {fileID: 0}
   winMenu: {fileID: 0}
-  spellActive: {fileID: 0}
+  _combatDisplay: {fileID: 0}
+  _telekinesisDisplay: {fileID: 0}
 --- !u!114 &131004758478996433
 MonoBehaviour:
   m_ObjectHideFlags: 0
