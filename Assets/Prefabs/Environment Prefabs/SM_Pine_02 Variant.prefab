@@ -75,6 +75,22 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8467185555825141745, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.30100003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467185555825141745, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467185555825141745, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467185555825141745, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
+      propertyPath: m_LODs.Array.data[3].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb181d5e5fbb72f44976d01c655768a6, type: 3}
 --- !u!1 &3031599550364035880 stripped
