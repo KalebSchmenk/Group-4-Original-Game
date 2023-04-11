@@ -40,7 +40,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     [SerializeField] private float _proxCheckWaitTime;
     [SerializeField] private float _navMeshAgentSprintSpeed = 5.0f;
     [SerializeField] private float _navMeshAgentJogSpeed = 4.0f;
-    [SerializeField] private float _alwaysSeeRadius = 6.5f;
+    [SerializeField] private float _alwaysSeeRadius = 10f;
     [SerializeField] private float _attackCooldown = 2.5f;
     private float _navMeshSpeed;
 
@@ -171,7 +171,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     {
         _navMeshAgent.enabled = false;
 
-        transform.LookAt(_player.transform.position);
+        RotateToPlayer();
 
         if (_inAttackCooldown) return;
 
@@ -191,6 +191,15 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             _navMeshAgent.enabled = true;
             _AIState = AIState.Chase;
         }
+    }
+    private void RotateToPlayer()
+    {
+        var lookPos = _player.transform.position - transform.position;
+        lookPos.y = 0;
+
+        var rotation = Quaternion.LookRotation(lookPos);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10.0f);
     }
 
     // Wanders to a random point
@@ -233,7 +242,9 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     // Guard Chases Player
     private void Chase()
     {
-        if(playSpottedSound == true){
+        RotateToPlayer();
+
+        if (playSpottedSound == true){
         EnemySpottedObject.clip = EnemyAttackClip;
         EnemyAttackObject.Play();
         playSpottedSound = false;
@@ -271,7 +282,12 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, _player.transform.position - transform.position, out hit, _proximityRange))
+        var rayOrigin = transform.position;
+        var rayTarget = _player.transform.position - transform.position;
+        rayOrigin.y += 2f;
+        rayTarget.y -= 1;
+
+        if (Physics.Raycast(rayOrigin, rayTarget, out hit, _proximityRange))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
             {
