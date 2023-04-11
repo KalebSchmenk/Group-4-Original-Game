@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Game Levels/HUBLevel.unity
     guid: f7da4010cac6b9e4a8ea8af3653fe71a
   - enabled: 1
+    path: Assets/Scenes/Final Game Levels/CombatLevel.unity
+    guid: 7aeb539f40c11ad4c8f6d528f881ea61
+  - enabled: 1
     path: Assets/Scenes/Final Game Levels/PuzzleDesign.unity
     guid: 75588ad51f14f1f4397a18ff9d0d79bb
   m_configObjects: {}

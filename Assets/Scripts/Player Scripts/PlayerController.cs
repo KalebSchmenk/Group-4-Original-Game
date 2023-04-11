@@ -205,9 +205,9 @@ public class PlayerController : MonoBehaviour
         HealthVisual(currentHealth/maxHealth);
 
         if(currentHealth <= 0){
-            _gameOver = true;
-            //transform.position = CheckpointManager._currentCheckpoint.position;
-            //currentHeath = maxHealth;
+            //_gameOver = true;
+            transform.position = CheckpointManager._currentCheckpoint.position;
+            currentHealth = maxHealth;
         }
 
         
