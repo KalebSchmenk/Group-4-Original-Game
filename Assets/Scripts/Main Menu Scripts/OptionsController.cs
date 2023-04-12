@@ -8,7 +8,7 @@ public class OptionsController : MonoBehaviour
     public static float _screenBrightness = 1;
     public static float _soundEffectsVolume = 0.5f;
     public static float _musicVolume = 0.5f;
-    public static float _sensitivityValue = 1;
+    public static float _sensitivityValue = 0.5f;
     [Header("Slider Objects")]
     [SerializeField] Slider brightnessSliderObject;
     [SerializeField] Slider sfxSliderObject;

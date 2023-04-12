@@ -256,6 +256,24 @@ public class PlayerController : MonoBehaviour
  
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("CanManipulate")) // Rock falling on player damage
+        {
+            Debug.Log(collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude);
+            if (collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 4.5f)
+            {
+                if (isInvincible == false)
+                {
+                    currentHealth -= 10;
+                    playerHurtObject.clip = playerHurtClip;
+                    playerHurtObject.Play();
+                    StartCoroutine(InvincibilityFrames());
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Implement different damage values for each type of incoming damage. Damage collider is melee damage and should do least damage,
