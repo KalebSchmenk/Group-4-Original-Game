@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject howtoplayObject;
     [SerializeField] AudioSource menuSounds;
     [SerializeField] AudioClip buttonPressClip;
+    [SerializeField] GameObject optionsObject;
     // Start is called before the first frame update
 
 private void Start() {
@@ -33,6 +34,7 @@ public void HowToPlay(){
 public void BackButton(){
     menuSounds.Play();
     howtoplayObject.SetActive(false);
+    optionsObject.SetActive(false);
     mainMenuObject.SetActive(true);
 }
 
@@ -45,6 +47,12 @@ private IEnumerator SoundBeforeSceneChange(string scene){
     else{
         SceneManager.LoadScene(scene);
     }
+}
+
+public void Options(){
+    menuSounds.Play();
+    mainMenuObject.SetActive(false);
+    optionsObject.SetActive(true);
 }
 
 }

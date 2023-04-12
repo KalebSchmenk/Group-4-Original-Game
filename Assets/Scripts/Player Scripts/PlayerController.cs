@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource playerHurtObject;
     [SerializeField] AudioClip playerHurtClip;
     [SerializeField] GameObject walkingSound;
+    [SerializeField] AudioSource walkingSoundObject;
+    [SerializeField] AudioClip walkingSoundClip;
     [SerializeField] AudioSource jumpSoundObject;
     [SerializeField] AudioClip jumpSoundClip;
     [SerializeField] AudioSource jumpLandObject;
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
 
         if (_telekensisSpellContainer != null) _telekensisSpellContainer.enabled = false;
         Time.timeScale = 1f;
+        walkingSoundObject.clip = walkingSoundClip;
 }
 
     void Awake()
@@ -220,9 +223,12 @@ public class PlayerController : MonoBehaviour
 
         if(onGround && _isMoving){
             walkingSound.SetActive(true);
+            //walkingSoundObject.Play();
+
         }
         else{
             walkingSound.SetActive(false);
+            //walkingSoundObject.Stop();
         }
 
     }

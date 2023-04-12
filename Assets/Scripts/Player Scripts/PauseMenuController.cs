@@ -31,6 +31,7 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioClip menuMusicClip;
     [SerializeField] GameObject howToPlayMenu;
+    [SerializeField] GameObject optionsMenu;
     
     
     
@@ -67,7 +68,7 @@ public class PauseMenuController : MonoBehaviour
         _win = playerScript._win;
             if(pause.triggered)
             {
-                if (pauseMenu.activeSelf == false && _gameOver == false && _win == false && howToPlayMenu.activeSelf == false){
+                if (pauseMenu.activeSelf == false && _gameOver == false && _win == false && howToPlayMenu.activeSelf == false && optionsMenu.activeSelf == false){
                 PauseGame();
             }
             else{
@@ -116,6 +117,7 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         howToPlayMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
         cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
     }
@@ -142,14 +144,27 @@ public class PauseMenuController : MonoBehaviour
         menuSoundsObject.Play();
         howToPlayMenu.SetActive(true);
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     public void BackButton(){
         menuSoundsObject.mute = false;
         menuSoundsObject.Play();
         howToPlayMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         pauseMenu.SetActive(true);
+        
 
+    }
+
+    public void OptionsMenu(){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        howToPlayMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+        
+        
     }
 
 

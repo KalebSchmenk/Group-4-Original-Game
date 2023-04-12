@@ -16,6 +16,8 @@ TagManager:
   - Pickup
   - InstaKill
   - Win
+  - SFX
+  - Music
   layers:
   - Default
   - TransparentFX
