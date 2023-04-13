@@ -9,7 +9,8 @@ public class LevelProgressionManager : MonoBehaviour
     {
         CombatLevel,
         PuzzleLevel,
-        FinalLevel
+        FinalLevel,
+        HUBLevel
     }
 
     [Header("Current Scene")]
@@ -44,6 +45,12 @@ public class LevelProgressionManager : MonoBehaviour
                         GameManager._completedFinalLevel = true;
 
                         SceneManager.LoadScene("HUBLevel");
+
+                        break;
+
+                    case CurrentLevel.HUBLevel:
+
+                        GameManager._hasCompletedTutorial = true;
 
                         break;
                 }
