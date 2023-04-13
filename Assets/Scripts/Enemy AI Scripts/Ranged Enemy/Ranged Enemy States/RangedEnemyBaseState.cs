@@ -7,5 +7,5 @@ public abstract class RangedEnemyBaseState : MonoBehaviour
 {
     public abstract void EnterState(RangedEnemyController rangedEnemy);
 
-    public abstract void UpdateState(RangedEnemyController rangedEnemy);
+    public abstract void UpdateState();
 }

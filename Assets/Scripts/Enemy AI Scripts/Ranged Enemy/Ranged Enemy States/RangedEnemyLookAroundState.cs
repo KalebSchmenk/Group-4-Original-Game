@@ -31,20 +31,20 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
         StartCoroutine(LookForPlayer());
     }
 
-    public override void UpdateState(RangedEnemyController rangedEnemy)
+    public override void UpdateState()
     {
         LookAround();
 
         if (_canSeePlayer)
         {
             var newState = this.AddComponent<RangedEnemyAttackState>();
-            newState.EnterState(rangedEnemy);
-            rangedEnemy.currentState = newState;
+            newState.EnterState(_rangedEnemyScript);
+            _rangedEnemyScript.currentState = newState;
             Destroy(this);
         }
     }
 
-
+    // Rotates to a random y direction
     private void LookAround()
     {
         if (_lookingAround == false) return;
@@ -60,6 +60,7 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
         }
     }
 
+    // Cooldown after reaching the rotation goal
     private IEnumerator LookAroundCooldown()
     {
         _lookingAround = false;
@@ -71,6 +72,7 @@ public class RangedEnemyLookAroundState : RangedEnemyBaseState
         _lookingAround = true;
     }
 
+    // Looks for player every 0.2 seconds
     private IEnumerator LookForPlayer()
     {
         while (true)

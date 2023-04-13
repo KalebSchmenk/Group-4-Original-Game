@@ -37,10 +37,8 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         StartCoroutine(LookForPlayer());
     }
 
-    public override void UpdateState(RangedEnemyController rangedEnemy)
+    public override void UpdateState()
     {
-        this._rangedEnemyScript = rangedEnemy;
-
         RotateToPlayer();
 
         if (_canSeePlayer == false)
@@ -54,6 +52,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         }
     }
 
+    // Rotates enemy to face player
     private void RotateToPlayer()
     {
         var lookPos = _player.transform.position - _rangedEnemyScript.gameObject.transform.position;
@@ -64,7 +63,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         _rangedEnemyScript.gameObject.transform.rotation = Quaternion.Slerp(_rangedEnemyScript.gameObject.transform.rotation, rotation, Time.deltaTime * 5.0f);
     }
 
-
+    // Casts a a spell attack
     private void CastSpellAttack()
     {
         _anim.SetTrigger("Spell");
@@ -83,6 +82,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         }
     }
 
+    // Cooldown for spell attacks
     private IEnumerator AttackCooldown()
     {
         _inAttackCooldown = true;
@@ -106,6 +106,7 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
         Instantiate(_rangedEnemyScript._lightningStrikePrefab, spawnAt.position, Quaternion.Euler(randomRot));
     }
 
+    // Looks for player every 0.2 seconds
     private IEnumerator LookForPlayer()
     {
         while (true)
@@ -149,5 +150,4 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
             Destroy(this);
         }
     }
-
 }

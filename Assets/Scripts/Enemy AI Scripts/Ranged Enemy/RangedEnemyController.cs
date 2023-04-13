@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
+
 
 public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
 {
+    [Header("Player Information")]
     [System.NonSerialized] public GameObject _player;
     private PlayerController _playerScript;
 
+    [Header("Animator")]
     public Animator _anim;
 
+    [Header("Health")]
     private int _health = 5;
     public int health { get { return _health; } set { _health = value; } }
 
+    [Header("Spell Information")]
     [SerializeField] protected Transform _lightningStrikeLocation;
     public Transform hitLocation { get { return _lightningStrikeLocation; } set { _lightningStrikeLocation = value; } }
 
@@ -22,6 +26,7 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     public GameObject _fireballPrefab;
     public GameObject _lightningStrikePrefab;
 
+    [Header("Audio")]
     public AudioSource _enemySpottedObject;
     public AudioClip _enemySpottedClip;
 
@@ -43,10 +48,11 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     {
         CheckHealth();
 
-        currentState.UpdateState(this);
+        // Calls the update function of the current state
+        currentState.UpdateState();
     }
 
-
+    // Destroys enemy if they are under or equal 0 HP
     private void CheckHealth()
     {
         if (_health <= 0)
@@ -56,6 +62,7 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
         }
     }
 
+    // Take damage interface implementation
     public void TakeDamage(int damage)
     {
         _health -= damage;
