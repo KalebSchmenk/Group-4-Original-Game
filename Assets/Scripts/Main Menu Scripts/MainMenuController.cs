@@ -11,6 +11,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] AudioSource menuSounds;
     [SerializeField] AudioClip buttonPressClip;
     [SerializeField] GameObject optionsObject;
+    [SerializeField] GameObject kbmControlView;
+    [SerializeField] GameObject gamepadControlView;
     // Start is called before the first frame update
 
 private void Start() {
@@ -54,5 +56,17 @@ public void Options(){
     mainMenuObject.SetActive(false);
     optionsObject.SetActive(true);
 }
+
+ public void KBMControlSwitch() {
+    menuSounds.Play();
+    kbmControlView.SetActive(true);
+    gamepadControlView.SetActive(false);
+    }
+
+public void GamepadControlSwitch() {
+    menuSounds.Play();
+    gamepadControlView.SetActive(true);
+    kbmControlView.SetActive(false);
+    }
 
 }
