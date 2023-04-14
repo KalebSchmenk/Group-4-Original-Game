@@ -13,6 +13,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject optionsObject;
     [SerializeField] GameObject kbmControlView;
     [SerializeField] GameObject gamepadControlView;
+    [SerializeField] GameObject quitConformObject;
     // Start is called before the first frame update
 
 private void Start() {
@@ -22,8 +23,11 @@ public void StartGame(){
     StartCoroutine(SoundBeforeSceneChange("HUBLevel"));
 }
 
-public void QuitGame(){               
-    StartCoroutine(SoundBeforeSceneChange("quit"));
+public void QuitGame(){
+    menuSounds.Play();               
+    quitConformObject.SetActive(true);
+    mainMenuObject.SetActive(false);
+    howtoplayObject.SetActive(false);
 }
 
 
@@ -31,6 +35,7 @@ public void HowToPlay(){
     menuSounds.Play();
     mainMenuObject.SetActive(false);
     howtoplayObject.SetActive(true);
+    quitConformObject.SetActive(false);
 }
 
 public void BackButton(){
@@ -38,6 +43,7 @@ public void BackButton(){
     howtoplayObject.SetActive(false);
     optionsObject.SetActive(false);
     mainMenuObject.SetActive(true);
+    quitConformObject.SetActive(false);
 }
 
 private IEnumerator SoundBeforeSceneChange(string scene){
@@ -55,6 +61,7 @@ public void Options(){
     menuSounds.Play();
     mainMenuObject.SetActive(false);
     optionsObject.SetActive(true);
+    quitConformObject.SetActive(false);
 }
 
  public void KBMControlSwitch() {
@@ -68,5 +75,9 @@ public void GamepadControlSwitch() {
     gamepadControlView.SetActive(true);
     kbmControlView.SetActive(false);
     }
+
+public void QuitConfirm(){
+    StartCoroutine(SoundBeforeSceneChange("quit"));
+}
 
 }

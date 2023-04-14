@@ -26,12 +26,17 @@ public class PauseMenuController : MonoBehaviour
     public CinemachineFreeLook cinemachineFL;
     [SerializeField] GameObject playerObject;
     private PlayerController playerScript;
+    private OptionsController optionsInfo;
     bool _gameOver;
     bool _win;
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioClip menuMusicClip;
     [SerializeField] GameObject howToPlayMenu;
     [SerializeField] GameObject optionsMenu;
+    float sensChangeX;
+    float sensChangeY;
+    [SerializeField] GameObject quitConformObject;
+    
     
     
     
@@ -43,9 +48,6 @@ public class PauseMenuController : MonoBehaviour
         playerScript = playerObject.GetComponent<PlayerController>();
         menuSoundsObject.clip = buttonPressClip;
         menuMusic.clip = menuMusicClip;
-       
-        
-
     }
 
 
@@ -68,7 +70,7 @@ public class PauseMenuController : MonoBehaviour
         _win = playerScript._win;
             if(pause.triggered)
             {
-                if (pauseMenu.activeSelf == false && _gameOver == false && _win == false && howToPlayMenu.activeSelf == false && optionsMenu.activeSelf == false){
+                if (pauseMenu.activeSelf == false && _gameOver == false && _win == false && howToPlayMenu.activeSelf == false && optionsMenu.activeSelf == false && quitConformObject.activeSelf == false){
                 PauseGame();
             }
             else{
@@ -78,6 +80,8 @@ public class PauseMenuController : MonoBehaviour
                 }   
             }
         }
+        sensChangeX = OptionsController._xSensitivityValue;
+        sensChangeY = OptionsController._ySensitivityValue;
     }
 
     public void PauseGame()
@@ -118,11 +122,12 @@ public class PauseMenuController : MonoBehaviour
         pauseMenu.SetActive(false);
         howToPlayMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
-        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
+        quitConformObject.SetActive(false);
+        cinemachineFL.m_XAxis.m_MaxSpeed = sensChangeX;
+        cinemachineFL.m_YAxis.m_MaxSpeed = sensChangeY;
     }
 
-    public void QuitGame()
+    public void QuitConfirm()
     {
         StartCoroutine(SoundBeforeMainMenu());
     }
@@ -134,8 +139,8 @@ public class PauseMenuController : MonoBehaviour
         menuSoundsObject.Play();
         yield return new WaitForSecondsRealtime(0.3f);
         SceneManager.LoadScene("MainMenu");
-        cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
-        cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;
+        cinemachineFL.m_XAxis.m_MaxSpeed = sensChangeX;
+        cinemachineFL.m_YAxis.m_MaxSpeed = sensChangeY;
         
     }
 
@@ -145,6 +150,7 @@ public class PauseMenuController : MonoBehaviour
         howToPlayMenu.SetActive(true);
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        quitConformObject.SetActive(false);
     }
 
     public void BackButton(){
@@ -153,6 +159,7 @@ public class PauseMenuController : MonoBehaviour
         howToPlayMenu.SetActive(false);
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(true);
+        quitConformObject.SetActive(false);
         
 
     }
@@ -163,8 +170,18 @@ public class PauseMenuController : MonoBehaviour
         howToPlayMenu.SetActive(false);
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(true);
+        quitConformObject.SetActive(false);
         
         
+    }
+
+    public void QuitGame(){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        howToPlayMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        quitConformObject.SetActive(true);
     }
 
 
