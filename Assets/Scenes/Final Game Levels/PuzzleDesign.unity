@@ -4546,7 +4546,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345494628}
-  m_LocalRotation: {x: 0.10802142, y: -0.000000011314356, z: 0.0000000012293865, w: 0.9941486}
+  m_LocalRotation: {x: 0.10802142, y: 0.000000011314359, z: -0.0000000012293868, w: 0.9941486}
   m_LocalPosition: {x: 939.96, y: 17.89, z: 666.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14832,7 +14832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012899544943065002, guid: 52367319e8747534fa1ace3a05359636, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1103.3
+      value: 1121.5
       objectReference: {fileID: 0}
     - target: {fileID: 8012899544943065002, guid: 52367319e8747534fa1ace3a05359636, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14852,7 +14852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012899544943065002, guid: 52367319e8747534fa1ace3a05359636, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 877.4
+      value: 893.6
       objectReference: {fileID: 0}
     - target: {fileID: 8012899544943065002, guid: 52367319e8747534fa1ace3a05359636, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17273,8 +17273,8 @@ MonoBehaviour:
   sfxSliderObject: {fileID: 1792006973}
   musicSliderObject: {fileID: 2025114766}
   sensSliderObject: {fileID: 583207950}
-  volume: {fileID: 0}
-  cinemachineFL: {fileID: 0}
+  volume: {fileID: 574555152}
+  cinemachineFL: {fileID: 431682306}
 --- !u!1 &1483663971
 GameObject:
   m_ObjectHideFlags: 0
@@ -25896,7 +25896,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079321384}
-  m_LocalRotation: {x: 0.108021416, y: -0.000000008552848, z: 9.293287e-10, w: 0.9941486}
+  m_LocalRotation: {x: 0.108021416, y: 0.000000008552852, z: -9.293291e-10, w: 0.9941486}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

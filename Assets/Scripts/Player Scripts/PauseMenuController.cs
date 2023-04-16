@@ -36,10 +36,11 @@ public class PauseMenuController : MonoBehaviour
     float sensChangeX;
     float sensChangeY;
     [SerializeField] GameObject quitConformObject;
-    
-    
-    
-    
+
+
+    [SerializeField] GameObject kbmControlView;
+    [SerializeField] GameObject gamepadControlView;
+
     private void Awake() 
     {
         playerControls = new PlayerInputActions();
@@ -184,7 +185,21 @@ public class PauseMenuController : MonoBehaviour
         quitConformObject.SetActive(true);
     }
 
+    public void KBMControlSwitch()
+    {
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        kbmControlView.SetActive(true);
+        gamepadControlView.SetActive(false);
+    }
 
+    public void GamepadControlSwitch()
+    {
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        gamepadControlView.SetActive(true);
+        kbmControlView.SetActive(false);
+    }
 
 
 

@@ -6890,6 +6890,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 888539878}
     - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131004758478996419, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: menuMusic
       value: 
       objectReference: {fileID: 1464085086}
@@ -17071,6 +17075,10 @@ PrefabInstance:
     - target: {fileID: 4263048232344086384, guid: 6c9ee456aa09f7d4b8e15ea6246099dd, type: 3}
       propertyPath: m_Volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263048232344086384, guid: 6c9ee456aa09f7d4b8e15ea6246099dd, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c9ee456aa09f7d4b8e15ea6246099dd, type: 3}

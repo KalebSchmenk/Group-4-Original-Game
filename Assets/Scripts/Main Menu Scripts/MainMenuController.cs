@@ -16,68 +16,74 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject quitConformObject;
     // Start is called before the first frame update
 
-private void Start() {
-    menuSounds.clip = buttonPressClip;
-}
-public void StartGame(){
-    StartCoroutine(SoundBeforeSceneChange("HUBLevel"));
-}
-
-public void QuitGame(){
-    menuSounds.Play();               
-    quitConformObject.SetActive(true);
-    mainMenuObject.SetActive(false);
-    howtoplayObject.SetActive(false);
-}
-
-
-public void HowToPlay(){
-    menuSounds.Play();
-    mainMenuObject.SetActive(false);
-    howtoplayObject.SetActive(true);
-    quitConformObject.SetActive(false);
-}
-
-public void BackButton(){
-    menuSounds.Play();
-    howtoplayObject.SetActive(false);
-    optionsObject.SetActive(false);
-    mainMenuObject.SetActive(true);
-    quitConformObject.SetActive(false);
-}
-
-private IEnumerator SoundBeforeSceneChange(string scene){
-    menuSounds.Play();
-    yield return new WaitForSecondsRealtime(0.3f);
-    if(scene == "quit"){
-        Application.Quit();   
+    private void Start() {
+        menuSounds.clip = buttonPressClip;
     }
-    else{
-        SceneManager.LoadScene(scene);
-    }
-}
+    public void StartGame()
+    {
+        GameManager._hasCompletedTutorial = false;
+        GameManager._completedCombatLevel = false;
+        GameManager._completedPuzzleLevel = false;
+        GameManager._completedFinalLevel = false;
 
-public void Options(){
-    menuSounds.Play();
-    mainMenuObject.SetActive(false);
-    optionsObject.SetActive(true);
-    quitConformObject.SetActive(false);
-}
-
- public void KBMControlSwitch() {
-    menuSounds.Play();
-    kbmControlView.SetActive(true);
-    gamepadControlView.SetActive(false);
+        StartCoroutine(SoundBeforeSceneChange("HUBLevel"));
     }
 
-public void GamepadControlSwitch() {
-    menuSounds.Play();
-    gamepadControlView.SetActive(true);
-    kbmControlView.SetActive(false);
+    public void QuitGame(){
+        menuSounds.Play();               
+        quitConformObject.SetActive(true);
+        mainMenuObject.SetActive(false);
+        howtoplayObject.SetActive(false);
     }
 
-public void QuitConfirm(){
-    StartCoroutine(SoundBeforeSceneChange("quit"));
-}
+
+    public void HowToPlay(){
+        menuSounds.Play();
+        mainMenuObject.SetActive(false);
+        howtoplayObject.SetActive(true);
+        quitConformObject.SetActive(false);
+    }
+
+    public void BackButton(){
+        menuSounds.Play();
+        howtoplayObject.SetActive(false);
+        optionsObject.SetActive(false);
+        mainMenuObject.SetActive(true);
+        quitConformObject.SetActive(false);
+    }
+
+    private IEnumerator SoundBeforeSceneChange(string scene){
+        menuSounds.Play();
+        yield return new WaitForSecondsRealtime(0.3f);
+        if(scene == "quit"){
+            Application.Quit();   
+        }
+        else{
+            SceneManager.LoadScene(scene);
+        }
+    }
+
+    public void Options(){
+        menuSounds.Play();
+        mainMenuObject.SetActive(false);
+        optionsObject.SetActive(true);
+        quitConformObject.SetActive(false);
+    }
+
+     public void KBMControlSwitch() {
+        menuSounds.Play();
+        kbmControlView.SetActive(true);
+        gamepadControlView.SetActive(false);
+        }
+
+    public void GamepadControlSwitch() {
+        menuSounds.Play();
+        gamepadControlView.SetActive(true);
+        kbmControlView.SetActive(false);
+        }
+
+    public void QuitConfirm(){
+        StartCoroutine(SoundBeforeSceneChange("quit"));
+    }
 
 }

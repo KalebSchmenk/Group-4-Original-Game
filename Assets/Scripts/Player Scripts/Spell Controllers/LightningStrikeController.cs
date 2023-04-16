@@ -17,16 +17,15 @@ public class LightningStrikeController : MonoBehaviour
     {
         Instantiate(_lightningSoundPrefab, transform.position, Quaternion.identity);
         particleRef = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-        StartCoroutine(DestroyIn());
+        StartCoroutine(DestroyIn(this.gameObject, _destroyIn));
+        StartCoroutine(DestroyIn(particleRef, 5f));
     }
 
-    private IEnumerator DestroyIn()
+    private IEnumerator DestroyIn(GameObject toDestroy, float destroyIn)
     {
-        yield return new WaitForSeconds(_destroyIn);
+        yield return new WaitForSeconds(destroyIn);
 
-        Destroy(particleRef);
-
-        Destroy(this.gameObject);
+        Destroy(toDestroy);
     }
 
     private void OnTriggerEnter(Collider other)
