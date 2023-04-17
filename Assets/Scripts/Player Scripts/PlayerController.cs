@@ -167,12 +167,27 @@ public class PlayerController : MonoBehaviour
         onGround = controller.isGrounded;
         if(onGround){
             impactTimer = 0.2f;
+
+            _anim.SetBool("IsGrounded", true);
+            _anim.SetBool("IsJumping", false);
+            isJumping = false;
+            _anim.SetBool("IsFalling", false);
+
             if(playLandingSound){
                 jumpLandObject.clip = jumpLandClip;
                 jumpLandObject.Play();
                 playLandingSound = false;
             }
             
+        }
+        else
+        {
+            _anim.SetBool("IsGrounded", false);
+
+            if((isJumping && verticalVelocity < 0) || verticalVelocity < -2)
+            {
+                _anim.SetBool("IsFalling", true);
+            }
         }
 
         if(impactTimer > 0){
@@ -182,8 +197,14 @@ public class PlayerController : MonoBehaviour
         if(jump.triggered && !isJumping){
             if(impactTimer > 0){
 
-                _anim.SetTrigger("Jump");
-                StartCoroutine(JumpDelay());
+                //StartCoroutine(JumpDelay());
+                _anim.SetBool("IsJumping", true);
+                isJumping = true;
+                impactTimer = 0;
+                jumpSoundObject.clip = jumpSoundClip;
+                jumpSoundObject.Play();
+                playLandingSound = true;
+                verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
 
             }
         }
@@ -367,7 +388,7 @@ public class PlayerController : MonoBehaviour
         return currentHealth;
     }
 
-    private IEnumerator JumpDelay()
+    /*private IEnumerator JumpDelay()
     {
         isJumping = true;
 
@@ -379,5 +400,5 @@ public class PlayerController : MonoBehaviour
         jumpSoundObject.Play();
         playLandingSound = true;
         verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
-    }
+    }*/
 }
