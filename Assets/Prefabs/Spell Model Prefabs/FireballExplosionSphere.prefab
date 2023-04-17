@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7722300445117200245}
   - component: {fileID: 2449263995165985627}
   m_Layer: 0
-  m_Name: FireballExplisionSphere
+  m_Name: FireballExplosionSphere
   m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageOutput: 3
-  _explosionEffect: {fileID: 8952452826154758573, guid: f69461407e81bc94f89fdd44ff2103c2, type: 3}
+  _explosionEffect: {fileID: 7299741425343460383, guid: e0b9f75fa1dd5704ba127807bde92775, type: 3}
