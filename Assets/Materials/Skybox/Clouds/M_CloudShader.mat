@@ -44,8 +44,8 @@ Material:
     - _Vertex_Offset: -0.0007
     m_Colors:
     - _Cloud_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Cloud_Speed: {r: 0.0001, g: 0.0001, b: 0, a: 0}
-    - _Distort_Speed: {r: 0.0005, g: 0.0007, b: 0, a: 0}
+    - _Cloud_Speed: {r: 0, g: 0, b: 0, a: 0}
+    - _Distort_Speed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5720882053894839985
 MonoBehaviour:
