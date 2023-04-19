@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1126,6 +1126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &83671692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6365911197228706719, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+  m_PrefabInstance: {fileID: 6365911196560177822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &88244834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5391,11 +5396,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c22c43b13b120489f4004f953efa89, type: 3}
---- !u!1 &685314305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6365911197228706719, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
-  m_PrefabInstance: {fileID: 6365911196560177822}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &688074186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9211,7 +9211,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206620032}
-  m_LocalRotation: {x: 0.13695033, y: -0.00000000852213, z: 0.0000000011782096, w: 0.99057794}
+  m_LocalRotation: {x: 0.13695033, y: 0.0000000085221314, z: -0.0000000011782099, w: 0.99057794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12760,6 +12760,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4263048232344086384, guid: 6c9ee456aa09f7d4b8e15ea6246099dd, type: 3}
   m_PrefabInstance: {fileID: 5195178450654351510}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1698717100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5737453241118821667, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+  m_PrefabInstance: {fileID: 6365911196560177822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702925501
 GameObject:
   m_ObjectHideFlags: 0
@@ -17341,7 +17352,7 @@ PrefabInstance:
     - target: {fileID: 131004758418485604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: _potionCountText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1698717100}
     - target: {fileID: 131004758418485604, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: _canNotCraftHealth
       value: 
@@ -17433,7 +17444,7 @@ PrefabInstance:
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 491662136}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: healthMask
       value: 
@@ -17465,7 +17476,7 @@ PrefabInstance:
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: _telekinesisDisplay
       value: 
-      objectReference: {fileID: 685314305}
+      objectReference: {fileID: 83671692}
     - target: {fileID: 131004758995924655, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: m_Volume
       value: 1
@@ -17897,6 +17908,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6365911196725624067, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6365911197228706719, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6771703602648054884, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
