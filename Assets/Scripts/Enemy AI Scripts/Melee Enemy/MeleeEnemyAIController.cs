@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 {
@@ -63,17 +64,19 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     [SerializeField] protected Transform _lightingStrikeLocation;
     public Transform hitLocation { get { return _lightingStrikeLocation; } set { _lightingStrikeLocation = value; } }
 
-    private Animator _animation;
     private bool _inAttackCooldown = false;
 
     [SerializeField] Animator _anim;
+
+    [SerializeField] bool _isFinalBoss = false;
    
 
     void Start()
     {
+        if (_isFinalBoss) _health = 15;
+
         _AIState = AIState.Roam;
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        //_animation = GetComponent<Animator>();
 
         _player = GameObject.FindGameObjectWithTag("Player");
 
@@ -100,12 +103,23 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             case AIState.Roam:
                 Wander();
 
+                if (_IAmWaiting == true)
+                {
+                    _anim.Play("Idle");
+                }
+                else
+                {
+                    _anim.Play("Walk");
+                }
+
                 if (_canSeePlayer == true) _AIState = AIState.Chase;
                 break;
 
             // Chase the player state
             case AIState.Chase:
                 Chase();
+
+                _anim.Play("Walk");
 
                 if (_canSeePlayer == false)
                 {
@@ -117,6 +131,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             // Search for the player at their last known position state
             case AIState.Search:
                 Search();
+
+                _anim.Play("Walk");
 
                 if (_canSeePlayer == true) _AIState = AIState.Chase;
 
@@ -130,6 +146,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             case AIState.Attack:
                 AttackPlayer();
 
+                _anim.Play("Idle");
+
                 _rb.velocity = Vector3.zero;
 
                 if (_canSeePlayer == false)
@@ -142,6 +160,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
             case AIState.Dazed:
                 Dazed();
+
+                _anim.Play("Idle");
 
                 break;
 
@@ -157,6 +177,11 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         if (_health <= 0)
         {
             // Kill enemy
+            if (_isFinalBoss)
+            {
+                SceneManager.LoadScene("EndCutscene");
+            }
+
             Destroy(this.gameObject);
         }
     }

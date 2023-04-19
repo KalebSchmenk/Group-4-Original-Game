@@ -19,6 +19,7 @@ TagManager:
   - SFX
   - Music
   - John Smith
+  - Dumont
   layers:
   - Default
   - TransparentFX

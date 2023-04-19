@@ -96,7 +96,7 @@ public class DialogueSystem : MonoBehaviour
     public void Dialogue(string hitTag){
         if(tagInfo != "null"){
             dialogueScreen.SetActive(true);
-            if(tagInfo == "John Smith"){
+            if(tagInfo == "Dumont"){
                 npcName.text = tagInfo;
                 dialogueScreen.SetActive(true);
                 if(displayDialogueCoroutine != null){

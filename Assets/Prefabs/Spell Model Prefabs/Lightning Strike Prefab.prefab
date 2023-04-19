@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e94a0058d7e6c419ad870a9c7db466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageOutput: 5
+  _damageOutput: 4
   _destroyIn: 0.5
   _lightningSoundPrefab: {fileID: 7519050577918950359, guid: 0bc108359061e2448818c0442f843a3c, type: 3}
   _explosionEffect: {fileID: 4356884701597346582, guid: 9dd43d85030cdb34ea8bec2324860b09, type: 3}
