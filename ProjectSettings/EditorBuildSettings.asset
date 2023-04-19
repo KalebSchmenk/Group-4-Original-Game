@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Game Levels/MainMenu.unity
     guid: f64287bc38847594fb511be9796e4501
   - enabled: 1
+    path: Assets/Scenes/Final Game Levels/StartCutscene.unity
+    guid: 6a2089a530c53c945a01cd62c16b3108
+  - enabled: 1
     path: Assets/Scenes/Final Game Levels/HUBLevel.unity
     guid: f7da4010cac6b9e4a8ea8af3653fe71a
   - enabled: 1
@@ -29,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Game Levels/PuzzleCombatLevel.unity
     guid: 3d2db4410eb1eef40a79a8aa83226d9e
+  - enabled: 1
+    path: Assets/Scenes/Final Game Levels/EndCutscene.unity
+    guid: 5448de3a6abc36e458207050d42d012b
   m_configObjects: {}

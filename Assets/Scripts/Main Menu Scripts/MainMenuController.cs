@@ -28,7 +28,7 @@ public class MainMenuController : MonoBehaviour
         GameManager._completedPuzzleLevel = false;
         GameManager._completedFinalLevel = false;
 
-        StartCoroutine(SoundBeforeSceneChange("HUBLevel"));
+        StartCoroutine(SoundBeforeSceneChange("StartCutscene"));
     }
 
     public void QuitGame(){
