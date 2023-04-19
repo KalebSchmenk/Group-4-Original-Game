@@ -2765,6 +2765,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: KBMControlSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 35.4612
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 34.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -45.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183404358870379728, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95e2af483ff2ca543b10a4ea4b0cd752, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
 --- !u!224 &3948336897559579351 stripped
@@ -2888,13 +2908,29 @@ PrefabInstance:
       value: GamepadControlSwitch
       objectReference: {fileID: 0}
     - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 36.3028
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 34.8601
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -48.9
+      value: -48.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291803609802836227, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000015259
       objectReference: {fileID: 0}
     - target: {fileID: 6490374077307614131, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
       propertyPath: m_Name
       value: ControlIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 7183404358870379728, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 56fa08fffa39b0c40b8d07fe72f8b1eb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3509c0c732138f41bb0e82b71cd811a, type: 3}
 --- !u!224 &8428398089183233365 stripped

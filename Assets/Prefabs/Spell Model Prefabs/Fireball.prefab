@@ -230,7 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireballExplosion: {fileID: 7722300445117200244, guid: e375cfa9c4ab5ca4aaae765a1c9e5d95, type: 3}
-  _damageOutput: 3
   _fireballSpeed: 750
   rb: {fileID: 8776668799832840373}
   _fireballImpactSound: {fileID: 7294764901470551458, guid: f527a4e344cffef4a9166ddbdce5bdc0, type: 3}
@@ -275,7 +274,7 @@ AudioSource:
   MinDistance: 0.9470215
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -308,7 +307,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

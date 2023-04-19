@@ -18,6 +18,7 @@ TagManager:
   - Win
   - SFX
   - Music
+  - John Smith
   layers:
   - Default
   - TransparentFX
