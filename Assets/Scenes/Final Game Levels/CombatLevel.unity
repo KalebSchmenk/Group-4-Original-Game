@@ -3049,7 +3049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8f098f0fb6a7d034c909a5550aa03f1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b82e0c1acd466c409daea523e8f9afa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12814,7 +12814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 131.08702, y: 3.7898064}
+  m_AnchoredPosition: {x: 128.3, y: 0.099998474}
   m_SizeDelta: {x: -139.8972, y: -72.723495}
   m_Pivot: {x: 0.00000004693767, y: 0.5}
 --- !u!114 &1355312641
@@ -15462,7 +15462,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572707018}
-  m_LocalRotation: {x: 0.13593619, y: 0.12029237, z: -0.016630704, w: 0.983247}
+  m_LocalRotation: {x: 0.13593622, y: 0.12029233, z: -0.016630698, w: 0.983247}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20502,7 +20502,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

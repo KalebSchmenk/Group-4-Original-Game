@@ -10122,7 +10122,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206620032}
-  m_LocalRotation: {x: 0.13695033, y: 0.0000000085221314, z: -0.0000000011782099, w: 0.99057794}
+  m_LocalRotation: {x: 0.13695033, y: -0.00000000852213, z: 0.0000000011782096, w: 0.99057794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20123,6 +20123,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1851066469}
+    - target: {fileID: 6365911196138681714, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2b82e0c1acd466c409daea523e8f9afa, type: 3}
+    - target: {fileID: 6365911196482817637, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 128.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6365911196482817637, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.099998474
+      objectReference: {fileID: 0}
     - target: {fileID: 6365911196725624066, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_Name
       value: Canvas
