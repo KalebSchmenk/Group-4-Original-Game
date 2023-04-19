@@ -12,6 +12,9 @@ public class CutsceneController : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         StartCoroutine(LeaveCutsceneIn(_leaveCutsceneIn));
     }
 
@@ -26,6 +29,7 @@ public class CutsceneController : MonoBehaviour
 
         if (_isEndCutscene)
         {
+            Debug.Log("In isendcutscene bool");
             SceneManager.LoadScene("MainMenu");
         }
     }

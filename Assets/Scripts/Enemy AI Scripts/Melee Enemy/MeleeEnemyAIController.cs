@@ -181,8 +181,10 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             {
                 SceneManager.LoadScene("EndCutscene");
             }
-
-            Destroy(this.gameObject);
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
