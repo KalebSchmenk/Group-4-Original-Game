@@ -65,6 +65,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     private Animator _animation;
     private bool _inAttackCooldown = false;
+
+    [SerializeField] Animator _anim;
    
 
     void Start()
@@ -176,6 +178,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         if (_inAttackCooldown) return;
 
         // Do attack animation
+
+        _anim.SetTrigger("Attack");
 
         Instantiate(_attackSphere, _attackSphereLocation.position, Quaternion.identity);
 
