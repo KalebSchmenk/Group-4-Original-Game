@@ -17,6 +17,8 @@ public class LightningStrike : MonoBehaviour
     private Camera _mainCam;
     private bool _lightningInCooldown = false;
 
+    [SerializeField] GameObject _cooldownOverlay;
+
     
 
     [Header("Player Sounds")]
@@ -31,6 +33,8 @@ public class LightningStrike : MonoBehaviour
         _mainCam = Camera.main;
 
         _anim = GetComponent<PlayerController>()._anim;
+
+        _cooldownOverlay.SetActive(false);
     }
     private void Awake()
     {
@@ -52,6 +56,21 @@ public class LightningStrike : MonoBehaviour
         if (_lightningStrike.triggered && !_lightningInCooldown)
         {
             CastLightning();
+        }
+
+        if (_lightningInCooldown)
+        {
+            if (_cooldownOverlay.activeSelf == false)
+            {
+                _cooldownOverlay.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_cooldownOverlay.activeSelf == true)
+            {
+                _cooldownOverlay.SetActive(false);
+            }
         }
     }
 

@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private ManipulatableObjectController _telekensisSpellContainer;
 
     [SerializeField] bool _isHubLevel = false;
+    [SerializeField] bool _isCombatLevel = false;
 
     [Header("Player Info")]
     [SerializeField] float invincibilityFramesDuration = 1.5f;
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Switches spell from combat to telekenesis and back again
-        if (changeSpellSelection.triggered && _isHubLevel == false)
+        if (changeSpellSelection.triggered && _isHubLevel == false && _isCombatLevel == false)
         {
             if (_telekensisSpellContainer.enabled == true)
             {

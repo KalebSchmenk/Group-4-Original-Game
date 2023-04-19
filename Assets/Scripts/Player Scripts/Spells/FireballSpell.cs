@@ -18,6 +18,8 @@ public class FireballSpell : MonoBehaviour
     private Animator _anim;
 
     private bool _fireballCooldown = false;
+    [SerializeField] GameObject _cooldownOverlay;
+
     [Header("Player Sounds")]
     [SerializeField] AudioSource playerFireBallCastObject;
     [SerializeField] AudioClip playerFireBallCastClip;
@@ -48,6 +50,21 @@ public class FireballSpell : MonoBehaviour
         if (_fireball.triggered && !_fireballCooldown)
         {
             CastFireball();
+        }
+
+        if (_fireballCooldown)
+        {
+            if (_cooldownOverlay.activeSelf == false)
+            {
+                _cooldownOverlay.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_cooldownOverlay.activeSelf == true)
+            {
+                _cooldownOverlay.SetActive(false);
+            }
         }
     }
 

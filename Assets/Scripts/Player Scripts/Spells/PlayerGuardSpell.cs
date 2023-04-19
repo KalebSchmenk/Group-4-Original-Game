@@ -15,6 +15,7 @@ public class PlayerGuardSpell : MonoBehaviour
     [SerializeField] private float _cooldownTime = 2.5f;
 
     private bool _inCooldown = false;
+    [SerializeField] GameObject _cooldownOverlay;
 
     private void Awake()
     {
@@ -40,6 +41,21 @@ public class PlayerGuardSpell : MonoBehaviour
         {
             _inCooldown = true;
             GuardSphere();
+        }
+
+        if (_inCooldown)
+        {
+            if (_cooldownOverlay.activeSelf == false)
+            {
+                _cooldownOverlay.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_cooldownOverlay.activeSelf == true)
+            {
+                _cooldownOverlay.SetActive(false);
+            }
         }
     }
 

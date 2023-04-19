@@ -1,21 +1,13 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 84aa15b7becad85478702caa14971e73
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
-=======
-guid: 82ea4aa66253fed44ad37c3ca8b6ab06
-TextureImporter:
-  internalIDToNameTable: []
-  externalObjects: {}
   serializedVersion: 11
->>>>>>> f472a9ffbfa5467cf06de53768fe21605e9d7b86
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -61,7 +53,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 1
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -70,11 +62,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
-<<<<<<< HEAD
-  cookieLightType: 0
-=======
->>>>>>> f472a9ffbfa5467cf06de53768fe21605e9d7b86
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -88,7 +76,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -113,8 +100,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
->>>>>>> f472a9ffbfa5467cf06de53768fe21605e9d7b86
   spriteSheet:
     serializedVersion: 2
     sprites: []

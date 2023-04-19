@@ -56,3 +56,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI Layer
+    uniqueID: 3370516145
+    locked: 0
+  - name: In front UI Layer
+    uniqueID: 2015951577
+    locked: 0

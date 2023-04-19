@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class VineController : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Fireball"))
+        if (collision.gameObject.CompareTag("Fireball"))
         {
             Destroy(this.gameObject);
         }

@@ -20,6 +20,10 @@ public class ManipulatableObjectController : MonoBehaviour
     private bool _pullInCooldown = false;
     private bool _levitateInCooldown = false;
 
+    [SerializeField] GameObject _pushCooldownOverlay;
+    [SerializeField] GameObject _pullCooldownOverlay;
+    [SerializeField] GameObject _levCooldownOverlay;
+
     [Header("Levitate Sounds")]
     [SerializeField] AudioSource playerLevitateCastObject;
     [SerializeField] AudioClip  playerLevitateCastClip;
@@ -77,6 +81,56 @@ public class ManipulatableObjectController : MonoBehaviour
         {
 
             PullObject();
+        }
+
+        CheckCooldowns();
+    }
+
+    private void CheckCooldowns()
+    {
+        if (_levitateInCooldown)
+        {
+            if (_levCooldownOverlay.activeSelf == false)
+            {
+                _levCooldownOverlay.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_levCooldownOverlay.activeSelf == true)
+            {
+                _levCooldownOverlay.SetActive(false);
+            }
+        }
+
+        if (_pushInCooldown)
+        {
+            if (_pushCooldownOverlay.activeSelf == false)
+            {
+                _pushCooldownOverlay.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_pushCooldownOverlay.activeSelf == true)
+            {
+                _pushCooldownOverlay.SetActive(false);
+            }
+        }
+
+        if (_pullInCooldown)
+        {
+            if (_pullCooldownOverlay.activeSelf == false)
+            {
+                _pullCooldownOverlay.SetActive(true);
+            }
+        }
+        else
+        {
+            if (_pullCooldownOverlay.activeSelf == true)
+            {
+                _pullCooldownOverlay.SetActive(false);
+            }
         }
     }
 

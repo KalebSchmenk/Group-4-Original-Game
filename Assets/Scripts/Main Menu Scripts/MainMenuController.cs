@@ -14,6 +14,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject kbmControlView;
     [SerializeField] GameObject gamepadControlView;
     [SerializeField] GameObject quitConformObject;
+
+    [SerializeField] GameObject creditsObject;
     // Start is called before the first frame update
 
     private void Start() {
@@ -49,6 +51,7 @@ public class MainMenuController : MonoBehaviour
         howtoplayObject.SetActive(false);
         optionsObject.SetActive(false);
         mainMenuObject.SetActive(true);
+        creditsObject.SetActive(false);
         quitConformObject.SetActive(false);
     }
 
@@ -84,6 +87,12 @@ public class MainMenuController : MonoBehaviour
 
     public void QuitConfirm(){
         StartCoroutine(SoundBeforeSceneChange("quit"));
+    }
+
+    public void Credits()
+    {
+        creditsObject.SetActive(true);
+        mainMenuObject.SetActive(false);
     }
 
 }
