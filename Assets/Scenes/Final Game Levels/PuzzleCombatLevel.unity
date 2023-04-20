@@ -14540,6 +14540,10 @@ PrefabInstance:
       propertyPath: _isFinalBoss
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1703022501796950367, guid: c1d5a0a0a65535e4387f1d230960363a, type: 3}
+      propertyPath: m_Acceleration
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d5a0a0a65535e4387f1d230960363a, type: 3}
 --- !u!1001 &823153693
@@ -33297,7 +33301,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969553353}
-  m_LocalRotation: {x: 0.07919673, y: -0.000000019176891, z: 0.0000000015235326, w: 0.996859}
+  m_LocalRotation: {x: 0.07919673, y: 0.000000019176891, z: -0.0000000015235326, w: 0.996859}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
