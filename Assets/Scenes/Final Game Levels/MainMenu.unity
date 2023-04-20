@@ -14066,6 +14066,17 @@ PrefabInstance:
 
         Melee: Left Click'
       objectReference: {fileID: 0}
+    - target: {fileID: 8602227423978335280, guid: 1332efe2552ea9e4f854acd93bb4c670, type: 3}
+      propertyPath: m_text
+      value: 'Push Spell: Q
+
+        Pull Spell: E
+
+        Levitate Spell: F
+
+        Craft
+        & Use Health Potion: X'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1332efe2552ea9e4f854acd93bb4c670, type: 3}
 --- !u!1001 &8626116900053499129

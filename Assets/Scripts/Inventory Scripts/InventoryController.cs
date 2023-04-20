@@ -19,6 +19,8 @@ public class InventoryController : MonoBehaviour
 
     [Header("Health Objects")]
     [SerializeField] TMP_Text _potionCountText;
+    [SerializeField] TMP_Text _mushroomCountText;
+    [SerializeField] TMP_Text _cherryCountText;
 
 
 
@@ -45,6 +47,7 @@ public class InventoryController : MonoBehaviour
     
     void Update()
     {
+        UpdateCounts();
         CheckForHealthPotion();
     }
 
@@ -74,5 +77,11 @@ public class InventoryController : MonoBehaviour
         {
             return _cherryCount / 1;
         }
+    }
+
+    private void UpdateCounts()
+    {
+        _mushroomCountText.text = "" + _mushroomCount;
+        _cherryCountText.text = "" + _cherryCount;
     }
 }

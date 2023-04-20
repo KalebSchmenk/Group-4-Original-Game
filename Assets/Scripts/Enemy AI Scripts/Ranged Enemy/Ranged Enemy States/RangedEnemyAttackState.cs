@@ -101,7 +101,18 @@ public class RangedEnemyAttackState : RangedEnemyBaseState
 
     public void CastLightningStrike()
     {
-        Transform spawnAt = _player.GetComponent<PlayerController>()._lightningSpawnLocation.transform;
+        Transform spawnAt;
+
+        int randomNumber = Random.Range(1, 10);
+
+        spawnAt = _player.GetComponent<PlayerController>()._lightningSpawnLocation.transform;
+
+        // 50% chance to not hit player
+        if (randomNumber >= 6)
+        {
+            spawnAt.position = new Vector3(spawnAt.position.x + Random.Range(1, 5), spawnAt.position.y, spawnAt.position.z + Random.Range(1, 5));
+        }
+
         var randomRot = new Vector3(0, Random.Range(0, 360), 0);
         Instantiate(_rangedEnemyScript._lightningStrikePrefab, spawnAt.position, Quaternion.Euler(randomRot));
     }

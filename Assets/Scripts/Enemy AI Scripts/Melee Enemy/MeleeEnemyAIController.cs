@@ -42,7 +42,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     [SerializeField] private float _navMeshAgentSprintSpeed = 5.0f;
     [SerializeField] private float _navMeshAgentJogSpeed = 4.0f;
     [SerializeField] private float _alwaysSeeRadius = 10f;
-    [SerializeField] private float _attackCooldown = 2.5f;
+    [SerializeField] private float _attackCooldown = 1.5f;
     private float _navMeshSpeed;
 
     private bool _canSeePlayer;

@@ -20,6 +20,9 @@ public class MainMenuController : MonoBehaviour
 
     private void Start() {
         menuSounds.clip = buttonPressClip;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void StartGame()
     {
