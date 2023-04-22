@@ -16955,6 +16955,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 131004758168995358, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131004758168995358, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: m_TagString
       value: SFX
       objectReference: {fileID: 0}
@@ -17087,6 +17091,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: sprintingSound
+      value: 
+      objectReference: {fileID: 2086277170}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerWalkSpeed
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: playerHurtObject
       value: 
       objectReference: {fileID: 1244749130}
@@ -17095,6 +17107,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 585ab05938ae6864a8efd73210994fc0, type: 3}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: playerSprintSpeed
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: sprintingSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 670503aaae9dd294ca27c6b57be9b701, type: 3}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: walkingSoundObject
       value: 
       objectReference: {fileID: 1740958742}
@@ -17102,6 +17122,10 @@ PrefabInstance:
       propertyPath: _telekinesisDisplay
       value: 
       objectReference: {fileID: 1981817647}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: sprintingSoundObject
+      value: 
+      objectReference: {fileID: 2086277172}
     - target: {fileID: 131004758995924657, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: m_TagString
       value: SFX
@@ -17154,6 +17178,10 @@ PrefabInstance:
       propertyPath: playerLevitateCastObject
       value: 
       objectReference: {fileID: 1563360488}
+    - target: {fileID: 6962136003729944688, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7545212929607063206, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: m_Name
       value: Player
@@ -24641,6 +24669,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: -177.517, z: 0}
+--- !u!1 &2086277170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6530531425765748981, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+  m_PrefabInstance: {fileID: 1531486294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2086277172 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6962136003729944688, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+  m_PrefabInstance: {fileID: 1531486294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2087390461
 PrefabInstance:
   m_ObjectHideFlags: 0

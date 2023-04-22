@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction jump;
     private InputAction pause;
+    private InputAction sprint;
     private InputAction changeSpellSelection;
     public Vector3 moveInput;
     Vector3 moveDirection;
@@ -41,12 +42,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float invincibilityFramesDuration = 1.5f;
     [SerializeField] private float maxHealth = 100;
     [SerializeField] float jumpForce = 1.0f;
-    [SerializeField] float playerSpeed = 10.0f;
+    float playerSpeed = 2.2f;
+    float playerMoveSpeed = 2.2f;
+    [SerializeField] float playerSprintSpeed = 4.4f;
+    [SerializeField] float playerWalkSpeed = 2.2f;
+
     public bool _onPlatform = false;
     [SerializeField] float slopeRayDistance = 0.2f;
     public bool _isMoving;
     public bool _gameOver;
     public bool _win;
+    bool isSprinting;
 
     [Header("Healthbar References")]
     public Image healthMask;
@@ -61,11 +67,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject walkingSound;
     [SerializeField] AudioSource walkingSoundObject;
     [SerializeField] AudioClip walkingSoundClip;
+    [SerializeField] AudioClip sprintingSoundClip;
+    [SerializeField] GameObject sprintingSound;
+    [SerializeField] AudioSource sprintingSoundObject;
     [SerializeField] AudioSource jumpSoundObject;
     [SerializeField] AudioClip jumpSoundClip;
     [SerializeField] AudioSource jumpLandObject;
     [SerializeField] AudioClip jumpLandClip;
     bool playLandingSound = false;
+    [SerializeField] AudioSource healSound;
+    [SerializeField] AudioClip healClip;
 
 
     [Header("Menu Items")]
@@ -95,6 +106,9 @@ public class PlayerController : MonoBehaviour
         if (_telekensisSpellContainer != null) _telekensisSpellContainer.enabled = false;
         Time.timeScale = 1f;
         walkingSoundObject.clip = walkingSoundClip;
+        sprintingSoundObject.clip = sprintingSoundClip;
+        playerMoveSpeed = playerWalkSpeed;
+        
 }
 
     void Awake()
@@ -108,6 +122,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        sprint.started += Sprinting;
+        sprint.canceled += NotSprinting;
         // Switches spell from combat to telekenesis and back again
         if (changeSpellSelection.triggered && _isHubLevel == false && _isCombatLevel == false)
         {
@@ -215,7 +231,7 @@ public class PlayerController : MonoBehaviour
 
         //What actually moves the player
         moveDirection = moveDirection.normalized;
-        Vector3 moving = moveDirection * magnitude;
+        Vector3 moving = moveDirection * magnitude * playerMoveSpeed;
         
         moving = ChangeVelocityToSlope(moving);
         moving.y += verticalVelocity;
@@ -244,12 +260,20 @@ public class PlayerController : MonoBehaviour
         }
 
         if(onGround && _isMoving){
-            walkingSound.SetActive(true);
-            //walkingSoundObject.Play();
+            if(isSprinting){
+                walkingSound.SetActive(false);
+                sprintingSound.SetActive(true);
+                
+            }
+            else{
+                walkingSound.SetActive(true);
+                sprintingSound.SetActive(false);
+            }
 
         }
         else{
             walkingSound.SetActive(false);
+            sprintingSound.SetActive(false);
             //walkingSoundObject.Stop();
         }
 
@@ -260,9 +284,11 @@ public class PlayerController : MonoBehaviour
     {
         move = playerControls.Player.Move;
         jump = playerControls.Player.Jump;
+        sprint = playerControls.Player.Sprint;
  
         jump.Enable();
         move.Enable();
+        sprint.Enable();
    
 
 
@@ -275,6 +301,7 @@ public class PlayerController : MonoBehaviour
         move.Disable();
         jump.Disable();
         changeSpellSelection.Disable();
+        sprint.Disable();
  
     }
 
@@ -379,6 +406,7 @@ public class PlayerController : MonoBehaviour
 
     public void Heal()
     {
+        healSound.PlayOneShot(healClip);
         currentHealth += 45;
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -402,4 +430,16 @@ public class PlayerController : MonoBehaviour
         playLandingSound = true;
         verticalVelocity += Mathf.Sqrt(jumpForce * 1.75f * Mathf.Abs(gravityValue));
     }*/
+
+    private void Sprinting(InputAction.CallbackContext context){
+        if(onGround){
+            playerMoveSpeed = playerSprintSpeed;
+            isSprinting = true;
+        }
+    }
+
+    private void NotSprinting(InputAction.CallbackContext context){
+        playerMoveSpeed = playerWalkSpeed;
+        isSprinting = false;
+    }
 }
