@@ -3617,7 +3617,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345494628}
-  m_LocalRotation: {x: 0.10802142, y: 0.000000011314359, z: -0.0000000012293868, w: 0.9941486}
+  m_LocalRotation: {x: 0.10802142, y: -0.000000011314356, z: 0.0000000012293865, w: 0.9941486}
   m_LocalPosition: {x: 941.43, y: 18.122002, z: 672.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19101,7 +19101,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079321384}
-  m_LocalRotation: {x: 0.108021416, y: 0.000000008552852, z: -9.293291e-10, w: 0.9941486}
+  m_LocalRotation: {x: 0.108021416, y: -0.000000008552848, z: 9.293287e-10, w: 0.9941486}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20122,21 +20122,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028987454}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: cinemachineFL
+      value: 
+      objectReference: {fileID: 431682306}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: _combatDisplay
       value: 
       objectReference: {fileID: 549551542}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
-      propertyPath: playerWalkSpeed
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: playerHurtObject
       value: 
       objectReference: {fileID: 15959766}
-    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
-      propertyPath: playerSprintSpeed
-      value: 1.9
-      objectReference: {fileID: 0}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: _telekinesisDisplay
       value: 
@@ -20481,6 +20477,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1851066469}
+    - target: {fileID: 3220053844356027367, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220053844356027367, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220053844356027367, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 84.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220053844356027367, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -146.08307
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754027953362632, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028531470098, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028531470098, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028531470098, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 209.30855
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028531470098, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -137.24573
+      objectReference: {fileID: 0}
     - target: {fileID: 3402754029032045186, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_text
       value: 'Push Spell: Q
@@ -20490,7 +20522,25 @@ PrefabInstance:
         Levitate Spell: F
 
         Craft
-        & Use Health Potion: X'
+        & Use Health Potion: X
+
+        Interact: R'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029483145548, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029483145548, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029483145548, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 209.30855
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029483145548, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -101.66301
       objectReference: {fileID: 0}
     - target: {fileID: 3402754029934131268, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_text
@@ -20504,6 +20554,22 @@ PrefabInstance:
         Sphere: F
 
         Melee: Left Click'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029966780052, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029966780052, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029966780052, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 209.30855
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029966780052, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 3453800352122775229, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -20649,6 +20715,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1851066469}
+    - target: {fileID: 7967727541827574885, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967727541827574885, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967727541827574885, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 84.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967727541827574885, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -67.28102
+      objectReference: {fileID: 0}
     - target: {fileID: 8476409867590213148, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

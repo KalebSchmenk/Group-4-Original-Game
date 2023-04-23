@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
     bool isJumping = false;
     
     public Animator _anim;
+    public CinemachineFreeLook cinemachineFL;
+    private float normalFOV;
+    [SerializeField] float sprintFOV;
 
     private List<MonoBehaviour> _listOfCombatSpells = new List<MonoBehaviour>();
     private ManipulatableObjectController _telekensisSpellContainer;
@@ -117,6 +121,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.SetCursor(_cursorTexture, Vector2.zero, _cursorMode);
+        normalFOV = cinemachineFL.m_Lens.FieldOfView;
     }
 
 
@@ -277,6 +282,17 @@ public class PlayerController : MonoBehaviour
             //walkingSoundObject.Stop();
         }
 
+        if(isSprinting == true){
+            if(cinemachineFL.m_Lens.FieldOfView <= sprintFOV){
+                cinemachineFL.m_Lens.FieldOfView += 10 * Time.deltaTime;
+            }
+        }
+        else{
+            if(cinemachineFL.m_Lens.FieldOfView >= normalFOV){
+                cinemachineFL.m_Lens.FieldOfView -= 20 * Time.deltaTime;;
+            }
+        }
+
     }
 
 
@@ -434,6 +450,7 @@ public class PlayerController : MonoBehaviour
     private void Sprinting(InputAction.CallbackContext context){
         if(onGround){
             playerMoveSpeed = playerSprintSpeed;
+            
             isSprinting = true;
         }
     }
@@ -441,5 +458,16 @@ public class PlayerController : MonoBehaviour
     private void NotSprinting(InputAction.CallbackContext context){
         playerMoveSpeed = playerWalkSpeed;
         isSprinting = false;
+        
     }
+
+    /*private void SprintingFOVChange(string sprint){
+        if(sprint == "sprinting"){
+            cinemachineFL.m_Lens.FieldOfView = sprintFOV;
+        }
+
+        if(sprint == "not sprinting"){
+            cinemachineFL.m_Lens.FieldOfView = normalFOV;
+        }
+    }*/
 }

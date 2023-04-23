@@ -891,13 +891,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0, z: 0}
   _anim: {fileID: 1034254200735887648}
+  cinemachineFL: {fileID: 0}
+  sprintFOV: 70
   _isHubLevel: 0
   _isCombatLevel: 0
   invincibilityFramesDuration: 0.1
   maxHealth: 100
   jumpForce: 3
-  playerSprintSpeed: 4.4
-  playerWalkSpeed: 2.2
+  playerSprintSpeed: 1.9
+  playerWalkSpeed: 1.2
   _onPlatform: 0
   slopeRayDistance: 0.5
   _isMoving: 0

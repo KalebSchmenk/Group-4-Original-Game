@@ -6788,7 +6788,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370108974}
-  m_LocalRotation: {x: 0.108021244, y: 0.000000037525474, z: -0.0000000040774073, w: 0.9941486}
+  m_LocalRotation: {x: 0.108021244, y: -0.00000003752547, z: 0.000000004077407, w: 0.9941486}
   m_LocalPosition: {x: 2250.14, y: 47.51, z: 750.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9430,7 +9430,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536469177}
-  m_LocalRotation: {x: 0.10802124, y: 0.000000017632154, z: -0.000000001915858, w: 0.9941486}
+  m_LocalRotation: {x: 0.10802124, y: -0.000000017632148, z: 0.0000000019158573, w: 0.9941486}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10189,6 +10189,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1270187147}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
+      propertyPath: cinemachineFL
+      value: 
+      objectReference: {fileID: 50720828}
+    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: _combatDisplay
       value: 
       objectReference: {fileID: 1587094970}
@@ -10197,10 +10201,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1227865021}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
-      propertyPath: playerWalkSpeed
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: playerHurtObject
       value: 
       objectReference: {fileID: 1150967888}
@@ -10208,10 +10208,6 @@ PrefabInstance:
       propertyPath: walkingSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 585ab05938ae6864a8efd73210994fc0, type: 3}
-    - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
-      propertyPath: playerSprintSpeed
-      value: 1.9
-      objectReference: {fileID: 0}
     - target: {fileID: 131004758813475160, guid: 0a2e720408b104e4f8306ea74c10f1ec, type: 3}
       propertyPath: sprintingSoundClip
       value: 
@@ -11505,8 +11501,83 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -146.08307
       objectReference: {fileID: 0}
+    - target: {fileID: 3402754027904301430, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_text
+      value: 'Push Spell: RB
+
+        Pull Spell: LB
+
+        Levitate Spell: "Y"
+        Button
+
+        Craft & Use Health Potion: D-Pad Right
+
+        Interact:
+        "B" Button'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754027904301430, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754027904301430, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754027904301431, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79
+      objectReference: {fileID: 0}
     - target: {fileID: 3402754027953362632, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028008713785, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_text
+      value: 'Move: Joysticks
+
+        Jump: "A" Button
+
+        Sprint: Press Left
+        Stick'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028008713785, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028008713785, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028049514916, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028049514916, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028049514916, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028049514916, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028507018859, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028507018859, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028507018859, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028507018859, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402754028531470098, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
@@ -11525,6 +11596,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -137.24573
       objectReference: {fileID: 0}
+    - target: {fileID: 3402754028672974782, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028717643493, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028729307642, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028729307642, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028729307642, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754028729307642, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3402754029032045186, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_text
       value: 'Push Spell: Q
@@ -11534,7 +11629,17 @@ PrefabInstance:
         Levitate Spell: F
 
         Craft
-        & Use Health Potion: X'
+        & Use Health Potion: X
+
+        Interact: R'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029032045186, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029032045186, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3402754029483145548, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11551,6 +11656,22 @@ PrefabInstance:
     - target: {fileID: 3402754029483145548, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -101.66301
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029567823808, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_text
+      value: 'Move: WASD
+
+        Jump: Space
+
+        Sprint: Left Shift'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029567823808, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402754029567823808, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3402754029934131268, guid: fe10e72ae683b814180c5bdb6b4f129d, type: 3}
       propertyPath: m_text
