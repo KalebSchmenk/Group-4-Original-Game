@@ -57,7 +57,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     [SerializeField] private GameObject _attackSphere;
     [SerializeField] private Transform _attackSphereLocation;
 
-    [SerializeField] protected int _health = 5;
+    [SerializeField] public int _health = 5;
     [SerializeField] private float _dazedFor = 2.5f;
     public int health { get { return _health; } set { _health = value; } }
 
@@ -68,12 +68,22 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     [SerializeField] Animator _anim;
 
-    [SerializeField] bool _isFinalBoss = false;
+    [SerializeField] public bool _isFinalBoss = false;
+    public int _bossHealth = 15;
+
+    [SerializeField] AudioSource bossSoundsObject;
+    [SerializeField] AudioClip bossSoundsClip;
+    [SerializeField] GameObject droppedHammer;
+    public bool _bossDead;
+    bool spawnedHammer = false;
    
 
     void Start()
     {
-        if (_isFinalBoss) _health = 15;
+        if (_isFinalBoss){
+            _health = 15;
+            _bossHealth = 15;
+        } 
 
         _AIState = AIState.Roam;
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -179,7 +189,16 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             // Kill enemy
             if (_isFinalBoss)
             {
-                SceneManager.LoadScene("EndCutscene");
+                if(spawnedHammer == false){
+
+                    Vector3 bossPosition = transform.position;
+                    bossPosition.y = bossPosition.y - 0.75f;
+                    Instantiate(droppedHammer, bossPosition, Quaternion.identity);
+                    spawnedHammer = true;
+                }
+                _bossDead = true;
+                Destroy(this.gameObject, 0.2f);
+
             }
             else
             {
@@ -358,9 +377,11 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     private IEnumerator AttackCooldown()
     {
+        bossSoundsObject.PlayOneShot(bossSoundsClip);
         yield return new WaitForSeconds(_attackCooldown);
 
         _inAttackCooldown = false;
+        
     }
 
     private IEnumerator DazedTimer()
