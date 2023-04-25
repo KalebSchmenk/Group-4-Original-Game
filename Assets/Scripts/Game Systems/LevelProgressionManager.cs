@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelProgressionManager : MonoBehaviour
 {
+    [SerializeField] private Image _blackImg;
+    [SerializeField] private Animator _anim;
+
     private enum CurrentLevel
     {
         CombatLevel,
@@ -28,7 +32,9 @@ public class LevelProgressionManager : MonoBehaviour
 
                         GameManager._completedCombatLevel = true;
 
-                        SceneManager.LoadScene("HUBLevel");
+                        StartCoroutine(Fading());
+
+                        //SceneManager.LoadScene("HUBLevel");
 
                         break;
 
@@ -36,7 +42,9 @@ public class LevelProgressionManager : MonoBehaviour
 
                         GameManager._completedPuzzleLevel = true;
 
-                        SceneManager.LoadScene("HUBLevel");
+                        StartCoroutine(Fading());
+
+                        //SceneManager.LoadScene("HUBLevel");
 
                         break;
 
@@ -44,7 +52,9 @@ public class LevelProgressionManager : MonoBehaviour
 
                         GameManager._completedFinalLevel = true;
 
-                        SceneManager.LoadScene("HUBLevel");
+                        StartCoroutine(Fading());
+
+                        //SceneManager.LoadScene("HUBLevel");
 
                         break;
 
@@ -56,5 +66,12 @@ public class LevelProgressionManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator Fading()
+    {
+        _anim.SetBool("Fade", true);
+        yield return new WaitUntil(()=>_blackImg.color.a == 1);
+        SceneManager.LoadScene("HubLevel");
     }
 }
