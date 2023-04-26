@@ -7,7 +7,10 @@ public class PopupController : MonoBehaviour
     [Header("Plane Reference")]
     [SerializeField] private GameObject _planeRef;
 
-    private GameObject _player;
+    [Header("Particle Reference")]
+    [SerializeField] private GameObject _part;
+
+    private Camera _mainCam;
 
     private bool _playerInSphere = false;
 
@@ -15,7 +18,9 @@ public class PopupController : MonoBehaviour
     {
         _planeRef.SetActive(false);
 
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _part.SetActive(false);
+
+        _mainCam = Camera.main;
     }
 
     void Update()
@@ -27,7 +32,7 @@ public class PopupController : MonoBehaviour
     }
     private void RotateToPlayer()
     {
-        var lookPos = _player.transform.position - _planeRef.transform.position;
+        var lookPos = _mainCam.transform.position - _planeRef.transform.position;
         lookPos.y = 0;
 
         var rotation = Quaternion.LookRotation(lookPos);
@@ -40,6 +45,7 @@ public class PopupController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _planeRef.SetActive(true);
+            _part.SetActive(true);
             _playerInSphere = true;
         }
     }
@@ -49,6 +55,7 @@ public class PopupController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _planeRef.SetActive(false);
+            _part.SetActive(false);
             _playerInSphere = false;
         }
     }
