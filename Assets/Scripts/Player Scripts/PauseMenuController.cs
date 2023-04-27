@@ -27,12 +27,13 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] GameObject playerObject;
     private PlayerController playerScript;
     private OptionsController optionsInfo;
-    bool _gameOver;
+    //bool _gameOver;
     bool _win;
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioClip menuMusicClip;
     [SerializeField] GameObject howToPlayMenu;
     [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject gameOverMenu;
     float sensChangeX;
     float sensChangeY;
     [SerializeField] GameObject quitConformObject;
@@ -67,15 +68,15 @@ public class PauseMenuController : MonoBehaviour
 
     public void Update() 
     {
-        _gameOver = playerScript._gameOver;
+        //_gameOver = playerScript._gameOver;
         _win = playerScript._win;
             if(pause.triggered)
             {
-                if (pauseMenu.activeSelf == false && _gameOver == false && _win == false && howToPlayMenu.activeSelf == false && optionsMenu.activeSelf == false && quitConformObject.activeSelf == false){
+                if (pauseMenu.activeSelf == false && gameOverMenu.activeSelf == false && _win == false && howToPlayMenu.activeSelf == false && optionsMenu.activeSelf == false && quitConformObject.activeSelf == false){
                 PauseGame();
             }
             else{
-                if(_gameOver == false && _win == false){
+                if(gameOverMenu.activeSelf == false && _win == false){
                     ResumeGame();
                     
                 }   
@@ -124,8 +125,10 @@ public class PauseMenuController : MonoBehaviour
         howToPlayMenu.SetActive(false);
         optionsMenu.SetActive(false);
         quitConformObject.SetActive(false);
+        gameOverMenu.SetActive(false);
         cinemachineFL.m_XAxis.m_MaxSpeed = sensChangeX;
         cinemachineFL.m_YAxis.m_MaxSpeed = sensChangeY;
+        //_gameOver = false;
     }
 
     public void QuitConfirm()
@@ -199,6 +202,11 @@ public class PauseMenuController : MonoBehaviour
         menuSoundsObject.Play();
         gamepadControlView.SetActive(true);
         kbmControlView.SetActive(false);
+    }
+
+    public void ButtonPressSound(){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
     }
 
 

@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
     private float impactTimer;
     private float jumpSpeed;
-    private float currentHealth;
+    [SerializeField] float currentHealth;
     float normSize;
     bool isInvincible;
     bool isJumping = false;
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public CinemachineFreeLook cinemachineFL;
     private float normalFOV;
     [SerializeField] float sprintFOV;
+    
 
     private List<MonoBehaviour> _listOfCombatSpells = new List<MonoBehaviour>();
     private ManipulatableObjectController _telekensisSpellContainer;
@@ -91,11 +92,20 @@ public class PlayerController : MonoBehaviour
     [Header("Spell Type Displays")]
     [SerializeField] GameObject _combatDisplay;
     [SerializeField] GameObject _telekinesisDisplay;
+    bool respawn;
+    private GameOverController goController;
+    private PauseMenuController pauseController;
+    bool _goTrigger = true;
+    float goDelay = 5.0f;
+
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         controller = gameObject.GetComponent<CharacterController>();
+        goController = this.gameObject.GetComponent<GameOverController>();
+        pauseController = this.gameObject.GetComponent<PauseMenuController>();
         cameraMainTransform = Camera.main.transform;
         currentHealth = maxHealth;
         normSize = healthMask.rectTransform.rect.width;
@@ -127,6 +137,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log(currentHealth);
         sprint.started += Sprinting;
         sprint.canceled += NotSprinting;
         // Switches spell from combat to telekenesis and back again
@@ -231,7 +243,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        
+        if(goDelay > 0){
+            goDelay -= Time.deltaTime;
+        }
  
 
         //What actually moves the player
@@ -251,9 +265,12 @@ public class PlayerController : MonoBehaviour
         HealthVisual(currentHealth/maxHealth);
 
         if(currentHealth <= 0){
-            //_gameOver = true;
-            transform.position = CheckpointManager._currentCheckpoint.position;
-            currentHealth = maxHealth;
+            if(_goTrigger == true && goDelay <= 0){
+                goController.GameOver();
+                _goTrigger = false;
+                //currentHealth = maxHealth;
+            }
+
         }
 
         
@@ -291,6 +308,12 @@ public class PlayerController : MonoBehaviour
             if(cinemachineFL.m_Lens.FieldOfView >= normalFOV){
                 cinemachineFL.m_Lens.FieldOfView -= 20 * Time.deltaTime;;
             }
+        }
+
+        if(respawn){
+            transform.position = CheckpointManager._currentCheckpoint.position;
+            currentHealth = maxHealth;
+            respawn = false;
         }
 
     }
@@ -393,7 +416,9 @@ public class PlayerController : MonoBehaviour
         }
         //REMOVE
         if(other.gameObject.CompareTag("InstaKill")){
-            currentHealth = 0;
+             if(_goTrigger == true && goDelay <= 0){
+                currentHealth = 0;
+             }
         }
 
         if(other.gameObject.CompareTag("Win")){
@@ -482,4 +507,15 @@ public class PlayerController : MonoBehaviour
             cinemachineFL.m_Lens.FieldOfView = normalFOV;
         }
     }*/
+
+
+    public void Restart(){
+        pauseController.ButtonPressSound();
+        currentHealth = maxHealth;
+        respawn = true;
+        _goTrigger = true;  
+        goDelay = 5f;
+    }
+
+    
 }

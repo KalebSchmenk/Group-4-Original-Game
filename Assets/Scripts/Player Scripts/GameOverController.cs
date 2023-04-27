@@ -16,6 +16,7 @@ public class GameOverController : MonoBehaviour
     [SerializeField] Button restartGameButton;
     [SerializeField] Button quitGameButton;
     
+    
 
     private float storedCinemachineXSpeed;
     private float storedCinemachineYSpeed;
@@ -28,10 +29,12 @@ public class GameOverController : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject winMenu;
+    [SerializeField] GameObject quitConfirm;
     bool gameOverTriggered;
 
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioClip menuMusicClip;
+    private PauseMenuController pauseController;
     
     // Start is called before the first frame update
 
@@ -61,11 +64,15 @@ public class GameOverController : MonoBehaviour
         StartCoroutine(SoundBeforeSceneChange("MainMenu"));
     }
     public void RestartGame(){
-        StartCoroutine(SoundBeforeSceneChange("Restart"));
+        //StartCoroutine(SoundBeforeSceneChange("Restart"));
+
+        playerScript.Restart();
+        //_gameOver = false;
+
 
     }
 
-    void GameOver(){
+    public void GameOver(){
             gameOverMenu.SetActive(true);
             AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
             foreach (AudioSource a in audioSources){
@@ -78,6 +85,7 @@ public class GameOverController : MonoBehaviour
             Time.timeScale = 0;
             cinemachineFL.m_XAxis.m_MaxSpeed = 0.0f;
             cinemachineFL.m_YAxis.m_MaxSpeed = 0.0f;
+
     }
 
     void Win(){
@@ -122,5 +130,21 @@ public class GameOverController : MonoBehaviour
         cinemachineFL.m_XAxis.m_MaxSpeed = storedCinemachineXSpeed;
         cinemachineFL.m_YAxis.m_MaxSpeed = storedCinemachineYSpeed;  
     }
-}
+
+    
+    }
+
+    public void Quit(){
+        pauseController = this.gameObject.GetComponent<PauseMenuController>();
+        pauseController.ButtonPressSound();
+        gameOverMenu.SetActive(false);
+        quitConfirm.SetActive(true);
+    }
+
+    public void Back(){
+        pauseController = this.gameObject.GetComponent<PauseMenuController>();
+        pauseController.ButtonPressSound();
+        gameOverMenu.SetActive(true);
+        quitConfirm.SetActive(false);
+    }
 }
