@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
     {
         // Implement different damage values for each type of incoming damage. Damage collider is melee damage and should do least damage,
         // fireball damage is from a fireball and should do midrange damage, and lightning strike damage is from a lightning strike and should do a decent amount of damage
-        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("LightningStrike") || other.gameObject.CompareTag("Fireball"))
+        if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("LightningStrike") || other.gameObject.CompareTag("Fireball") || other.gameObject.CompareTag("BossDamageCollider"))
         {
             //Debug.Log("Took damage!");
             if(other.gameObject.CompareTag("DamageCollider"))
@@ -357,7 +357,19 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-            if(other.gameObject.CompareTag("LightningStrike"))
+            if (other.gameObject.CompareTag("BossDamageCollider"))
+            {
+                if (isInvincible == false)
+                {
+                    currentHealth -= 25;
+                    //playerHurtObject.PlayOneShot(playerHurtClip, 1f);
+                    playerHurtObject.clip = playerHurtClip;
+                    playerHurtObject.Play();
+                    StartCoroutine(InvincibilityFrames());
+
+                }
+            }
+            if (other.gameObject.CompareTag("LightningStrike"))
             {
                 if(isInvincible == false){
                     currentHealth -= 30;

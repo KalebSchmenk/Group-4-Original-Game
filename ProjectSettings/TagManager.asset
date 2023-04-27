@@ -21,6 +21,7 @@ TagManager:
   - John Smith
   - Dumont
   - Hammer
+  - BossDamageCollider
   layers:
   - Default
   - TransparentFX
