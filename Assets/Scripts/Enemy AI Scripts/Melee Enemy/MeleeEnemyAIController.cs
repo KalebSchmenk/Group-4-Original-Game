@@ -423,6 +423,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         _health -= damage;
         CheckHealth();
         // Play damage sound and any anim
+
+        _AIState = AIState.Chase;
     }
 
 }
