@@ -35,24 +35,41 @@ public class GameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").transform.position = _positionOfNewSpawn.position;
         }
 
-        /*if (_completedCombatLevel == false)
-        {
-            Material mat = _gateToPuzzle.GetComponent<Renderer>().material;
-
-            mat.DisableKeyword("_EMISSION");
-
-            Debug.Log("Should be called");
-        }*/
-
+        GateEmissions();
 
         if (_puzzleDoorLeft != null && _completedCombatLevel == true)
         {
-            //rotate doors
+            _puzzleDoorRight.transform.Rotate(_puzzleDoorRight.transform.rotation.x, _puzzleDoorRight.transform.rotation.y + 90, _puzzleDoorRight.transform.rotation.z);
+            _puzzleDoorLeft.transform.Rotate(_puzzleDoorLeft.transform.rotation.x, _puzzleDoorLeft.transform.rotation.y - 90, _puzzleDoorLeft.transform.rotation.z);
         }
 
         if (_finalDoorLeft != null && _completedPuzzleLevel == true)
         {
-            //rotate doors
+            _finalDoorRight.transform.Rotate(_finalDoorRight.transform.rotation.x, _finalDoorRight.transform.rotation.y + 90, _finalDoorRight.transform.rotation.z);
+            _finalDoorLeft.transform.Rotate(_finalDoorLeft.transform.rotation.x, _finalDoorLeft.transform.rotation.y - 90, _finalDoorLeft.transform.rotation.z);
+        }
+    }
+
+    private void GateEmissions()
+    {
+        if (_gateToPuzzle == null || _gateToFinal == null) return;
+
+        if (!_completedCombatLevel)
+        {
+            _gateToPuzzle.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+        }
+        else
+        {
+            _gateToPuzzle.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+        }
+
+        if (!_completedPuzzleLevel)
+        {
+            _gateToFinal.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+        }
+        else
+        {
+            _gateToFinal.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
         }
     }
 }

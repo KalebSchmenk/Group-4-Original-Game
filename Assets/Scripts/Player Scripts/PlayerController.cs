@@ -368,7 +368,8 @@ public class PlayerController : MonoBehaviour
         // fireball damage is from a fireball and should do midrange damage, and lightning strike damage is from a lightning strike and should do a decent amount of damage
         if (other.gameObject.CompareTag("DamageCollider") || other.gameObject.CompareTag("LightningStrike") || other.gameObject.CompareTag("Fireball") || other.gameObject.CompareTag("BossDamageCollider"))
         {
-            //Debug.Log("Took damage!");
+            // RIGHT HERE!!!
+
             if(other.gameObject.CompareTag("DamageCollider"))
             {
                 if(isInvincible == false){

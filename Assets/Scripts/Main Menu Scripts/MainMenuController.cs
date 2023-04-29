@@ -94,6 +94,7 @@ public class MainMenuController : MonoBehaviour
 
     public void Credits()
     {
+        menuSounds.Play();
         creditsObject.SetActive(true);
         mainMenuObject.SetActive(false);
     }
