@@ -12,8 +12,14 @@ public class GameManager : MonoBehaviour
     public static bool _hasCompletedTutorial = false;
 
     [Header("Level Access Blockers")]
-    [SerializeField] private GameObject _blockerToPuzzle;
-    [SerializeField] private GameObject _blockerToFinal;
+    [SerializeField] private GameObject _gateToPuzzle;
+    [SerializeField] private GameObject _gateToFinal;
+
+    [SerializeField] private GameObject _puzzleDoorLeft;
+    [SerializeField] private GameObject _puzzleDoorRight;
+
+    [SerializeField] private GameObject _finalDoorLeft;
+    [SerializeField] private GameObject _finalDoorRight;
 
     [Header("Spawn After Tutorial Completion")]
     [SerializeField] Transform _positionOfNewSpawn;
@@ -29,15 +35,24 @@ public class GameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").transform.position = _positionOfNewSpawn.position;
         }
 
-
-        if (_blockerToPuzzle != null && _completedCombatLevel == true)
+        /*if (_completedCombatLevel == false)
         {
-            Destroy(_blockerToPuzzle);
+            Material mat = _gateToPuzzle.GetComponent<Renderer>().material;
+
+            mat.DisableKeyword("_EMISSION");
+
+            Debug.Log("Should be called");
+        }*/
+
+
+        if (_puzzleDoorLeft != null && _completedCombatLevel == true)
+        {
+            //rotate doors
         }
 
-        if (_blockerToFinal != null && _completedPuzzleLevel == true)
+        if (_finalDoorLeft != null && _completedPuzzleLevel == true)
         {
-            Destroy(_blockerToFinal);
+            //rotate doors
         }
     }
 }

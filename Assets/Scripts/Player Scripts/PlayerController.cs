@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
         sprint.started += Sprinting;
         sprint.canceled += NotSprinting;
         // Switches spell from combat to telekenesis and back again
