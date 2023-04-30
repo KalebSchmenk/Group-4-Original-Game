@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 {
-    private enum AIState
+    public enum AIState
     {
         Roam,
         Search,
@@ -25,7 +25,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     
     
-    private AIState _AIState;
+    public AIState _AIState;
     private NavMeshAgent _navMeshAgent;
     private Rigidbody _rb;
 
@@ -292,6 +292,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
     // Guard Chases Player
     private void Chase()
     {
+        _navMeshAgent.enabled = true;
+
         RotateToPlayer();
 
         if (playSpottedSound == true){
