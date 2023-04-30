@@ -420,6 +420,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     public void TakeDamage(int damage)
     {
+        _anim.SetTrigger("Hit");
         _health -= damage;
         CheckHealth();
         // Play damage sound and any anim

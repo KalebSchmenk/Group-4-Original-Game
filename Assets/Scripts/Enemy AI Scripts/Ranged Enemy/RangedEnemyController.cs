@@ -65,6 +65,7 @@ public class RangedEnemyController : MonoBehaviour, EnemyHealthInterface
     // Take damage interface implementation
     public void TakeDamage(int damage)
     {
+        _anim.SetTrigger("Hit");
         _health -= damage;
         CheckHealth();
     }
