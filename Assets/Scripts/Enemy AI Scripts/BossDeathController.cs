@@ -7,7 +7,7 @@ public class BossDeathController : MonoBehaviour
     private MeleeEnemyAIController meleeEnemyAIController;
     [SerializeField] GameObject enemyObject;
     private bool isBoss;
-    private bool bossDead;
+    [SerializeField] private bool bossDead;
 
      public bool _bossBattle;
     [SerializeField] AudioSource gameMusic;
