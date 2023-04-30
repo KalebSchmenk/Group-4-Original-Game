@@ -15,9 +15,7 @@ public class PauseMenuController : MonoBehaviour
 
     [SerializeField] AudioSource menuSoundsObject;
     [SerializeField] AudioClip buttonPressClip;
-   
-    [SerializeField] Button resumeGameButton;
-    [SerializeField] Button quitGameButton;
+
 
     [SerializeField] GameObject pauseMenu;
 
@@ -42,6 +40,23 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] GameObject kbmControlView;
     [SerializeField] GameObject gamepadControlView;
 
+ 
+    bool triggerOnce = true;
+
+    
+
+    [Header("Buttons")]
+    [SerializeField] GameObject resumeButton;
+    [SerializeField] GameObject optionsButton;
+    [SerializeField] GameObject htpButton;
+    [SerializeField] GameObject quitButton;
+    [SerializeField] GameObject respawnButton;
+
+    [Header("First Selected Buttons")]
+    [SerializeField] GameObject optionsFirstButton;
+    [SerializeField] GameObject htpFirstButton;
+    [SerializeField] GameObject quitFirstButton;
+
     private void Awake() 
     {
         playerControls = new PlayerInputActions();
@@ -50,6 +65,7 @@ public class PauseMenuController : MonoBehaviour
         playerScript = playerObject.GetComponent<PlayerController>();
         menuSoundsObject.clip = buttonPressClip;
         menuMusic.clip = menuMusicClip;
+        
     }
 
 
@@ -84,6 +100,14 @@ public class PauseMenuController : MonoBehaviour
         }
         sensChangeX = OptionsController._xSensitivityValue;
         sensChangeY = OptionsController._ySensitivityValue;
+
+        if(gameOverMenu.activeSelf == true){
+            if(triggerOnce == true){
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(respawnButton);
+                triggerOnce = false;
+            }
+        }
     }
 
     public void PauseGame()
@@ -105,6 +129,9 @@ public class PauseMenuController : MonoBehaviour
             Time.timeScale = 0;
             cinemachineFL.m_XAxis.m_MaxSpeed = 0.0f;
             cinemachineFL.m_YAxis.m_MaxSpeed = 0.0f;
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(resumeButton);
+
         
     }
 
@@ -128,6 +155,8 @@ public class PauseMenuController : MonoBehaviour
         gameOverMenu.SetActive(false);
         cinemachineFL.m_XAxis.m_MaxSpeed = sensChangeX;
         cinemachineFL.m_YAxis.m_MaxSpeed = sensChangeY;
+        EventSystem.current.SetSelectedGameObject(null);
+        triggerOnce = true;
         //_gameOver = false;
     }
 
@@ -155,6 +184,8 @@ public class PauseMenuController : MonoBehaviour
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
         quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(htpFirstButton);
     }
 
     public void BackButton(){
@@ -164,8 +195,39 @@ public class PauseMenuController : MonoBehaviour
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(true);
         quitConformObject.SetActive(false);
-        
+    }
 
+    public void OptionsBackButton(){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        howToPlayMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionsButton);
+    }
+
+    public void HTPBackButton(){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        howToPlayMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(htpButton);
+    }
+
+    public void QuitBackButton(){
+        menuSoundsObject.mute = false;
+        menuSoundsObject.Play();
+        howToPlayMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitButton);
     }
 
     public void OptionsMenu(){
@@ -175,6 +237,8 @@ public class PauseMenuController : MonoBehaviour
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(true);
         quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionsFirstButton);
         
         
     }
@@ -186,6 +250,8 @@ public class PauseMenuController : MonoBehaviour
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(false);
         quitConformObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitFirstButton);
     }
 
     public void KBMControlSwitch()

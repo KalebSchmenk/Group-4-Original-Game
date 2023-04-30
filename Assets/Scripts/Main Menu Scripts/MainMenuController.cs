@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -14,8 +15,20 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject kbmControlView;
     [SerializeField] GameObject gamepadControlView;
     [SerializeField] GameObject quitConformObject;
-
     [SerializeField] GameObject creditsObject;
+
+    [Header("First Selected Buttons")]
+    [SerializeField] GameObject menuFirstButton;
+    [SerializeField] GameObject optionFirstButton;
+    [SerializeField] GameObject htpFirstButton;
+    [SerializeField] GameObject creditsFirstButton;
+    [SerializeField] GameObject quitFirstSelected;
+
+    [Header("Main Menu Buttons")]
+    [SerializeField] GameObject optionsButton;
+    [SerializeField] GameObject htpButton;
+    [SerializeField] GameObject creditsButton;
+    [SerializeField] GameObject quitButton;
     // Start is called before the first frame update
 
     private void Start() {
@@ -23,6 +36,10 @@ public class MainMenuController : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(menuFirstButton);
+
     }
     public void StartGame()
     {
@@ -39,6 +56,8 @@ public class MainMenuController : MonoBehaviour
         quitConformObject.SetActive(true);
         mainMenuObject.SetActive(false);
         howtoplayObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitFirstSelected);
     }
 
 
@@ -47,6 +66,8 @@ public class MainMenuController : MonoBehaviour
         mainMenuObject.SetActive(false);
         howtoplayObject.SetActive(true);
         quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(htpFirstButton);
     }
 
     public void BackButton(){
@@ -56,6 +77,50 @@ public class MainMenuController : MonoBehaviour
         mainMenuObject.SetActive(true);
         creditsObject.SetActive(false);
         quitConformObject.SetActive(false);
+    }
+
+
+    public void OptionsBackButton(){
+        menuSounds.Play();
+        howtoplayObject.SetActive(false);
+        optionsObject.SetActive(false);
+        mainMenuObject.SetActive(true);
+        creditsObject.SetActive(false);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionsButton);
+    }
+
+    public void HTPBackButton(){
+        menuSounds.Play();
+        howtoplayObject.SetActive(false);
+        optionsObject.SetActive(false);
+        mainMenuObject.SetActive(true);
+        creditsObject.SetActive(false);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(htpButton);
+    }
+    public void CreditsBackButton(){
+        menuSounds.Play();
+        howtoplayObject.SetActive(false);
+        optionsObject.SetActive(false);
+        mainMenuObject.SetActive(true);
+        creditsObject.SetActive(false);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(creditsButton);
+    }
+
+    public void QuitBackButton(){
+        menuSounds.Play();
+        howtoplayObject.SetActive(false);
+        optionsObject.SetActive(false);
+        mainMenuObject.SetActive(true);
+        creditsObject.SetActive(false);
+        quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitButton);
     }
 
     private IEnumerator SoundBeforeSceneChange(string scene){
@@ -74,6 +139,8 @@ public class MainMenuController : MonoBehaviour
         mainMenuObject.SetActive(false);
         optionsObject.SetActive(true);
         quitConformObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionFirstButton);
     }
 
      public void KBMControlSwitch() {
@@ -97,6 +164,8 @@ public class MainMenuController : MonoBehaviour
         menuSounds.Play();
         creditsObject.SetActive(true);
         mainMenuObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(creditsFirstButton);
     }
 
 }

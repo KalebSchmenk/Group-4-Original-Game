@@ -35,6 +35,9 @@ public class GameOverController : MonoBehaviour
     [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioClip menuMusicClip;
     private PauseMenuController pauseController;
+
+    [SerializeField] GameObject quitFirstButton;
+    [SerializeField] GameObject quitBackSelected;
     
     // Start is called before the first frame update
 
@@ -139,6 +142,8 @@ public class GameOverController : MonoBehaviour
         pauseController.ButtonPressSound();
         gameOverMenu.SetActive(false);
         quitConfirm.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitFirstButton);
     }
 
     public void Back(){
@@ -146,5 +151,7 @@ public class GameOverController : MonoBehaviour
         pauseController.ButtonPressSound();
         gameOverMenu.SetActive(true);
         quitConfirm.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitBackSelected);
     }
 }

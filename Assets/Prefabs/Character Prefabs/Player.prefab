@@ -942,8 +942,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSoundsObject: {fileID: 0}
   buttonPressClip: {fileID: 8300000, guid: dfaad0b956a96134185f69545dc0901d, type: 3}
-  resumeGameButton: {fileID: 0}
-  quitGameButton: {fileID: 0}
   pauseMenu: {fileID: 0}
   cinemachineFL: {fileID: 0}
   playerObject: {fileID: 7545212929607063206}
@@ -955,6 +953,13 @@ MonoBehaviour:
   quitConformObject: {fileID: 0}
   kbmControlView: {fileID: 0}
   gamepadControlView: {fileID: 0}
+  resumeButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  htpButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  optionsFirstButton: {fileID: 0}
+  htpFirstButton: {fileID: 0}
+  quitFirstButton: {fileID: 0}
 --- !u!114 &131004758478996419
 MonoBehaviour:
   m_ObjectHideFlags: 0
