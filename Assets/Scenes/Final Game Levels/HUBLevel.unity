@@ -2880,7 +2880,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494531181}
-  m_LocalRotation: {x: 0.07903078, y: 0.06441774, z: -0.0051177233, w: 0.99477553}
+  m_LocalRotation: {x: 0.07903078, y: 0.06441771, z: -0.00511772, w: 0.99477553}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5417,14 +5417,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To Level 1
+  m_text: 'Level 1
 
 
 
 
 
 
-    Combat Level'
+    Duciel'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 981df642612800c44b04a63ff9d7dffe, type: 2}
   m_sharedMaterial: {fileID: -3353663886009307497, guid: 981df642612800c44b04a63ff9d7dffe, type: 2}
@@ -7436,14 +7436,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To Level 2
+  m_text: 'Level 2
 
 
 
 
 
 
-    Puzzle Level'
+    Forest'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 981df642612800c44b04a63ff9d7dffe, type: 2}
   m_sharedMaterial: {fileID: -3353663886009307497, guid: 981df642612800c44b04a63ff9d7dffe, type: 2}
@@ -13921,7 +13921,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960819356}
-  m_LocalRotation: {x: 0.13666351, y: 0.06401184, z: -0.0088497875, w: 0.9885076}
+  m_LocalRotation: {x: 0.13666351, y: 0.064011835, z: -0.008849786, w: 0.9885076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14453,14 +14453,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To Level 3
+  m_text: 'Level 3
 
 
 
 
 
 
-    Final Level'
+    Outpost'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 981df642612800c44b04a63ff9d7dffe, type: 2}
   m_sharedMaterial: {fileID: -3353663886009307497, guid: 981df642612800c44b04a63ff9d7dffe, type: 2}
