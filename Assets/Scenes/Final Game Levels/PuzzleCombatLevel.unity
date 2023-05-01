@@ -63561,6 +63561,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -414.6
       objectReference: {fileID: 0}
+    - target: {fileID: 2068762290317804369, guid: d89b31d9e2b233148ab6dae9e99f6d1a, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2068762291503252424, guid: d89b31d9e2b233148ab6dae9e99f6d1a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0

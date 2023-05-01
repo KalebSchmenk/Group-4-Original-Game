@@ -223,7 +223,15 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
         if (_inAttackCooldown) return;
 
-        // Do attack animation
+        Debug.Log("I am not in cooldown");
+
+        if (Vector3.Distance(transform.position, _player.transform.position) > 1.5f)
+        {
+            Debug.LogWarning("Player is too far away");
+            _navMeshAgent.enabled = true;
+            _AIState = AIState.Chase;
+            return;
+        }
 
         _anim.SetTrigger("Attack");
 
@@ -235,12 +243,6 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
         EnemyAttackObject.Play();
 
         StartCoroutine(AttackCooldown());
-
-        if (Vector3.Distance(transform.position, _player.transform.position) > 1.5f)
-        {
-            _navMeshAgent.enabled = true;
-            _AIState = AIState.Chase;
-        }
     }
     private void RotateToPlayer()
     {
