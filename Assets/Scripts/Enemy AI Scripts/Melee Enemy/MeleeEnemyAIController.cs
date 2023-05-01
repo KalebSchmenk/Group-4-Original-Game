@@ -94,7 +94,6 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
         _rb = GetComponent<Rigidbody>();
 
-        NavMesh.avoidancePredictionTime = 0.5f;
 
         StartCoroutine(ProximityCheck());
     }
@@ -223,8 +222,6 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
         if (_inAttackCooldown) return;
 
-        Debug.Log("I am not in cooldown");
-
         if (Vector3.Distance(transform.position, _player.transform.position) > 1.5f)
         {
             Debug.LogWarning("Player is too far away");
@@ -232,6 +229,8 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
             _AIState = AIState.Chase;
             return;
         }
+
+        Debug.Log("I am not in cooldown");
 
         _anim.SetTrigger("Attack");
 
@@ -381,7 +380,7 @@ public class MeleeEnemyAIController : MonoBehaviour, EnemyHealthInterface
 
     private IEnumerator AttackCooldown()
     {
-        bossSoundsObject.PlayOneShot(bossSoundsClip);
+        if (_isFinalBoss) bossSoundsObject.PlayOneShot(bossSoundsClip);
         yield return new WaitForSeconds(_attackCooldown);
 
         _inAttackCooldown = false;
